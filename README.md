@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Neta vnext frontend
 
 This project contains the code for the new version of Neta e-commerce.
@@ -85,6 +84,3 @@ You can create an optimized production build with:
 ```
 npm run build-prod
 ```
-=======
-# r2_front
->>>>>>> origin/main
