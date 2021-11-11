@@ -19,9 +19,11 @@ export const BasketButton = (): ReactElement => {
   const btnRef = React.useRef<HTMLButtonElement>(null);
 
   return (
-    <Btn ref={btnRef} onClick={onOpen} type="button" aria-label={BASKET_TITLE}>
-      <IconBasket />
-      <BasketQuantity>{totalQty}</BasketQuantity>
-    </Btn>
+    <>
+      <Btn ref={btnRef} onClick={onOpen} type="button" aria-label={BASKET_TITLE}>
+        <IconBasket />
+        <BasketQuantity>{totalQty}</BasketQuantity>
+      </Btn>
+    </>
   );
 };

@@ -9,7 +9,7 @@ const initialState: IBasketState = {
   basketItems: [],
 };
 
-export const basketSlice = createSlice({
+const basketSlice = createSlice({
   name: "basket",
   initialState,
   reducers: {
@@ -24,8 +24,11 @@ export const basketSlice = createSlice({
     },
     removeItem: (state, action: PayloadAction<IBasketItem>) => {
       const { id } = action.payload;
-      const existingItemIndex = state.basketItems.findIndex((item) => item.id === id);
-      if (existingItemIndex >= 0) {
+      const existingItem = state.basketItems.find((item) => item.id === id);
+      if (existingItem && existingItem.quantity > 1) {
+        existingItem.quantity--;
+      } else {
+        const existingItemIndex = state.basketItems.findIndex((item) => item.id === id);
         state.basketItems.splice(existingItemIndex, 1);
       }
     },
