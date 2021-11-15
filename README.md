@@ -2,7 +2,7 @@
 
 This project contains the code for the new version of Neta e-commerce.
 
-### Tools
+### Tools and technologies used
 
 - 🔥 [Next.js](https://nextjs.org) for SSR it improves loading speeds and SEO.
 - 🎨 Chakra UI [chakraui.com](https://chakra-ui.com/) (w/ JIT mode)
@@ -27,7 +27,7 @@ Built-in feature from Next.js:
 
 - Minimal code
 - SEO-friendly
-- Components / Containers / Core architecture see [link](https://betterprogramming.pub/how-you-should-structure-your-react-applications-e7dd32375a98)
+- Components / Containers / Core architecture - see [link](https://betterprogramming.pub/how-you-should-structure-your-react-applications-e7dd32375a98)
 
 ### Requirements
 
@@ -61,9 +61,10 @@ Open http://localhost:3000 with your favorite browser to see your project.
 │   ├── components           # Reusable components
 │   ├── constants            # Application constants
 │   ├── containers           # Pages containers
-│   ├── dataflows            # State / async calls / data management
+│   ├── dataflows            # Async calls / data management
 │   ├── layouts              # Atomic layout components
 │   ├── pages                # Next JS pages
+│   ├── state                # State management
 │   ├── styles               # Styled-component style folder 
 │   └── utils                # Utility folder
 └── tsconfig.json            # TypeScript configuration

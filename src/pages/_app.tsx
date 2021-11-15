@@ -4,8 +4,6 @@ import { AppProps } from "next/app";
 
 import { ChakraProvider } from "@chakra-ui/react";
 
-import "../styles/main.css";
-
 /**
  * Next.js App
  * @param {NextComponentType} Component The component to render

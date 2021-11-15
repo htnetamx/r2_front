@@ -1,6 +1,6 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { basketReducer } from "dataflows/Basket/BasketSlice";
 
-import { basketReducer } from "./Basket/BasketSlice";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 const rootReducer = combineReducers({
   basket: basketReducer,

@@ -1,5 +1,10 @@
 import React, { ReactElement } from "react";
 
+import { useSelector } from "react-redux";
+
+import { BASKET_EMPTY_TITLE, BASKET_TITLE, CHECKOUT_TITLE } from "constants/BasketConstants";
+import { selectBasketItems } from "dataflows/Basket/BasketSlice";
+
 import {
   Button,
   Drawer,
@@ -9,9 +14,9 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-  Input,
 } from "@chakra-ui/react";
 
+import { BasketItems } from "./BasketItems/BasketItems";
 import { IBasketContainerProps } from "./IBasketContainerProps";
 
 /**
@@ -22,22 +27,25 @@ import { IBasketContainerProps } from "./IBasketContainerProps";
 export const BasketContainer = (props: IBasketContainerProps): ReactElement => {
   const { isOpen, onClose, btnRef } = props;
 
+  const basketItems = useSelector(selectBasketItems);
+
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose} finalFocusRef={btnRef}>
       <DrawerOverlay />
       <DrawerContent>
         <DrawerCloseButton />
-        <DrawerHeader>Create your account</DrawerHeader>
+        <DrawerHeader>{BASKET_TITLE}</DrawerHeader>
 
         <DrawerBody>
-          <Input placeholder="Type here..." />
+          {basketItems.length > 0 ? (
+            <BasketItems basketItems={basketItems} />
+          ) : (
+            { BASKET_EMPTY_TITLE }
+          )}
         </DrawerBody>
 
         <DrawerFooter>
-          <Button variant="outline" mr={3} onClick={onClose}>
-            Cancel
-          </Button>
-          <Button colorScheme="blue">Save</Button>
+          <Button colorScheme="blue">{CHECKOUT_TITLE}</Button>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>

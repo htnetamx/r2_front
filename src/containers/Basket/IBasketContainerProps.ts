@@ -14,6 +14,7 @@ export interface IBasketContainerProps {
 
   /**
    * Ref to the basket button
+   * @type {React.RefObject<HTMLButtonElement>}
    */
   btnRef: React.RefObject<HTMLButtonElement>;
 }
