@@ -28,4 +28,34 @@ export interface IProduct {
    * @type {Date}
    */
   updatedOnUtc: Date;
+
+  /**
+   * Item image path.
+   * @type {string}
+   */
+  seoFilename: string;
+
+  /**
+   * Item price.
+   * @type {number}
+   */
+  price: number;
+
+  /**
+   * Item old price.
+   * @type {number}
+   */
+  oldPrice: number;
+
+  /**
+   * Item order minimum quantity.
+   * @type {number}
+   */
+  orderMinimumQuantity: number;
+
+  /**
+   * Item order maximum quantity.
+   * @type {number}
+   */
+  orderMaximumQuantity: number;
 }
