@@ -15,7 +15,7 @@ export interface ICategory {
    * Item image identifier.
    * @type {string}
    */
-  pictureId: string;
+  seoFilename: string;
 
   /**
    * Item creation date in UTC format.
