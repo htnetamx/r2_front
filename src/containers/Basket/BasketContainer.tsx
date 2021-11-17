@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 
 import { useSelector } from "react-redux";
 
-import { BASKET_EMPTY_TITLE, BASKET_TITLE, CHECKOUT_TITLE } from "constants/BasketConstants";
+import { BASKET_EMPTY_TITLE, BASKET_TITLE, CHECKOUT_TITLE } from "constants/basketConstants";
 import { selectBasketItems } from "dataflows/Basket/BasketSlice";
 
 import {
@@ -37,11 +37,7 @@ export const BasketContainer = (props: IBasketContainerProps): ReactElement => {
         <DrawerHeader>{BASKET_TITLE}</DrawerHeader>
 
         <DrawerBody>
-          {basketItems.length > 0 ? (
-            <BasketItems basketItems={basketItems} />
-          ) : (
-            { BASKET_EMPTY_TITLE }
-          )}
+          {basketItems.length > 0 ? <BasketItems basketItems={basketItems} /> : BASKET_EMPTY_TITLE}
         </DrawerBody>
 
         <DrawerFooter>

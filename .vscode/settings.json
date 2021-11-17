@@ -20,5 +20,5 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "cSpell.words": ["Chakra", "Neta", "reduxjs"]
+  "cSpell.words": ["Chakra", "Neta", "prefetch", "reduxjs", "Searchbar"]
 }

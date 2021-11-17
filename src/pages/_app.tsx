@@ -1,6 +1,10 @@
-import { ReactElement } from "react";
+import React, { ReactElement } from "react";
 
+import { Provider } from "react-redux";
+
+import { MainLayout } from "layouts/MainLayout/MainLayout";
 import { AppProps } from "next/app";
+import { store } from "state/store";
 
 import { ChakraProvider } from "@chakra-ui/react";
 
@@ -12,9 +16,13 @@ import { ChakraProvider } from "@chakra-ui/react";
  */
 const NetaApp = ({ Component, pageProps }: AppProps): ReactElement => {
   return (
-    <ChakraProvider>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <Provider store={store}>
+      <ChakraProvider>
+        <MainLayout>
+          <Component {...pageProps} />
+        </MainLayout>
+      </ChakraProvider>
+    </Provider>
   );
 };
 

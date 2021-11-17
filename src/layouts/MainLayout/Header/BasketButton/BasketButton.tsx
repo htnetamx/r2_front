@@ -1,6 +1,6 @@
 import React, { useState, ReactElement } from "react";
 
-import { BASKET_TITLE } from "constants/BasketConstants";
+import { BASKET_TITLE } from "constants/basketConstants";
 import { BasketContainer } from "containers/Basket/BasketContainer";
 import { IBasketContainerProps } from "containers/Basket/IBasketContainerProps";
 import IconBasket from "styled/icons/Basket";

@@ -27,7 +27,7 @@ Built-in feature from Next.js:
 
 - Minimal code
 - SEO-friendly
-- Components / Containers / Core architecture - see [link](https://betterprogramming.pub/how-you-should-structure-your-react-applications-e7dd32375a98)
+- Components / Containers / Dataflows architecture - see [link](https://betterprogramming.pub/how-you-should-structure-your-react-applications-e7dd32375a98)
 
 ### Requirements
 
