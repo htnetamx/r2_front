@@ -1,9 +1,11 @@
 import { basketReducer } from "dataflows/Basket/BasketSlice";
+import { categoryReducer } from "dataflows/Category/CategorySlice";
 
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 const rootReducer = combineReducers({
   basket: basketReducer,
+  category: categoryReducer,
 });
 
 export const store = configureStore({
