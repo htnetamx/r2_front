@@ -6,5 +6,16 @@ export interface ICategoryState {
    * @type {ICategory[]}
    */
   categoryItems: ICategory[];
+
+  /**
+   * Indicates if the categories are loading.
+   * @type {boolean}
+   */
   isLoading: boolean;
+
+  /**
+   * Category selected
+   * @type {ICategory}
+   **/
+  selectedCategory?: ICategory;
 }
