@@ -42,7 +42,7 @@ export const LayoutContainer: FC = ({ children }): ReactElement => {
       },
     },
     storeSelectorProps: {
-      storeSelectorOptions: [{ key: "tiendita", value: "Soda Fountain" }], //TODO: Retrive stores from backend and state,
+      storeSelectorOptions: [{ key: "tiendita", value: "Soda Fountain" }], //TODO: Retrieve stores from backend and state,
     },
   };
 
