@@ -1,12 +1,22 @@
-import React, { ReactElement } from "react";
+import React, { FC, ReactElement } from "react";
 
 import { Provider } from "react-redux";
 
-import { MainLayout } from "layouts/MainLayout/MainLayout";
+import { Head } from "components/common/Head";
 import { AppProps } from "next/app";
 import { store } from "state/store";
+import theme from "utils/theme";
 
 import { ChakraProvider } from "@chakra-ui/react";
+import "@fontsource/roboto/latin-400.css";
+import "@fontsource/roboto/latin-700.css";
+
+/**
+ *  No layout component
+ * @param {AppProps} props The props
+ * @returns {ReactElement} The no layout component
+ */
+const Noop: FC = ({ children }) => <>{children}</>;
 
 /**
  * Next.js App
@@ -15,14 +25,18 @@ import { ChakraProvider } from "@chakra-ui/react";
  * @returns {ReactElement} The rendered component
  */
 const NetaApp = ({ Component, pageProps }: AppProps): ReactElement => {
+  const Layout = (Component as any).Layout || Noop;
   return (
-    <Provider store={store}>
-      <ChakraProvider>
-        <MainLayout>
-          <Component {...pageProps} />
-        </MainLayout>
-      </ChakraProvider>
-    </Provider>
+    <>
+      <Head />
+      <Provider store={store}>
+        <ChakraProvider theme={theme}>
+          <Layout pageProps={pageProps}>
+            <Component {...pageProps} />
+          </Layout>
+        </ChakraProvider>
+      </Provider>
+    </>
   );
 };
 

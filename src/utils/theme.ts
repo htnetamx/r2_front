@@ -5,6 +5,13 @@ const config: ThemeConfig = {
   useSystemColorMode: false,
 };
 
-const theme = extendTheme({ config });
+const theme = extendTheme({
+  config,
+  fonts: {
+    heading: "Roboto",
+    body: "Roboto",
+    select: "Roboto",
+  },
+});
 
 export default theme;
