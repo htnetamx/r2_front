@@ -5,6 +5,6 @@ export interface IProductState {
    * The array of products.
    * @type {IProduct[]}
    */
-  categoryItems: IProduct[];
+  products: IProduct[];
   isLoading: boolean;
 }
