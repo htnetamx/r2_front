@@ -1,5 +1,3 @@
-
-
 import { GET_ALL_CATEGORIES_API_URL } from "constants/categoryConstants";
 import { RootState } from "state/store";
 import { get } from "utils/http";
