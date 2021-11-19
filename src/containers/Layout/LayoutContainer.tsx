@@ -1,4 +1,4 @@
-import { useRef, FC, ReactElement } from "react";
+import React, { useRef, FC, ReactElement } from "react";
 
 import { useSelector } from "react-redux";
 
@@ -8,7 +8,7 @@ import { BASKET_EMPTY_TITLE, BASKET_TITLE, CHECKOUT_TITLE } from "constants/bask
 import { SEARCH_BAR_PLACEHOLDER } from "constants/searchBarConstants";
 import { selectBasketItems } from "dataflows/Basket/BasketSlice";
 
-import { useDisclosure } from "@chakra-ui/react";
+import { useDisclosure, Container } from "@chakra-ui/react";
 
 /**
  * The Layout container component
@@ -47,10 +47,10 @@ export const LayoutContainer: FC = ({ children }): ReactElement => {
   };
 
   return (
-    <>
+    <Container maxW="container.xl">
       <NavBar {...navBarProps} />
       <main>{children}</main>
       <Footer />
-    </>
+    </Container>
   );
 };

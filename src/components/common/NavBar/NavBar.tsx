@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, Container, Flex, Img, Spacer } from "@chakra-ui/react";
+import { Box, Flex, Img, Spacer } from "@chakra-ui/react";
 
 import { Basket } from "./Basket";
 import { INavBarProps } from "./INavBarProps";
@@ -17,23 +17,21 @@ export const NavBar = (props: INavBarProps): React.ReactElement => {
   const { searchBarProps, storeSelectorProps, basketProps } = props;
   return (
     <NavBarRoot>
-      <Container>
-        <Flex pt={4} pb={4}>
-          <Img htmlWidth="75px" objectFit="cover" src="/assets/images/logo.png" alt="Neta" />
-        </Flex>
-        <Flex pb={4}>
-          <Box>
-            <StoreSelector {...storeSelectorProps} />
-          </Box>
-          <Spacer />
-          <Box>
-            <Basket {...basketProps} />
-          </Box>
-        </Flex>
-        <Flex>
-          <SearchBar {...searchBarProps} />
-        </Flex>
-      </Container>
+      <Flex pt={4} pb={4}>
+        <Img htmlWidth="75px" objectFit="cover" src="/assets/images/logo.png" alt="Neta" />
+      </Flex>
+      <Flex pb={4}>
+        <Box>
+          <StoreSelector {...storeSelectorProps} />
+        </Box>
+        <Spacer />
+        <Box>
+          <Basket {...basketProps} />
+        </Box>
+      </Flex>
+      <Flex>
+        <SearchBar {...searchBarProps} />
+      </Flex>
     </NavBarRoot>
   );
 };

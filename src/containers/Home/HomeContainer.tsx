@@ -1,6 +1,8 @@
 import React, { ReactElement } from "react";
 
-import { Container, Flex } from "@chakra-ui/layout";
+import { Flex } from "@chakra-ui/layout";
+
+import { CategorySectionContainer } from "./CategorySectionContainer/CategorySectionContainer";
 
 /**
  * The home container.
@@ -8,8 +10,8 @@ import { Container, Flex } from "@chakra-ui/layout";
  */
 export const HomeContainer = (): ReactElement => {
   return (
-    <Container>
-      <Flex pt={10}>Home Container</Flex>
-    </Container>
+    <Flex pt={10}>
+      <CategorySectionContainer />
+    </Flex>
   );
 };

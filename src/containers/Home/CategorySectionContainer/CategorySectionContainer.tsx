@@ -2,6 +2,7 @@ import { useEffect, ReactElement } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
+import { CarouselSlider } from "components/CarouselSlider/CarouselSlider";
 import {
   getCategories,
   selectAllCategories,
@@ -21,5 +22,11 @@ export const CategorySectionContainer = (): ReactElement => {
     dispatch(getCategories());
   }, []);
 
-  return isLoading ? <>is loading...</> : <>categories</>;
+  return isLoading ? (
+    <>is loading...</>
+  ) : (
+    <>
+      <CarouselSlider />
+    </>
+  );
 };
