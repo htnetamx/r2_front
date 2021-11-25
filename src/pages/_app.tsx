@@ -2,7 +2,7 @@ import React, { FC, ReactElement } from "react";
 
 import { Provider } from "react-redux";
 
-import { Head } from "components/common/Head";
+import { Head } from "components/Layout/Head";
 import { AppProps } from "next/app";
 import { store } from "state/store";
 import theme from "utils/theme";

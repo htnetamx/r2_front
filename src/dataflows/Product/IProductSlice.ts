@@ -1,48 +1,46 @@
+import { GET_PRODUCTS_SALES_SECTION_URL } from "constants/productConstants";
 import { RootState } from "state/store";
+import { get } from "utils/http";
 
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+
 import { IProduct } from "./IProduct";
 import { IProductState } from "./IProductState";
 
 const initialState: IProductState = {
-  products: [],
-  isLoading: false,
+  salesSectionProducts: [],
+  isLoadingSalesSection: false,
 };
+
+export const getSalesSectionProducts = createAsyncThunk(
+  "product/getSalesSectionProducts",
+  async () => {
+    const response = await get(
+      `${process.env.NEXT_PUBLIC_PRODUCT_API_URL}/${GET_PRODUCTS_SALES_SECTION_URL}` //TODO: remove this after the API gateway is implemented.
+    );
+    return (await response.data) as IProduct[];
+  }
+);
 
 const productSlice = createSlice({
   name: "product",
   initialState,
   reducers: {
-    addProduct: (state, action: PayloadAction<IProduct>) => {
-      const {
-        id,
-        name,
-        sku,
-        seoFilename,
-        price,
-        oldPrice,
-        orderMinimumQuantity,
-        orderMaximumQuantity,
-      } = action.payload;
-      const existingItem = state.products.find((item) => item.id === id);
-      if (existingItem) {
-        existingItem.orderMinimumQuantity++;
-      } else {
-        state.products.push(action.payload);
-      }
+    selectProduct: (state, action: PayloadAction<string>) => {
+      const allProducts = [...state.salesSectionProducts];
+      state.selectedProduct = allProducts.find((product) => product.id === action.payload);
     },
-    removeProduct: (state, action: PayloadAction<IProduct>) => {
-      const { id } = action.payload;
-      const existingItem = state.products.find((item) => item.id === id);
-      if (existingItem && existingItem.orderMinimumQuantity > 1) {
-        existingItem.orderMinimumQuantity--;
-      } else {
-        const existingItemIndex = state.products.findIndex((item) => item.id === id);
-        state.products.splice(existingItemIndex, 1);
-      }
+  },
+  extraReducers: {
+    [getSalesSectionProducts.pending.type]: (state) => {
+      state.isLoadingSalesSection = true;
     },
-    clearProduct: (state) => {
-      state.products = [];
+    [getSalesSectionProducts.fulfilled.type]: (state, action) => {
+      state.salesSectionProducts = action.payload;
+      state.isLoadingSalesSection = false;
+    },
+    [getSalesSectionProducts.rejected.type]: (state) => {
+      state.isLoadingSalesSection = false;
     },
   },
 });
@@ -50,18 +48,27 @@ const productSlice = createSlice({
 /**
  * Actions
  */
-export const { addProduct, removeProduct, clearProduct } = productSlice.actions;
+export const { selectProduct } = productSlice.actions;
 
 /**
  * Selectors
  */
 
 /**
- * Selector to get the basket items from the state.
+ * Selector to get the sales products.
  * @param {RootState} state the root state
- * @returns {IProduct[]} the basket items
+ * @returns {IProduct[]} the sales products.
  */
-export const selectBasketItems = (state: RootState): IProduct[] => state.product.products;
+export const selectSalesSectionProduct = (state: RootState): IProduct[] =>
+  state.product.salesSectionProducts;
+
+/**
+ * Selector to get the isLoadingSalesSection state from the state.
+ * @param {RootState} state the root state
+ * @returns {boolean} the isLoadingSalesSection state
+ */
+export const selectIsLoadingSalesSection = (state: RootState): boolean =>
+  state.product.isLoadingSalesSection;
 
 /**
  * Reducers

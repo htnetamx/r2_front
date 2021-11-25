@@ -2,12 +2,14 @@ import { useEffect, ReactElement } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { CarouselSlider } from "components/CarouselSlider/CarouselSlider";
+import { CategorySection } from "components/HomeSections/CategorySection/CategorySection";
+import { CATEGORY_TITLE } from "constants/categoryConstants";
 import {
   getCategories,
   selectAllCategories,
   selectIsLoading,
 } from "dataflows/Category/CategorySlice";
+import { ICategory } from "dataflows/Category/ICategory";
 
 /**
  * Category section container component.
@@ -22,11 +24,25 @@ export const CategorySectionContainer = (): ReactElement => {
     dispatch(getCategories());
   }, []);
 
+  /**
+   * Action on category click.
+   * @param {ICategory} category the category clicked.
+   * @returns {void}
+   */
+  const onCategoryClick = (category: ICategory): void => {
+    //TODO: implement category navigation
+    alert(`Category ${category.name} clicked`);
+  };
+
   return isLoading ? (
-    <>is loading...</>
+    <>Is Loading</> //TODO: Add skeleton loader.
   ) : (
     <>
-      <CarouselSlider />
+      <CategorySection
+        categoryTitle={CATEGORY_TITLE}
+        categories={categories}
+        onCategoryClick={onCategoryClick}
+      />
     </>
   );
 };

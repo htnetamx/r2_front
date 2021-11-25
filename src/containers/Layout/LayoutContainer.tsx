@@ -2,8 +2,8 @@ import React, { useRef, FC, ReactElement } from "react";
 
 import { useSelector } from "react-redux";
 
-import { Footer } from "components/common/Footer";
-import { INavBarProps, NavBar } from "components/common/NavBar";
+import { Footer } from "components/Layout/Footer";
+import { INavBarProps, NavBar } from "components/Layout/NavBar";
 import { BASKET_EMPTY_TITLE, BASKET_TITLE, CHECKOUT_TITLE } from "constants/basketConstants";
 import { SEARCH_BAR_PLACEHOLDER } from "constants/searchBarConstants";
 import { selectBasketItems } from "dataflows/Basket/BasketSlice";

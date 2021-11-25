@@ -1,8 +1,8 @@
 import axios, { AxiosResponse } from "axios";
 
 export const instance = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
-  timeout: 10000,
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  timeout: Number(process.env.NEXT_PUBLIC_API_TIMEOUT || 1000),
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
@@ -25,12 +25,19 @@ export const addJwtToken = (token: string): void => {
  * GET HTTP request
  * @param {string} url the url to request
  * @param {object} params the params to send
+ * @param {string} baseUrl the base url to use.
  * @returns {Promise<unknown>} the promise of the HTTP request
  **/
 export const get = (
   url: string,
-  params?: Record<string, unknown>
-): Promise<AxiosResponse<unknown>> => instance.get<unknown>(url, { params });
+  params?: Record<string, unknown>,
+  baseUrl?: string //TODO: remove this after the API gateway is implemented.
+): Promise<AxiosResponse<unknown>> => {
+  if (baseUrl) {
+    axios.defaults.baseURL = baseUrl;
+  }
+  return instance.get<unknown>(url, { params });
+};
 
 /**
  * POST HTTP request
@@ -49,8 +56,8 @@ export const post = (url: string, data: Record<string, unknown>): Promise<AxiosR
  **/
 export const postForm = (url: string, data: URLSearchParams): Promise<AxiosResponse<unknown>> => {
   const axiosConfig = {
-    baseURL: process.env.REACT_APP_ROOT_URL,
-    timeout: 10000,
+    baseURL: process.env.NEXT_PUBLIC_API_URL,
+    timeout: Number(process.env.NEXT_PUBLIC_API_TIMEOUT || 1000),
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
       Accept: "application/json",

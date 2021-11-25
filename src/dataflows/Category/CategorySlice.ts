@@ -13,7 +13,9 @@ const initialState: ICategoryState = {
 };
 
 export const getCategories = createAsyncThunk("category/getCategories", async () => {
-  const response = await get(GET_ALL_CATEGORIES_API_URL);
+  const response = await get(
+    `${process.env.NEXT_PUBLIC_CATEGORY_API_URL}/${GET_ALL_CATEGORIES_API_URL}` //TODO: remove this after the API gateway is implemented.
+  );
   return (await response.data) as ICategory[];
 });
 

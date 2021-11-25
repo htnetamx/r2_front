@@ -2,6 +2,12 @@ import { ICategory } from "dataflows/Category/ICategory";
 
 export interface ICategorySectionProps {
   /**
+   * The section title to display.
+   * @type {string}
+   */
+  categoryTitle: string;
+
+  /**
    * The categories to display
    * @type {ICategory}
    */

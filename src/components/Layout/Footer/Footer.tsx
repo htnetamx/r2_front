@@ -1,4 +1,6 @@
-import { ReactElement } from "react";
+import React, { ReactElement } from "react";
+
+import { Box } from "@chakra-ui/layout";
 
 /**
  * The footer component.
@@ -6,5 +8,5 @@ import { ReactElement } from "react";
  */
 export const Footer = (): ReactElement => {
   //TODO: Add the footer.
-  return <></>;
+  return <Box pt={5}>this is a footer</Box>;
 };

@@ -2,9 +2,20 @@ import { IProduct } from "./IProduct";
 
 export interface IProductState {
   /**
-   * The array of products.
+   * The array of products in the sales section.
    * @type {IProduct[]}
    */
-  products: IProduct[];
-  isLoading: boolean;
+  salesSectionProducts: IProduct[];
+
+  /**
+   * The selected product.
+   * @type {IProduct}
+   */
+  selectedProduct?: IProduct;
+
+  /**
+   * Indicates if the products are loading.
+   * @type {boolean}
+   */
+  isLoadingSalesSection: boolean;
 }

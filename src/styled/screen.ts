@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable require-jsdoc */
 
-export const screen = {
-  xs: 500,
+export const screenSizes = {
+  xs: 320,
   sm: 768,
   md: 1024,
   lg: 1600,
