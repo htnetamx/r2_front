@@ -6,7 +6,7 @@ import { Footer } from "components/Layout/Footer";
 import { INavBarProps, NavBar } from "components/Layout/NavBar";
 import { BASKET_EMPTY_TITLE, BASKET_TITLE, CHECKOUT_TITLE } from "constants/basketConstants";
 import { SEARCH_BAR_PLACEHOLDER } from "constants/searchBarConstants";
-import { selectBasketItems } from "dataflows/Basket/BasketSlice";
+import { selectBasketItems, selectTotalBasketItems } from "dataflows/Basket/BasketSlice";
 
 import { useDisclosure, Container } from "@chakra-ui/react";
 
@@ -19,6 +19,7 @@ export const LayoutContainer: FC = ({ children }): ReactElement => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef<HTMLButtonElement>(null);
   const basketItems = useSelector(selectBasketItems);
+  const totalBasketItems = useSelector(selectTotalBasketItems);
 
   const navBarProps: INavBarProps = {
     searchBarProps: {
@@ -26,7 +27,7 @@ export const LayoutContainer: FC = ({ children }): ReactElement => {
     },
     basketProps: {
       basketButtonProps: {
-        totalItems: basketItems.length,
+        totalItems: totalBasketItems,
         onClick: onOpen,
         btnRef,
         ariaLabel: BASKET_TITLE,

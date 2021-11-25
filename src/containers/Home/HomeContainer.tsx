@@ -1,5 +1,9 @@
 import React, { ReactElement } from "react";
 
+import { useDispatch } from "react-redux";
+
+import { addItem } from "dataflows/Basket/BasketSlice";
+import { IBasketItem } from "dataflows/Basket/IBasketItem";
 import { IProduct } from "dataflows/Product/IProduct";
 
 import { Box } from "@chakra-ui/layout";
@@ -12,6 +16,8 @@ import { SalesSectionContainer } from "./SalesSectionContainer/SalesSectionConta
  * @returns {ReactElement} The home container.
  */
 export const HomeContainer = (): ReactElement => {
+  const dispatch = useDispatch();
+
   /**
    * Action on product click.
    * @param {IProduct} product the product clicked.
@@ -29,7 +35,15 @@ export const HomeContainer = (): ReactElement => {
    */
   const addToCart = (product: IProduct): void => {
     //TODO: implement add to cart
-    alert(`Product ${product.name} clicked`);
+    const item: IBasketItem = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: 1,
+      pictureUrl: product.seoFilename,
+    };
+
+    dispatch(addItem(item));
   };
 
   return (

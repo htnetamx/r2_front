@@ -28,11 +28,16 @@ export const ProductBox = (props: IProductBoxProps): ReactElement => {
 
   return (
     <Box>
-      <Box maxW="sm" height={{ base: "290px", md: "290px" }} overflow="hidden">
-        <Square onClick={() => onProductClick(id)}>
-          <Square borderRadius="lg" boxShadow="md" minW="150px">
-            <Img src={productImageUrl} alt={productName} height="150px" />
-          </Square>
+      <Box maxW="sm" height={{ base: "300px", md: "280px" }} overflow="hidden">
+        <Square
+          rounded="md"
+          boxShadow="md"
+          minW={{ base: 159, md: "160px" }}
+          bg="white"
+          borderWidth="1px"
+          onClick={() => onProductClick(id)}
+        >
+          <Img src={productImageUrl} alt={productName} height="150px" />
         </Square>
 
         <Box p="6">
@@ -61,7 +66,7 @@ export const ProductBox = (props: IProductBoxProps): ReactElement => {
           </Box>
 
           <Box mt="2">
-            <Text fontSize={{ base: "xs", md: "md" }} noOfLines={[3, 2]}>
+            <Text fontSize={{ base: "xs", md: "xs" }} noOfLines={[3, 2]}>
               {productShortDescription}
             </Text>
           </Box>
@@ -70,10 +75,10 @@ export const ProductBox = (props: IProductBoxProps): ReactElement => {
       <Center>
         <Button
           width="120px"
-          height={{ base: "27px", md: "33px" }}
-          color="white"
-          bg="#3870FF"
+          height={{ base: "27px", md: "29px" }}
+          colorScheme="blue"
           borderRadius="full"
+          fontSize="0.8rem"
           onClick={() => addToCart(id)}
         >
           {ADD_TO_CART_BUTTON_TEXT}

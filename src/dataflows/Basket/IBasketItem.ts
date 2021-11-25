@@ -28,16 +28,4 @@ export interface IBasketItem {
    * @type {string}
    */
   pictureUrl: string;
-
-  /**
-   * The brand of the item.
-   * @type {string}
-   */
-  brand: string;
-
-  /**
-   * The type of the item.
-   * @type {string}
-   */
-  type: string;
 }

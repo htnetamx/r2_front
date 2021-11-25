@@ -1,6 +1,6 @@
-import { useEffect, useState, FC, ReactElement } from "react";
+import { FC, ReactElement } from "react";
 
-import throttle from "lodash.throttle";
+import { Box } from "@chakra-ui/layout";
 
 /**
  * This is the root component of the NavBar.
@@ -8,24 +8,14 @@ import throttle from "lodash.throttle";
  * @returns {ReactElement} The root component of the NavBar.
  */
 export const NavBarRoot: FC = ({ children }): ReactElement => {
-  const [hasScrolled, setHasScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = throttle(() => {
-      const offset = 0;
-      const { scrollTop } = document.documentElement;
-      const scrolled = scrollTop > offset;
-
-      if (hasScrolled !== scrolled) {
-        setHasScrolled(scrolled);
-      }
-    }, 200);
-
-    document.addEventListener("scroll", handleScroll);
-    return () => {
-      document.removeEventListener("scroll", handleScroll);
-    };
-  }, [hasScrolled]);
-
-  return <div>{children}</div>;
+  return (
+    <Box
+      sx={{ position: "-webkit-sticky", /* Safari */ position: "sticky", top: "0" }}
+      zIndex={3}
+      backdropFilter="saturate(200%) blur(5px)"
+      backgroundColor="rgba(255,255, 255, 0.7)"
+    >
+      {children}
+    </Box>
+  );
 };

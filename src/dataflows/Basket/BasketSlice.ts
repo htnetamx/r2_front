@@ -14,12 +14,12 @@ const basketSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action: PayloadAction<IBasketItem>) => {
-      const { id, name, price, pictureUrl, brand, type } = action.payload;
+      const { id, name, price, pictureUrl } = action.payload;
       const existingItem = state.basketItems.find((item) => item.id === id);
       if (existingItem) {
         existingItem.quantity++;
       } else {
-        state.basketItems.push({ id, name, price, quantity: 1, pictureUrl, brand, type });
+        state.basketItems.push({ id, name, price, quantity: 1, pictureUrl });
       }
     },
     removeItem: (state, action: PayloadAction<IBasketItem>) => {
