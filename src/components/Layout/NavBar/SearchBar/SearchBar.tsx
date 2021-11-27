@@ -2,7 +2,7 @@ import React, { FC, ReactElement } from "react";
 
 import { BiSearch } from "react-icons/bi";
 
-import { Input, InputGroup, InputRightElement } from "@chakra-ui/react";
+import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 
 import { ISearchBarProps } from "./ISearchBarProps";
 
@@ -16,10 +16,10 @@ export const SearchBar: FC<ISearchBarProps> = (props: ISearchBarProps): ReactEle
   return (
     <>
       <InputGroup>
-        <Input placeholder={searchBarPlaceholder} />
-        <InputRightElement pointerEvents="none" fontSize="1.2em">
+        <Input placeholder={searchBarPlaceholder} rounded="full" />
+        <InputLeftElement pointerEvents="none" fontSize="1.2em">
           <BiSearch />
-        </InputRightElement>
+        </InputLeftElement>
       </InputGroup>
     </>
   );

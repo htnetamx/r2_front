@@ -1,6 +1,8 @@
 import { ReactElement } from "react";
 
-import { Select } from "@chakra-ui/react";
+import { GrLocation } from "react-icons/gr";
+
+import { Select, Stack, Text } from "@chakra-ui/react";
 
 import { IStoreSelectorProps } from "./IStoreSelectorProps";
 
@@ -10,14 +12,20 @@ import { IStoreSelectorProps } from "./IStoreSelectorProps";
  * @returns {ReactElement} the store selector component.
  */
 export const StoreSelector = (props: IStoreSelectorProps): ReactElement => {
-  const { storeSelectorOptions } = props;
+  const { storeSelectorOptions, hasScrolled } = props;
   return (
-    <Select variant="unstyled" size="lg" fontWeight="700" fontSize="1.5rem">
-      {storeSelectorOptions.map((option) => (
-        <option key={option.key} value={option.value}>
-          {option.value}
-        </option>
-      ))}
-    </Select>
+    <Stack direction="column">
+      <Select variant="unstyled" fontWeight="700" fontSize={{ base: "1.2rem", lg: "1.5rem" }}>
+        {storeSelectorOptions.map((option) => (
+          <option key={option.key} value={option.value}>
+            {option.value}
+          </option>
+        ))}
+      </Select>
+      <Stack direction="row" hidden={hasScrolled}>
+        <GrLocation size="20px" />
+        <Text>Condesa</Text>
+      </Stack>
+    </Stack>
   );
 };

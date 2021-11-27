@@ -2,13 +2,23 @@ import React, { useEffect, ReactElement } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { SalesSection } from "components/HomeSections/SalesSection/SalesSection";
-import { SALES_SECTION_TITLE } from "constants/productConstants";
+import { ProductCard } from "components/common/ProductCard";
+import { CarouselSection } from "components/common/Sections";
 import {
-  getSalesSectionProducts,
+  MAX_PRODUCTS_PER_SLIDE_DESKTOP,
+  MAX_PRODUCTS_PER_SLIDE_MOBILE,
+  PRODUCT_SLIDE_SPACE_BETWEEN_ITEMS_DESKTOP,
+  PRODUCT_SLIDE_SPACE_BETWEEN_ITEMS_MOBILE,
+  SALES_SECTION_TITLE,
+} from "constants/productConstants";
+import {
   selectIsLoadingSalesSection,
   selectSalesSectionProduct,
-} from "dataflows/Product/IProductSlice";
+} from "dataflows/Product/ProductSelectors";
+import { getSalesSectionProducts } from "dataflows/Product/ProductThunks";
+import { screenSizes } from "styled/screen";
+
+import { Box } from "@chakra-ui/react";
 
 import { ISalesSectionContainerProps } from "./ISalesSectionContainerProps";
 
@@ -27,15 +37,40 @@ export const SalesSectionContainer = (props: ISalesSectionContainerProps): React
     dispatch(getSalesSectionProducts());
   }, []);
 
-  return isLoading ? (
-    <>Is Loading</> //TODO: Add skeleton loader.
-  ) : (
-    <>
-      <SalesSection
-        title={SALES_SECTION_TITLE}
-        products={salesSectionProducts}
+  const productElements = salesSectionProducts.map((product) => {
+    return (
+      <ProductCard
+        key={product.id}
+        product={product}
         onProductClick={onProductClick}
         addToCart={addToCart}
+      />
+    );
+  });
+
+  const breakpoints = {
+    [screenSizes.xs]: {
+      slidesPerView: MAX_PRODUCTS_PER_SLIDE_MOBILE,
+      spaceBetween: PRODUCT_SLIDE_SPACE_BETWEEN_ITEMS_MOBILE,
+    },
+    [screenSizes.md]: {
+      slidesPerView: MAX_PRODUCTS_PER_SLIDE_DESKTOP,
+      spaceBetween: PRODUCT_SLIDE_SPACE_BETWEEN_ITEMS_DESKTOP,
+    },
+    [screenSizes.lg]: {
+      slidesPerView: MAX_PRODUCTS_PER_SLIDE_DESKTOP,
+      spaceBetween: PRODUCT_SLIDE_SPACE_BETWEEN_ITEMS_DESKTOP,
+    },
+  };
+
+  return isLoading ? (
+    <Box>Is Loading</Box> //TODO: Add skeleton loader.
+  ) : (
+    <>
+      <CarouselSection
+        title={SALES_SECTION_TITLE}
+        elements={productElements}
+        breakpoints={breakpoints}
       />
     </>
   );

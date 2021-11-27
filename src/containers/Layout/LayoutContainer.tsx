@@ -6,9 +6,10 @@ import { Footer } from "components/Layout/Footer";
 import { INavBarProps, NavBar } from "components/Layout/NavBar";
 import { BASKET_EMPTY_TITLE, BASKET_TITLE, CHECKOUT_TITLE } from "constants/basketConstants";
 import { SEARCH_BAR_PLACEHOLDER } from "constants/searchBarConstants";
-import { selectBasketItems, selectTotalBasketItems } from "dataflows/Basket/BasketSlice";
+import { selectBasketItems, selectTotalBasketItems } from "dataflows/Basket/BasketSelectors";
+import { useRouter } from "next/router";
 
-import { useDisclosure, Container } from "@chakra-ui/react";
+import { useDisclosure, Box } from "@chakra-ui/react";
 
 /**
  * The Layout container component
@@ -17,11 +18,15 @@ import { useDisclosure, Container } from "@chakra-ui/react";
  */
 export const LayoutContainer: FC = ({ children }): ReactElement => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
+
   const btnRef = useRef<HTMLButtonElement>(null);
   const basketItems = useSelector(selectBasketItems);
   const totalBasketItems = useSelector(selectTotalBasketItems);
+  const isHome = router.pathname === "/";
 
   const navBarProps: INavBarProps = {
+    isHome,
     searchBarProps: {
       searchBarPlaceholder: SEARCH_BAR_PLACEHOLDER,
     },
@@ -48,10 +53,10 @@ export const LayoutContainer: FC = ({ children }): ReactElement => {
   };
 
   return (
-    <Container maxW="container.xl">
+    <Box>
       <NavBar {...navBarProps} />
       <main>{children}</main>
       <Footer />
-    </Container>
+    </Box>
   );
 };

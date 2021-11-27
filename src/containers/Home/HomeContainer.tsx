@@ -6,9 +6,10 @@ import { addItem } from "dataflows/Basket/BasketSlice";
 import { IBasketItem } from "dataflows/Basket/IBasketItem";
 import { IProduct } from "dataflows/Product/IProduct";
 
-import { Box } from "@chakra-ui/layout";
+import { Box, Container } from "@chakra-ui/layout";
 
 import { CategorySectionContainer } from "./CategorySectionContainer/CategorySectionContainer";
+import { LowPriceOffersSectionContainer } from "./LowPriceOffersSectionContainer/LowPriceOffersSectionContainer";
 import { SalesSectionContainer } from "./SalesSectionContainer/SalesSectionContainer";
 
 /**
@@ -47,9 +48,12 @@ export const HomeContainer = (): ReactElement => {
   };
 
   return (
-    <Box>
-      <CategorySectionContainer />
-      <SalesSectionContainer onProductClick={onProductClick} addToCart={addToCart} />
+    <Box bg="#F9F9F9">
+      <Container maxW="container.xl">
+        <CategorySectionContainer />
+        <SalesSectionContainer onProductClick={onProductClick} addToCart={addToCart} />
+        <LowPriceOffersSectionContainer onProductClick={onProductClick} addToCart={addToCart} />
+      </Container>
     </Box>
   );
 };

@@ -6,4 +6,10 @@ export interface IStoreSelectorProps {
    * @type {IDisplayable<string>[]}
    */
   storeSelectorOptions: IDisplayable<string>[];
+
+  /**
+   * Indicates if the user has scrolled
+   * @type {boolean}
+   **/
+  hasScrolled?: boolean;
 }
