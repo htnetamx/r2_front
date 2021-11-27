@@ -103,7 +103,7 @@ const HomeNavBar = (props: INavBarProps): React.ReactElement => {
  * @returns {React.ReactElement} The NavBar component
  */
 const PageNavBar = (props: INavBarProps): React.ReactElement => {
-  const { searchBarProps, storeSelectorProps, basketProps } = props;
+  const { basketProps } = props;
   const router = useRouter();
   return (
     <Flex

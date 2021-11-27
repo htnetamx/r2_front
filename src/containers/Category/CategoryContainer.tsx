@@ -14,7 +14,6 @@ import {
   selectIsLoadingCategoryProducts,
 } from "dataflows/Product/ProductSelectors";
 import { getCategoryProducts } from "dataflows/Product/ProductThunks";
-import { useRouter } from "next/router";
 
 import { Box, Container } from "@chakra-ui/react";
 
@@ -32,7 +31,6 @@ export const CategoryContainer = (props: ICategoryContainerProps): ReactElement 
   const categoryProducts = useSelector(selectCategoryProducts);
   const isLoading = useSelector(selectIsLoadingCategoryProducts);
   const dispatch = useDispatch();
-  const router = useRouter();
 
   useEffect(() => {
     if (categoryId) {
