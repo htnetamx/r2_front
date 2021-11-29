@@ -30,15 +30,8 @@ export const addJwtToken = (token: string): void => {
  **/
 export const get = (
   url: string,
-  params?: Record<string, unknown>,
-  baseUrl?: string //TODO: remove this after the API gateway is implemented.
-): Promise<AxiosResponse<unknown>> => {
-  if (baseUrl) {
-    axios.defaults.baseURL = baseUrl;
-  }
-  return instance.get<unknown>(url, { params });
-};
-
+  params?: Record<string, unknown>
+): Promise<AxiosResponse<unknown>> => instance.get<unknown>(url, { params });
 /**
  * POST HTTP request
  * @param {string} url the url to request

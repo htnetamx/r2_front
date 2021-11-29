@@ -1,16 +1,16 @@
 import { IProduct } from "dataflows/Product/IProduct";
 
-export interface ISalesSectionProps {
+export interface IProductGridSection {
   /**
-   * The Low Prices section title
+   * The title of the section
    * @type {string}
    */
   title: string;
 
   /**
-   * The products to display in the Low Prices section
+   * The products to display
    * @type {IProduct[]}
-   */
+   **/
   products: IProduct[];
 
   /**

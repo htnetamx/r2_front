@@ -1,26 +1,20 @@
-import { GET_PRODUCTS_SALES_SECTION_URL } from "constants/productConstants";
-import { RootState } from "state/store";
-import { get } from "utils/http";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-import { IProduct } from "./IProduct";
 import { IProductState } from "./IProductState";
+import {
+  getCategoryProducts,
+  getLowPriceOffersProducts,
+  getSalesSectionProducts,
+} from "./ProductThunks";
 
 const initialState: IProductState = {
   salesSectionProducts: [],
+  lowPriceOffersProducts: [],
+  categoryProducts: [],
+  isLoadingCategoryProducts: false,
   isLoadingSalesSection: false,
+  isLoadingLowPriceOffersSection: false,
 };
-
-export const getSalesSectionProducts = createAsyncThunk(
-  "product/getSalesSectionProducts",
-  async () => {
-    const response = await get(
-      `${process.env.NEXT_PUBLIC_PRODUCT_API_URL}/${GET_PRODUCTS_SALES_SECTION_URL}` //TODO: remove this after the API gateway is implemented.
-    );
-    return (await response.data) as IProduct[];
-  }
-);
 
 const productSlice = createSlice({
   name: "product",
@@ -42,6 +36,26 @@ const productSlice = createSlice({
     [getSalesSectionProducts.rejected.type]: (state) => {
       state.isLoadingSalesSection = false;
     },
+    [getLowPriceOffersProducts.pending.type]: (state) => {
+      state.isLoadingLowPriceOffersSection = true;
+    },
+    [getLowPriceOffersProducts.fulfilled.type]: (state, action) => {
+      state.lowPriceOffersProducts = action.payload;
+      state.isLoadingLowPriceOffersSection = false;
+    },
+    [getLowPriceOffersProducts.rejected.type]: (state) => {
+      state.isLoadingLowPriceOffersSection = false;
+    },
+    [getCategoryProducts.pending.type]: (state) => {
+      state.isLoadingCategoryProducts = true;
+    },
+    [getCategoryProducts.fulfilled.type]: (state, action) => {
+      state.categoryProducts = action.payload;
+      state.isLoadingCategoryProducts = false;
+    },
+    [getCategoryProducts.rejected.type]: (state) => {
+      state.isLoadingCategoryProducts = false;
+    },
   },
 });
 
@@ -49,26 +63,6 @@ const productSlice = createSlice({
  * Actions
  */
 export const { selectProduct } = productSlice.actions;
-
-/**
- * Selectors
- */
-
-/**
- * Selector to get the sales products.
- * @param {RootState} state the root state
- * @returns {IProduct[]} the sales products.
- */
-export const selectSalesSectionProduct = (state: RootState): IProduct[] =>
-  state.product.salesSectionProducts;
-
-/**
- * Selector to get the isLoadingSalesSection state from the state.
- * @param {RootState} state the root state
- * @returns {boolean} the isLoadingSalesSection state
- */
-export const selectIsLoadingSalesSection = (state: RootState): boolean =>
-  state.product.isLoadingSalesSection;
 
 /**
  * Reducers

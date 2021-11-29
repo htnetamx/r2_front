@@ -20,4 +20,10 @@ export interface INavBarProps {
    * @type {IBasketProps}
    */
   basketProps: IBasketProps;
+
+  /**
+   * Indicates if is home
+   * @type {boolean}
+   **/
+  isHome: boolean;
 }

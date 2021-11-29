@@ -8,6 +8,18 @@ export interface IProductState {
   salesSectionProducts: IProduct[];
 
   /**
+   * The array of products in the low price offers section.
+   * @type {IProduct[]}
+   **/
+  lowPriceOffersProducts: IProduct[];
+
+  /**
+   * The array of products per category
+   * @type {IProduct[]}
+   **/
+  categoryProducts: IProduct[];
+
+  /**
    * The selected product.
    * @type {IProduct}
    */
@@ -18,4 +30,16 @@ export interface IProductState {
    * @type {boolean}
    */
   isLoadingSalesSection: boolean;
+
+  /**
+   * Indicates if the products are loading.
+   * @type {boolean}
+   **/
+  isLoadingLowPriceOffersSection: boolean;
+
+  /**
+   * Indicates if the products are loading.
+   * @type {boolean}
+   */
+  isLoadingCategoryProducts: boolean;
 }
