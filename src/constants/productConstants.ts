@@ -1,5 +1,6 @@
 export const SALE_PRODUCT_SUBTITLE = "Ahorras";
 export const ADD_TO_CART_BUTTON_TEXT = "Añadir";
+export const ADD_TO_CART_BIG_BUTTON_TEXT = "Agregar al carrito";
 export const CURRENCY_SYMBOL = "$";
 export const CURRENCY_NAME = "MXN";
 export const MAX_PRODUCTS_PER_SLIDE_MOBILE = 2;
