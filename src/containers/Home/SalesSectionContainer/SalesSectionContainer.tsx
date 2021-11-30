@@ -37,16 +37,18 @@ export const SalesSectionContainer = (props: ISalesSectionContainerProps): React
     dispatch(getSalesSectionProducts());
   }, []);
 
-  const productElements = salesSectionProducts.map((product) => {
-    return (
-      <ProductCard
-        key={product.id}
-        product={product}
-        onProductClick={onProductClick}
-        addToCart={addToCart}
-      />
-    );
-  });
+  const productElements = Array.isArray(salesSectionProducts)
+    ? salesSectionProducts.map((product) => {
+        return (
+          <ProductCard
+            key={product.id}
+            product={product}
+            onProductClick={onProductClick}
+            addToCart={addToCart}
+          />
+        );
+      })
+    : [];
 
   const breakpoints = {
     [screenSizes.xs]: {

@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 import { addItem } from "dataflows/Basket/BasketSlice";
 import { IBasketItem } from "dataflows/Basket/IBasketItem";
 import { IProduct } from "dataflows/Product/IProduct";
+import { selectProduct } from "dataflows/Product/IProductSlice";
+import { useRouter } from "next/router";
 
 import { Box, Container } from "@chakra-ui/layout";
 
@@ -18,6 +20,7 @@ import { SalesSectionContainer } from "./SalesSectionContainer/SalesSectionConta
  */
 export const HomeContainer = (): ReactElement => {
   const dispatch = useDispatch();
+  const router = useRouter();
 
   /**
    * Action on product click.
@@ -25,8 +28,8 @@ export const HomeContainer = (): ReactElement => {
    * @returns {void}
    */
   const onProductClick = (product: IProduct): void => {
-    //TODO: implement product navigation
-    alert(`Product ${product.name} clicked`);
+    dispatch(selectProduct(product));
+    router.push(`products/${product.id}`);
   };
 
   /**
@@ -35,7 +38,7 @@ export const HomeContainer = (): ReactElement => {
    * @returns {void}
    */
   const addToCart = (product: IProduct): void => {
-    //TODO: implement add to cart
+    //TODO: implement add to cart hook in the future
     const item: IBasketItem = {
       id: product.id,
       name: product.name,

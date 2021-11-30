@@ -37,7 +37,7 @@ export const LowPriceOffersSectionContainer = (
   ) : (
     <ProductGridSection
       title={LOW_PRICE_OFFERS_SECTION_TITLE}
-      products={lowPriceOffersSectionProducts}
+      products={Array.isArray(lowPriceOffersSectionProducts) ? lowPriceOffersSectionProducts : []}
       onProductClick={onProductClick}
       addToCart={addToCart}
     />

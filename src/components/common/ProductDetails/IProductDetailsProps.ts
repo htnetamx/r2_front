@@ -1,9 +1,14 @@
-import { IProductBoxProps } from "../ProductBox";
+import { IProduct } from "dataflows/Product/IProduct";
 
-export interface IProductDetailsProps extends IProductBoxProps {
+export interface IProductDetailsProps {
   /**
-   * The product full description
-   * @type {string}
+   * The product.
+   * @type {IProduct}
+   */
+  product: IProduct;
+  /**
+   * Action for add to cart.
+   * @type {(product: IProduct) => void}
    **/
-  productFullDescription: string;
+  addToCart: (product: IProduct) => void;
 }
