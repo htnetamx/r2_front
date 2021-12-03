@@ -11,7 +11,7 @@ import { IProductGridProps } from "./IProductGridProps";
  * @returns {ReactElement} the rendered component.
  */
 export const ProductGrid = (props: IProductGridProps): ReactElement => {
-  const { products, onProductClick, addToCart } = props;
+  const { products, onProductClick, addToCart, removeFromCart, getQtyOnCart } = props;
   const columns = useMemo(() => {
     const count = products.length;
     return {
@@ -32,7 +32,9 @@ export const ProductGrid = (props: IProductGridProps): ReactElement => {
         <ProductCard
           key={product.id}
           product={product}
+          qtyOnBasket={getQtyOnCart(product)}
           addToCart={() => addToCart(product)}
+          removeFromCart={() => removeFromCart(product)}
           onProductClick={() => onProductClick(product)}
         />
       ))}

@@ -28,7 +28,7 @@ import { ISalesSectionContainerProps } from "./ISalesSectionContainerProps";
  * @returns {ReactElement} React element.
  */
 export const SalesSectionContainer = (props: ISalesSectionContainerProps): ReactElement => {
-  const { onProductClick, addToCart } = props;
+  const { onProductClick, addToCart, removeFromCart, getQtyInCart } = props;
   const salesSectionProducts = useSelector(selectSalesSectionProduct);
   const isLoading = useSelector(selectIsLoadingSalesSection);
   const dispatch = useDispatch();
@@ -45,6 +45,8 @@ export const SalesSectionContainer = (props: ISalesSectionContainerProps): React
             product={product}
             onProductClick={onProductClick}
             addToCart={addToCart}
+            removeFromCart={removeFromCart}
+            qtyOnBasket={getQtyInCart(product)}
           />
         );
       })

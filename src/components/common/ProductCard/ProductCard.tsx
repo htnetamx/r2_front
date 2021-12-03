@@ -10,6 +10,7 @@ import { formatMoney } from "utils/currencyUtils";
 import { Img } from "@chakra-ui/image";
 import { Box, Button, Center, Skeleton, Square, Text } from "@chakra-ui/react";
 
+import { IncrementalButton } from "../IncrementalButton/IncrementalButton";
 import { IProductCardProps } from "./IProductCardProps";
 
 /**
@@ -18,7 +19,7 @@ import { IProductCardProps } from "./IProductCardProps";
  * @returns {ReactElement} the ProductBox component.
  */
 export const ProductCard = (props: IProductCardProps): ReactElement => {
-  const { product, addToCart, onProductClick } = props;
+  const { product, qtyOnBasket, addToCart, removeFromCart, onProductClick } = props;
   const productDiscount = product.oldPrice - product.price;
   const productSubtitle = productDiscount
     ? `${SALE_PRODUCT_SUBTITLE} ${formatMoney(productDiscount, CURRENCY_NAME)}`
@@ -77,16 +78,26 @@ export const ProductCard = (props: IProductCardProps): ReactElement => {
         </Box>
       </Box>
       <Center>
-        <Button
-          width="120px"
-          height={{ base: "27px", md: "29px" }}
-          colorScheme="blue"
-          borderRadius="full"
-          fontSize="0.8rem"
-          onClick={() => addToCart(product)}
-        >
-          {ADD_TO_CART_BUTTON_TEXT}
-        </Button>
+        {qtyOnBasket && qtyOnBasket > 0 ? (
+          <IncrementalButton
+            min={product.orderMinimumQuantity}
+            max={product.orderMaximumQuantity}
+            defaultValue={qtyOnBasket}
+            onAdd={() => addToCart(product)}
+            onSubtract={() => removeFromCart(product)}
+          />
+        ) : (
+          <Button
+            width="120px"
+            height={{ base: "27px", md: "29px" }}
+            colorScheme="blue"
+            borderRadius="full"
+            fontSize="0.8rem"
+            onClick={() => addToCart(product)}
+          >
+            {ADD_TO_CART_BUTTON_TEXT}
+          </Button>
+        )}
       </Center>
     </Box>
   );

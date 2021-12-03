@@ -1,15 +1,3 @@
-import { IProduct } from "dataflows/Product/IProduct";
+import { ISectionContainerProps } from "../ISectionContainerProps";
 
-export interface ISalesSectionContainerProps {
-  /**
-   * Action for product click.
-   * @type {(product: IProduct) => void}
-   */
-  onProductClick: (product: IProduct) => void;
-
-  /**
-   * Action for add to cart.
-   * @type {(product: IProduct) => void}
-   **/
-  addToCart: (product: IProduct) => void;
-}
+export type ISalesSectionContainerProps = ISectionContainerProps;

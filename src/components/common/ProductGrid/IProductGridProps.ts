@@ -18,4 +18,16 @@ export interface IProductGridProps {
    * @type {(product: IProduct) => void}
    **/
   addToCart: (product: IProduct) => void;
+
+  /**
+   * Remove from cart action
+   * @type {(product: IProduct) => void}
+   **/
+  removeFromCart: (product: IProduct) => void;
+
+  /**
+   * Get the cart count for a product
+   * @type {(product: IProduct) => number}
+   **/
+  getQtyOnCart: (product: IProduct) => number;
 }

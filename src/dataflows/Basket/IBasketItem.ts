@@ -24,6 +24,17 @@ export interface IBasketItem {
   quantity: number;
 
   /**
+   * The maximum quantity of the item.
+   * @type {number}
+   **/
+  maxQuantity?: number;
+
+  /**
+   * The minimum quantity of the item.
+   **/
+  minQuantity?: number;
+
+  /**
    * The picture of the item.
    * @type {string}
    */
