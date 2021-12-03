@@ -58,25 +58,27 @@ export const CategorySectionContainer = (): ReactElement => {
     },
   };
 
-  const categoryElements = categories.map((category) => {
-    return (
-      <Box key={category.id}>
-        <Square>
-          <Img
-            onClick={() => onCategoryClick(category)}
-            alignContent="center"
-            src={category.seoFilename}
-            alt={category.name}
-            fit="contain"
-            htmlWidth="60px"
-          />
-        </Square>
-        <Text pt={1} align="center" fontSize="xs">
-          {category.name}
-        </Text>
-      </Box>
-    );
-  });
+  const categoryElements = Array.isArray(categories)
+    ? categories.map((category) => {
+        return (
+          <Box key={category.id}>
+            <Square>
+              <Img
+                onClick={() => onCategoryClick(category)}
+                alignContent="center"
+                src={category.seoFilename}
+                alt={category.name}
+                fit="contain"
+                htmlWidth="60px"
+              />
+            </Square>
+            <Text pt={1} align="center" fontSize="xs">
+              {category.name}
+            </Text>
+          </Box>
+        );
+      })
+    : [];
 
   return isLoading ? (
     <Box>Is Loading</Box> //TODO: Add skeleton loader.

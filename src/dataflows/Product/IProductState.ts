@@ -42,4 +42,10 @@ export interface IProductState {
    * @type {boolean}
    */
   isLoadingCategoryProducts: boolean;
+
+  /**
+   * Indicates if the product is loading.
+   * @type {boolean}
+   */
+  isLoadingSelectedProduct: boolean;
 }

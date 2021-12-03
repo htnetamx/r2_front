@@ -1,9 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+import { IProduct } from "./IProduct";
 import { IProductState } from "./IProductState";
 import {
   getCategoryProducts,
   getLowPriceOffersProducts,
+  getProductById,
   getSalesSectionProducts,
 } from "./ProductThunks";
 
@@ -14,15 +16,15 @@ const initialState: IProductState = {
   isLoadingCategoryProducts: false,
   isLoadingSalesSection: false,
   isLoadingLowPriceOffersSection: false,
+  isLoadingSelectedProduct: false,
 };
 
 const productSlice = createSlice({
   name: "product",
   initialState,
   reducers: {
-    selectProduct: (state, action: PayloadAction<string>) => {
-      const allProducts = [...state.salesSectionProducts];
-      state.selectedProduct = allProducts.find((product) => product.id === action.payload);
+    selectProduct: (state, action: PayloadAction<IProduct>) => {
+      state.selectedProduct = action.payload;
     },
   },
   extraReducers: {
@@ -55,6 +57,16 @@ const productSlice = createSlice({
     },
     [getCategoryProducts.rejected.type]: (state) => {
       state.isLoadingCategoryProducts = false;
+    },
+    [getProductById.pending.type]: (state) => {
+      state.isLoadingSelectedProduct = true;
+    },
+    [getProductById.fulfilled.type]: (state, action) => {
+      state.selectedProduct = action.payload;
+      state.isLoadingSelectedProduct = false;
+    },
+    [getProductById.rejected.type]: (state) => {
+      state.isLoadingSelectedProduct = false;
     },
   },
 });

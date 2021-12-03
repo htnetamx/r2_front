@@ -12,3 +12,14 @@ export const formatMoney = (amount: number, currency: string): string => {
   });
   return formatter.format(amount);
 };
+/**
+ * Gets the discount of an item.
+ * @param {number} oldPrice the previous price of the item.
+ * @param {number} newPrice the current price of the item.
+ * @param {string} currency the currency of the amount.
+ * @returns {string} the actual price string.
+ */
+export const getDiscount = (oldPrice: number, newPrice: number, currency: string): string => {
+  const discount = formatMoney(oldPrice - newPrice, currency);
+  return discount;
+};

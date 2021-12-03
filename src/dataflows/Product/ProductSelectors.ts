@@ -49,3 +49,18 @@ export const selectCategoryProducts = (state: RootState): IProduct[] =>
  */
 export const selectIsLoadingCategoryProducts = (state: RootState): boolean =>
   state.product.isLoadingCategoryProducts;
+/**
+ * Selector to get the selectedProduct state from the state.
+ * @param {RootState} state the root state
+ * @returns {IProduct} the selectedProduct state
+ */
+export const selectSelectedProduct = (state: RootState): IProduct | undefined =>
+  state.product.selectedProduct;
+
+/**
+ * Selector to get the isLoadingSelectedProduct state from the state.
+ * @param {RootState} state the root state
+ * @returns {boolean} the isLoadingSelectedProduct state
+ */
+export const selectIsLoadingSelectedProduct = (state: RootState): boolean =>
+  state.product.isLoadingSelectedProduct;

@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Footer } from "components/Layout/Footer";
 import { INavBarProps, NavBar } from "components/Layout/NavBar";
-import { BASKET_EMPTY_TITLE, BASKET_TITLE, CHECKOUT_TITLE } from "constants/basketConstants";
 import { SEARCH_BAR_PLACEHOLDER } from "constants/searchBarConstants";
 import { selectBasketItems, selectTotalBasketItems } from "dataflows/Basket/BasketSelectors";
 import { addQuantity, removeQuantity } from "dataflows/Basket/BasketSlice";
 import { useRouter } from "next/router";
 
 import { useDisclosure, Box } from "@chakra-ui/react";
+
+import { BASKET_EMPTY_TITLE, BASKET_TITLE, CHECKOUT_TITLE } from "../../constants/basketConstants";
 
 /**
  * The Layout container component
