@@ -13,21 +13,8 @@ export const Basket = (props: IBasketProps): ReactElement => {
   const { basketButtonProps, basketPanelProps } = props;
   return (
     <>
-      <BasketButton
-        totalItems={basketPanelProps.basketItems.length}
-        onClick={basketButtonProps.onClick}
-        btnRef={basketButtonProps.btnRef}
-        ariaLabel={basketButtonProps.ariaLabel}
-      />
-      <BasketPanel
-        isOpen={basketPanelProps.isOpen}
-        onClose={basketPanelProps.onClose}
-        basketItems={basketPanelProps.basketItems}
-        finalFocusRef={basketButtonProps.btnRef}
-        basketTitle={basketPanelProps.basketTitle}
-        basketCheckoutTitle={basketPanelProps.basketCheckoutTitle}
-        basketEmptyTitle={basketPanelProps.basketEmptyTitle}
-      />
+      <BasketButton {...basketButtonProps} />
+      <BasketPanel {...basketPanelProps} />
     </>
   );
 };

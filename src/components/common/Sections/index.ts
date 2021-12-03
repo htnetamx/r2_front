@@ -1,5 +1,5 @@
 export type { ICarouselSectionProps } from "./CarouselSection/ICarouselSectionProps";
-export type { IProductGridSection } from "./ProductGridSection/IProductGridSection";
+export type { IGridSectionProps } from "./GridSection/IGridSectionProps";
 
 export { CarouselSection } from "./CarouselSection/CarouselSection";
-export { ProductGridSection } from "./ProductGridSection/ProductGridSection";
+export { GridSection } from "./GridSection/GridSection";

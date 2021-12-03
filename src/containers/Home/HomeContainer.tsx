@@ -1,10 +1,7 @@
 import React, { ReactElement } from "react";
 
-import { useDispatch } from "react-redux";
-
-import { addItem } from "dataflows/Basket/BasketSlice";
-import { IBasketItem } from "dataflows/Basket/IBasketItem";
 import { IProduct } from "dataflows/Product/IProduct";
+import { useBasket } from "hooks/basketHooks";
 
 import { Box, Container } from "@chakra-ui/layout";
 
@@ -17,7 +14,7 @@ import { SalesSectionContainer } from "./SalesSectionContainer/SalesSectionConta
  * @returns {ReactElement} The home container.
  */
 export const HomeContainer = (): ReactElement => {
-  const dispatch = useDispatch();
+  const { addToBasket, removeFromBasket, getQtyInBasket } = useBasket();
 
   /**
    * Action on product click.
@@ -29,30 +26,22 @@ export const HomeContainer = (): ReactElement => {
     alert(`Product ${product.name} clicked`);
   };
 
-  /**
-   * Action to add product to cart.
-   * @param {IProduct} product the product clicked.
-   * @returns {void}
-   */
-  const addToCart = (product: IProduct): void => {
-    //TODO: implement add to cart
-    const item: IBasketItem = {
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      quantity: 1,
-      pictureUrl: product.seoFilename,
-    };
-
-    dispatch(addItem(item));
-  };
-
   return (
     <Box bg="#F9F9F9">
       <Container maxW="container.xl">
         <CategorySectionContainer />
-        <SalesSectionContainer onProductClick={onProductClick} addToCart={addToCart} />
-        <LowPriceOffersSectionContainer onProductClick={onProductClick} addToCart={addToCart} />
+        <SalesSectionContainer
+          onProductClick={onProductClick}
+          addToCart={addToBasket}
+          removeFromCart={removeFromBasket}
+          getQtyInCart={getQtyInBasket}
+        />
+        <LowPriceOffersSectionContainer
+          onProductClick={onProductClick}
+          addToCart={addToBasket}
+          removeFromCart={removeFromBasket}
+          getQtyInCart={getQtyInBasket}
+        />
       </Container>
     </Box>
   );

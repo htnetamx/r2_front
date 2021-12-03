@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-import { ICarouselViewConf } from "./ICarouselViewConf";
+import { ICarouselSliderOptions } from "components/common/CarouselSlider";
 
 export interface ICarouselSectionProps {
   /**
@@ -13,7 +13,7 @@ export interface ICarouselSectionProps {
    * Carousel breakpoints
    * @type {{ [key: string]: Record<string, unknown> }}
    */
-  breakpoints: { [key: string]: ICarouselViewConf };
+  breakpoints: { [key: string]: ICarouselSliderOptions };
 
   /**
    * Carousel items

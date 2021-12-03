@@ -2,9 +2,8 @@ import React, { useEffect, ReactElement } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { ProductGridSection } from "components/common/Sections";
-import { addItem } from "dataflows/Basket/BasketSlice";
-import { IBasketItem } from "dataflows/Basket/IBasketItem";
+import { ProductCard } from "components/common/ProductCard";
+import { GridSection } from "components/common/Sections";
 import { selectAllCategories, selectSelectedCategory } from "dataflows/Category/CategorySelectors";
 import { selectCategory } from "dataflows/Category/CategorySlice";
 import { getCategories } from "dataflows/Category/CategoryThunks";
@@ -14,6 +13,7 @@ import {
   selectIsLoadingCategoryProducts,
 } from "dataflows/Product/ProductSelectors";
 import { getCategoryProducts } from "dataflows/Product/ProductThunks";
+import { useBasket } from "hooks/basketHooks";
 
 import { Box, Container } from "@chakra-ui/react";
 
@@ -30,6 +30,7 @@ export const CategoryContainer = (props: ICategoryContainerProps): ReactElement 
   const categories = useSelector(selectAllCategories);
   const categoryProducts = useSelector(selectCategoryProducts);
   const isLoading = useSelector(selectIsLoadingCategoryProducts);
+  const { addToBasket, removeFromBasket, getQtyInBasket } = useBasket();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -57,34 +58,24 @@ export const CategoryContainer = (props: ICategoryContainerProps): ReactElement 
     alert(`Product ${product.name} clicked`);
   };
 
-  /**
-   * Action to add product to cart.
-   * @param {IProduct} product the product clicked.
-   * @returns {void}
-   */
-  const addToCart = (product: IProduct): void => {
-    //TODO: implement add to cart
-    const item: IBasketItem = {
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      quantity: 1,
-      pictureUrl: product.seoFilename,
-    };
-
-    dispatch(addItem(item));
-  };
+  const productElements = categoryProducts.map((product) => {
+    return (
+      <ProductCard
+        key={product.id}
+        product={product}
+        onProductClick={onProductClick}
+        addToCart={addToBasket}
+        removeFromCart={removeFromBasket}
+        qtyOnBasket={getQtyInBasket(product)}
+      />
+    );
+  });
 
   return isLoading ? (
     <Box>Is Loading</Box> //TODO: Add skeleton loader.
   ) : (
     <Container maxW="container.xl">
-      <ProductGridSection
-        title={category?.name || ""}
-        products={categoryProducts}
-        addToCart={addToCart}
-        onProductClick={onProductClick}
-      />
+      <GridSection title={category?.name || ""} elements={productElements} />
     </Container>
   );
 };

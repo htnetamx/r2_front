@@ -2,7 +2,8 @@ import React, { useEffect, ReactElement } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { ProductGridSection } from "components/common/Sections";
+import { ProductCard } from "components/common/ProductCard";
+import { GridSection } from "components/common/Sections";
 import { LOW_PRICE_OFFERS_SECTION_TITLE } from "constants/productConstants";
 import {
   selectIsLoadingLowPriceOffersSection,
@@ -22,11 +23,24 @@ import { ILowPriceOffersSectionContainerProps } from "./ILowPriceOffersSectionCo
 export const LowPriceOffersSectionContainer = (
   props: ILowPriceOffersSectionContainerProps
 ): ReactElement => {
-  const { onProductClick, addToCart } = props;
+  const { onProductClick, addToCart, removeFromCart, getQtyInCart } = props;
 
   const lowPriceOffersSectionProducts = useSelector(selectLowPriceOffersSectionProducts);
   const isLoading = useSelector(selectIsLoadingLowPriceOffersSection);
   const dispatch = useDispatch();
+
+  const productElements = lowPriceOffersSectionProducts.map((product) => {
+    return (
+      <ProductCard
+        key={product.id}
+        product={product}
+        onProductClick={onProductClick}
+        addToCart={addToCart}
+        removeFromCart={removeFromCart}
+        qtyOnBasket={getQtyInCart(product)}
+      />
+    );
+  });
 
   useEffect(() => {
     dispatch(getLowPriceOffersProducts());
@@ -35,11 +49,6 @@ export const LowPriceOffersSectionContainer = (
   return isLoading ? (
     <Box>Is Loading</Box> //TODO: Add skeleton loader.
   ) : (
-    <ProductGridSection
-      title={LOW_PRICE_OFFERS_SECTION_TITLE}
-      products={lowPriceOffersSectionProducts}
-      onProductClick={onProductClick}
-      addToCart={addToCart}
-    />
+    <GridSection title={LOW_PRICE_OFFERS_SECTION_TITLE} elements={productElements} />
   );
 };
