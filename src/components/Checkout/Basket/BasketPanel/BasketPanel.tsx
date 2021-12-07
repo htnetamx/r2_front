@@ -45,7 +45,7 @@ export const BasketPanel = (props: IBasketPanelProps): ReactElement => {
         <DrawerCloseButton />
         <DrawerHeader>{basketTitle}</DrawerHeader>
 
-        <DrawerBody width="100%">
+        <DrawerBody>
           {basketItems.length > 0 ? (
             <BasketItems
               basketItems={basketItems}

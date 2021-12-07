@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 
-import { ProductDetailsContainer } from "containers/Home/ProductDetailsContainer/ProductDetailsContainer";
 import { LayoutContainer } from "containers/Layout/LayoutContainer";
+import { ProductDetailsContainer } from "containers/ProductDetails/ProductDetailsContainer";
 import { useRouter } from "next/router";
 
 /**

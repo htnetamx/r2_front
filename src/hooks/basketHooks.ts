@@ -7,7 +7,7 @@ import { IProduct } from "dataflows/Product/IProduct";
 
 /**
  * Basic hook to get the basket items
- * @returns {() => {}} The basket hook.
+ * @returns {Object} The basket hook.
  */
 export const useBasket = () => {
   const basketItems: IBasketItem[] = useSelector(selectBasketItems);

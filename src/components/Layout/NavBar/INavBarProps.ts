@@ -1,4 +1,4 @@
-import { IBasketProps } from "./Basket/IBasketProps";
+import { IBasketProps } from "../../Checkout/Basket/IBasketProps";
 import { ISearchBarProps } from "./SearchBar";
 import { IStoreSelectorProps } from "./StoreSelector";
 

@@ -2,7 +2,7 @@ import React, { useEffect, ReactElement } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { ProductDetails } from "components/common/ProductDetails/ProductDetails";
+import { ProductDetails } from "components/ProductDetails/ProductDetails";
 import { addItem } from "dataflows/Basket/BasketSlice";
 import { IBasketItem } from "dataflows/Basket/IBasketItem";
 import { IProduct } from "dataflows/Product/IProduct";
