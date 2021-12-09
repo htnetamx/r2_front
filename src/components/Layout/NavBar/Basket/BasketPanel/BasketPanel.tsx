@@ -1,6 +1,7 @@
 import React, { useState, ReactElement } from "react";
 
 import { OrderReview } from "components/common/OrderReview/OrderReview";
+import { OrderSuccess } from "components/common/OrderSuccess/OrderSuccess";
 
 import {
   Button,
@@ -66,6 +67,7 @@ export const BasketPanel = (props: IBasketPanelProps): ReactElement => {
           {currentStep === 2 && basketItems.length > 0 && (
             <OrderReview totalNetPrice={getTotalNetPrice()} />
           )}
+          {currentStep === 3 && basketItems.length > 0 && <OrderSuccess />}
         </DrawerBody>
 
         <DrawerFooter display="flex" justifyContent="center">
