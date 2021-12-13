@@ -5,7 +5,7 @@ import { formatMoney, getDiscount } from "utils/currencyUtils";
 
 import { Box, Button, Text } from "@chakra-ui/react";
 
-import { ImageSlider } from "../ImageSlider/ImageSlider";
+import { ImageSlider } from "../common/ImageSlider/ImageSlider";
 import { IProductDetailsProps } from "./IProductDetailsProps";
 
 /**

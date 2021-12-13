@@ -18,7 +18,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-import { Basket } from "./Basket";
+import { Basket } from "../../Checkout/Basket";
 import { INavBarProps } from "./INavBarProps";
 import { SearchBar } from "./SearchBar";
 import { StoreSelector } from "./StoreSelector";
