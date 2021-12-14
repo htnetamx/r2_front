@@ -55,7 +55,7 @@ export const BasketPanel = (props: IBasketPanelProps): ReactElement => {
         <DrawerHeader>{basketTitle}</DrawerHeader>
 
         <DrawerBody>
-          {basketItems.length > 0 ? (
+          {currentStep === 1 && basketItems.length > 0 ? (
             <BasketItems
               basketItems={basketItems}
               onAddToBasket={onAddToBasket}

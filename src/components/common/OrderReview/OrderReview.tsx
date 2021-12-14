@@ -14,7 +14,7 @@ const fakeProps = {
   deliveryAddress: "Tienda los rivera, calle 34 - 23",
   cash: true,
   creditCard: false,
-  discount: 5,
+  discountCoupon: "DC5",
   deliveryFee: 0,
 };
 
@@ -25,6 +25,17 @@ const fakeProps = {
  */
 export const OrderReview = (props: IOrderReviewProps): ReactElement => {
   const { totalNetPrice } = props;
+  /**
+   * function to get the amount of the discount from a coupon code
+   * @param {string} couponCode code of the discount coupon
+   * @returns {number} the amount of the discount
+   */
+  const getDiscountFromCoupon = (couponCode: string): number => {
+    let discount = 0;
+    if (couponCode === "DC5") return (discount = 5);
+    return discount;
+  };
+
   return (
     <Center display="flex" flexDirection="column" alignItems="center">
       <Box
@@ -149,7 +160,7 @@ export const OrderReview = (props: IOrderReviewProps): ReactElement => {
         >
           Tu orden
         </Text>
-        {fakeProps.discount && (
+        {fakeProps.discountCoupon && (
           <Box
             width="296px"
             height="36px"
@@ -164,7 +175,7 @@ export const OrderReview = (props: IOrderReviewProps): ReactElement => {
             <Text display="flex">
               {"Estás ahorrando"}
               <Text fontWeight="700" marginRight="2px" marginLeft="2px">
-                {formatMoney(fakeProps.discount, CURRENCY_NAME)}
+                {formatMoney(getDiscountFromCoupon(fakeProps.discountCoupon), CURRENCY_NAME)}
               </Text>
               {"en esta orden"}
             </Text>
@@ -172,7 +183,12 @@ export const OrderReview = (props: IOrderReviewProps): ReactElement => {
         )}
         <Box display="flex" justifyContent="space-between" margin="16px">
           <Text>Sub-Total</Text>
-          <Text>{formatMoney(totalNetPrice - fakeProps.discount, CURRENCY_NAME)} </Text>
+          <Text>
+            {formatMoney(
+              totalNetPrice - getDiscountFromCoupon(fakeProps.discountCoupon),
+              CURRENCY_NAME
+            )}{" "}
+          </Text>
         </Box>
         <Box display="flex" justifyContent="space-between" margin="16px">
           <Text>Envío</Text>
@@ -181,7 +197,12 @@ export const OrderReview = (props: IOrderReviewProps): ReactElement => {
         <Divider width="296px" marginLeft="16px" />
         <Box display="flex" justifyContent="space-between" margin="16px" fontWeight="700">
           <Text>Total</Text>
-          <Text>{formatMoney(totalNetPrice - fakeProps.discount, CURRENCY_NAME)}</Text>
+          <Text>
+            {formatMoney(
+              totalNetPrice - getDiscountFromCoupon(fakeProps.discountCoupon),
+              CURRENCY_NAME
+            )}
+          </Text>
         </Box>
       </Box>
     </Center>
