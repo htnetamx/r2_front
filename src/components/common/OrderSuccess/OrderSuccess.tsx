@@ -2,17 +2,12 @@ import React, { useEffect, useState, ReactElement } from "react";
 
 import Lottie from "react-lottie";
 
-import { Center, Text } from "@chakra-ui/react";
+import { Box, Button, Center, Text } from "@chakra-ui/react";
 
 import loader from "../../../../public/assets/images/animations/loader.json";
 import success from "../../../../public/assets/images/animations/success.json";
-
-// TODO: we need this props from the backend
-const fakeProps = {
-  sellerName: "Abarrotes Patoto",
-  pickUpDate: "06/11/2021",
-  pickUpTime: "5:00pm",
-};
+import ImageWomanOne from "../../../../public/assets/images/CheckoutFlow/WomanOne";
+import ImageWomanTwo from "../../../../public/assets/images/CheckoutFlow/WomanTwo";
 
 /**
  *  The order success screen component
@@ -51,16 +46,45 @@ export const OrderSuccess = (): ReactElement => {
           >
             {"¡Su pedido ha sido procesado exitosamente!"}
           </Text>
-          <Text
-            width="302px"
-            height="75px"
-            fontSize="18px"
-            margin="0px 29px 89px 29px"
-            textAlign="center"
-          >
-            Puedes pasar a buscar tu pedido por <strong>{fakeProps.sellerName}</strong>, a partir
-            del día {fakeProps.pickUpDate} después de las {fakeProps.pickUpTime}.
-          </Text>
+          <Box width="327px" height="133px" background="#DADAFF" borderRadius="13px" display="flex">
+            <Box width="64px" height="100px">
+              <ImageWomanOne />
+            </Box>
+            <Box display="flex" flexDirection="column">
+              <Text
+                width="198px"
+                height="47px"
+                fontWeight="bold"
+                fontSize="18px"
+                lineHeight="140%"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                color="#0000FD"
+                textAlign="center"
+                marginBottom="26px"
+              >
+                Gana $40 y regala $40 compartiendo la liga
+              </Text>
+              <Button
+                display="flex"
+                alignItems="center"
+                padding="12px 16px"
+                width="137px"
+                height="46px"
+                background="#3870FF"
+                boxShadow="0px 0px 4px rgba(179, 179, 179, 0.25)"
+                borderRadius="8px"
+                color="#FFFFFF"
+                _hover={{ background: "#3870FF" }}
+              >
+                Compartir liga
+              </Button>
+            </Box>
+            <Box width="64px" height="100px">
+              <ImageWomanTwo />
+            </Box>
+          </Box>
         </>
       ) : (
         <Lottie
