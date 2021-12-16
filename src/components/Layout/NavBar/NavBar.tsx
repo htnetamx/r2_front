@@ -47,7 +47,7 @@ export const NavBar = (props: INavBarProps): React.ReactElement => {
         {isHome ? <HomeNavBar {...props} /> : <PageNavBar {...props} />}
       </Container>
 
-      {showInfoHeader && <InfoHeader {...props} />}
+      {showInfoHeader && <InfoHeader />}
     </Box>
   );
 };

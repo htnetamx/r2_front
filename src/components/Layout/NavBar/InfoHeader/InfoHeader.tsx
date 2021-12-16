@@ -1,19 +1,19 @@
 import React, { ReactElement } from "react";
 import { useSelector } from "react-redux";
 
-import { Box, Flex, Heading, Spacer } from "@chakra-ui/react";
+import { Box, Flex, Spacer } from "@chakra-ui/react";
 
+import RightArrow from "styled/icons/RightArrow";
 import { selectTotalBasketPrice, selectTotalDiscountPrice } from "dataflows/Basket/BasketSelectors";
 import { CURRENCY_NAME } from "constants/productConstants";
 import { formatMoney } from "utils/currencyUtils";
-import RightArrow from "styled/icons/RightArrow";
 
 /**
  * The InfoHeader Component
  * @param {IInfoHeaderProps} props the InfoHeader props.
  * @returns {ReactElement} the InfoHeader component.
  */
-export const InfoHeader = (props: any): ReactElement => {
+export const InfoHeader = (): ReactElement => {
   const totalPrice = useSelector(selectTotalBasketPrice);
   const totalDiscountPrice = useSelector(selectTotalDiscountPrice);
 
