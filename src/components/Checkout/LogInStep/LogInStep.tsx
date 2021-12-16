@@ -2,7 +2,16 @@ import React, { ReactElement } from "react";
 
 import { BiBell } from "react-icons/bi";
 
-import { Box, Checkbox, Circle, Input, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Checkbox,
+  Circle,
+  FormControl,
+  FormErrorMessage,
+  Input,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 
 import { ILogInStepProps } from "./ILogInStepProps";
 
@@ -12,17 +21,30 @@ import { ILogInStepProps } from "./ILogInStepProps";
  * @returns {ReactElement}  the component.
  */
 export const LogInStep = (props: ILogInStepProps): ReactElement => {
+  const { errors, register } = props;
+
   return (
     <Stack spacing={3}>
-      <Input placeholder="Nombre" size="md" />
-      <Input placeholder="Teléfono" size="md" />
-      <Box bg="#EAF7EE" lineHeight="1px" rounded="md">
+      <FormControl>
+        <Input placeholder="Nombre" size="md" errorBorderColor="red.300" {...register("name")} />
+        <FormErrorMessage>{errors.name?.message}</FormErrorMessage>
+      </FormControl>
+      <FormControl>
+        <Input placeholder="Teléfono" size="md" errorBorderColor="red.300" {...register("phone")} />
+        <FormErrorMessage>{errors.phone?.message}</FormErrorMessage>
+      </FormControl>
+      <Box bg="#EAF7EE" lineHeight="1px" rounded="md" errorBorderColor="red.300">
         <Circle bg="#C1E7CB">
           <BiBell />
-          <Text fontSize="sm">Te enviaremos un código de verificación al Whatsapp </Text>
         </Circle>
+        <Text fontSize="sm">Te enviaremos un código de verificación al Whatsapp </Text>
       </Box>
-      <Checkbox>Acepto Los Terminos Y Condiciones de Neta.mx para crear una nueva cuenta</Checkbox>
+      <FormControl>
+        <Checkbox errorBorderColor="red.300" {...register("isTermsAccepted")}>
+          Acepto Los Terminos Y Condiciones de Neta.mx para crear una nueva cuenta
+        </Checkbox>
+        <FormErrorMessage>{errors.isTermsAccepted?.message}</FormErrorMessage>
+      </FormControl>
     </Stack>
   );
 };

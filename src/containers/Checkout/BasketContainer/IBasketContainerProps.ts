@@ -1,6 +1,8 @@
 import { IBasketItem } from "dataflows/Basket/IBasketItem";
 
-export interface IBasketContainerProps {
+import { ICheckoutStepContainerProps } from "../ICheckoutStepContainerProps";
+
+export interface IBasketContainerProps extends ICheckoutStepContainerProps {
   /**
    * The total number of items in the basket
    * @type {number}
@@ -8,34 +10,10 @@ export interface IBasketContainerProps {
   totalBasketItems: number;
 
   /**
-   * The button reference
-   * @type {React.RefObject<HTMLButtonElement>}
-   **/
-  btnRef: React.RefObject<HTMLButtonElement>;
-
-  /**
    * The basket items
    * @type {IBasketItem[]}
    **/
   basketItems: IBasketItem[];
-
-  /**
-   * Indicates whether the panel is open
-   * @type {boolean}
-   */
-  isOpen: boolean;
-
-  /**
-   * Open the basket action.
-   * @type {() => void}
-   */
-  onOpen: () => void;
-
-  /**
-   * Close the basket action.
-   * @type {() => void}
-   **/
-  onClose: () => void;
 
   /**
    * Action to add an item to the basket

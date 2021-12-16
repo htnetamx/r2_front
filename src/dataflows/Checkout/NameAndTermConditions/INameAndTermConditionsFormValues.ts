@@ -6,12 +6,6 @@ export interface ILogInStepFormValues {
   name: string;
 
   /**
-   * User phone
-   * @type {string}
-   */
-  phone: string;
-
-  /**
    * Indicates if user agreed with terms and conditions
    * @type {boolean}
    **/
