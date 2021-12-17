@@ -14,6 +14,7 @@ import { screenSizes } from "styled/screen";
 import { Box } from "@chakra-ui/react";
 import { BoxItem } from "./Boxes/Box";
 import {
+  FEATURED_SLIDE_SPACE_BETWEEN_ITEMS_DESKTOP,
   MAX_PRODUCTS_PER_SLIDE_DESKTOP,
   MAX_PRODUCTS_PER_SLIDE_MOBILE,
   PRODUCT_SLIDE_SPACE_BETWEEN_ITEMS_DESKTOP,
@@ -25,7 +26,7 @@ import {
  * @returns {ReactElement} React element.
  */
 export const FeaturedSectionContainer = (): ReactElement => {
-  const categories = useSelector(selectAllCategories);
+  // const categories = useSelector(selectAllCategories);
   const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
   // const router = useRouter();
@@ -54,7 +55,7 @@ export const FeaturedSectionContainer = (): ReactElement => {
       spaceBetween: PRODUCT_SLIDE_SPACE_BETWEEN_ITEMS_DESKTOP,
     },
     [screenSizes.lg]: {
-      slidesPerView: MAX_PRODUCTS_PER_SLIDE_DESKTOP,
+      slidesPerView: FEATURED_SLIDE_SPACE_BETWEEN_ITEMS_DESKTOP,
       spaceBetween: PRODUCT_SLIDE_SPACE_BETWEEN_ITEMS_DESKTOP,
     },
   };
