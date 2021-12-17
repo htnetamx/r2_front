@@ -26,7 +26,7 @@ export const selectTotalBasketPrice = (state: RootState): number =>
   state.basket.basketItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
 /**
- * Selector to get the basket total from the state.
+ * Selector to get the total discount from the state.
  * @param {RootState} state the root state
  * @returns {number} the basket total
  */
