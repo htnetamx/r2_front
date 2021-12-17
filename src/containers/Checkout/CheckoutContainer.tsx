@@ -1,4 +1,4 @@
-import React, { useState, ReactElement } from "react";
+import React, { useRef, useState, ReactElement } from "react";
 
 import { Step, Steps, Wizard } from "react-albus";
 import { useDispatch, useSelector } from "react-redux";
@@ -57,6 +57,7 @@ export const CheckoutContainer = (): ReactElement => {
   const basketItems = useSelector(selectBasketItems);
   const currentStep = useSelector(selectCurrentStep);
   const isOpen = useSelector(selectIsOpen);
+  const btnRef = useRef<HTMLButtonElement>(null);
 
   const [isClickingNextButton, setIsClickingNextButton] = useState(false);
   const [checkoutForm, setCheckoutForm] = useState<ICheckoutFormValues>();
@@ -95,7 +96,7 @@ export const CheckoutContainer = (): ReactElement => {
    * On close panel action
    * @returns {void}
    **/
-  const onClose = () => dispatch(onCloseAction);
+  const onClose = () => dispatch(onCloseAction());
 
   /**
    * Save the checkout form
@@ -155,7 +156,7 @@ export const CheckoutContainer = (): ReactElement => {
   ];
 
   return (
-    <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="md">
+    <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="md" finalFocusRef={btnRef}>
       <DrawerOverlay />
       <DrawerContent>
         <DrawerCloseButton />
