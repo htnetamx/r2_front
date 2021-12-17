@@ -4,14 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Footer } from "components/Layout/Footer";
 import { INavBarProps, NavBar } from "components/Layout/NavBar";
+import { BASKET_TITLE } from "constants/basketConstants";
 import { SEARCH_BAR_PLACEHOLDER } from "constants/searchBarConstants";
-import { selectBasketItems, selectTotalBasketItems } from "dataflows/Basket/BasketSelectors";
-import { addQuantity, removeQuantity } from "dataflows/Basket/BasketSlice";
+import { selectTotalBasketItems } from "dataflows/Basket/BasketSelectors";
+import { onOpen as onOpenAction } from "dataflows/Checkout/CheckoutSlice";
 import { useRouter } from "next/router";
 
-import { useDisclosure, Box } from "@chakra-ui/react";
-
-import { BASKET_EMPTY_TITLE, BASKET_TITLE, CHECKOUT_TITLE } from "../../constants/basketConstants";
+import { Box } from "@chakra-ui/react";
 
 /**
  * The Layout container component
@@ -19,30 +18,20 @@ import { BASKET_EMPTY_TITLE, BASKET_TITLE, CHECKOUT_TITLE } from "../../constant
  * @returns {ReactElement} The layout container.
  */
 export const LayoutContainer: FC = ({ children }): ReactElement => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
   const dispatch = useDispatch();
 
   const btnRef = useRef<HTMLButtonElement>(null);
-  const basketItems = useSelector(selectBasketItems);
   const totalBasketItems = useSelector(selectTotalBasketItems);
   const isHome = router.pathname === "/";
 
   /**
-   * Add quantity to the basket
-   * @param {string} productId The product id
+   * Handles on open action
    * @returns {void}
    **/
-  const onAddToBasket = (productId: string) => {
-    dispatch(addQuantity(productId));
+  const onOpen = (): void => {
+    dispatch(onOpenAction());
   };
-
-  /**
-   * Remove quantity from the basket
-   * @param {string} productId The product id
-   * @returns {void}
-   **/
-  const onRemoveFromBasket = (productId: string) => dispatch(removeQuantity(productId));
 
   const navBarProps: INavBarProps = {
     isHome,
@@ -50,23 +39,10 @@ export const LayoutContainer: FC = ({ children }): ReactElement => {
       searchBarPlaceholder: SEARCH_BAR_PLACEHOLDER,
     },
     basketProps: {
-      basketButtonProps: {
-        totalItems: totalBasketItems,
-        onClick: onOpen,
-        btnRef,
-        ariaLabel: BASKET_TITLE,
-      },
-      basketPanelProps: {
-        isOpen,
-        onClose,
-        basketItems,
-        basketTitle: BASKET_TITLE,
-        basketCheckoutTitle: CHECKOUT_TITLE,
-        basketEmptyTitle: BASKET_EMPTY_TITLE,
-        finalFocusRef: btnRef,
-        onAddToBasket,
-        onRemoveFromBasket,
-      },
+      totalItems: totalBasketItems,
+      onClick: onOpen,
+      btnRef,
+      ariaLabel: BASKET_TITLE,
     },
     storeSelectorProps: {
       storeSelectorOptions: [{ key: "tiendita", value: "Soda Fountain" }], //TODO: Retrieve stores from backend and state,

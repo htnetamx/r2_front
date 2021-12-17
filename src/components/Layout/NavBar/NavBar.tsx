@@ -18,7 +18,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-import { Basket } from "../../Checkout/Basket";
+import { BasketButton } from "./BasketButton/BasketButton";
 import { INavBarProps } from "./INavBarProps";
 import { SearchBar } from "./SearchBar";
 import { StoreSelector } from "./StoreSelector";
@@ -30,7 +30,6 @@ import { StoreSelector } from "./StoreSelector";
  */
 export const NavBar = (props: INavBarProps): React.ReactElement => {
   const { isHome } = props;
-
   return (
     <Box
       sx={{ position: "sticky", top: "0" }}
@@ -87,7 +86,7 @@ const HomeNavBar = (props: INavBarProps): React.ReactElement => {
         </Flex>
         <Spacer />
         <Stack flex={{ base: 1, md: 0 }} justify={"flex-end"} direction={"row"} spacing={6}>
-          <Basket {...basketProps} />
+          <BasketButton {...basketProps} />
         </Stack>
       </Flex>
       <Stack direction="column" pt={2} pb={2} hidden={hasScrolled}>
@@ -124,7 +123,7 @@ const PageNavBar = (props: INavBarProps): React.ReactElement => {
           size="lg"
           variant={"ghost"}
         />
-        <Basket {...basketProps} />
+        <BasketButton {...basketProps} />
       </Stack>
     </Flex>
   );

@@ -20,12 +20,6 @@ export interface ICheckoutStepContainerProps {
   currentStep: CheckoutWizardSteps;
 
   /**
-   * The callback function to set the current step
-   * @type {(currentStep: CheckoutWizardSteps) => void}
-   **/
-  setCurrentStep: (step: CheckoutWizardSteps) => void;
-
-  /**
    * Indicates if the user is clicking on the next button
    * @type {boolean}
    **/
@@ -36,4 +30,10 @@ export interface ICheckoutStepContainerProps {
    * @type {(isClickingNextButton: boolean) => void}
    **/
   setIsClickingNextButton: (isClickingNextButton: boolean) => void;
+
+  /**
+   * Load the next step
+   * @type {() => void}
+   **/
+  loadNextStep: () => void;
 }

@@ -12,10 +12,4 @@ export interface ICheckoutState {
    * @type {boolean}
    **/
   isOpen: boolean;
-
-  /**
-   * Validation list for the checkout form.
-   * @type {Map<CheckoutWizardSteps, boolean>}
-   **/
-  validationList: Map<CheckoutWizardSteps, boolean>;
 }

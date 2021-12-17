@@ -1,7 +1,8 @@
-import { ReactElement } from "react";
+import React, { useEffect, ReactElement } from "react";
 
-import { Basket, IBasketProps } from "components/Checkout/Basket";
-import { BASKET_EMPTY_TITLE, BASKET_TITLE, CHECKOUT_TITLE } from "constants/basketConstants";
+import { BasketItems } from "components/Checkout/Basket/BasketItems";
+import { IBasketItemsProps } from "components/Checkout/Basket/IBasketItemsProps";
+import { useIsMounted } from "hooks/useIsMounted";
 
 import { IBasketContainerProps } from "./IBasketContainerProps";
 
@@ -12,34 +13,27 @@ import { IBasketContainerProps } from "./IBasketContainerProps";
  */
 export const BasketContainer = (props: IBasketContainerProps): ReactElement => {
   const {
-    onOpen,
-    onClose,
     onAddToBasket,
     onRemoveFromBasket,
-    btnRef,
-    totalBasketItems,
     basketItems,
-    isOpen,
+    isClickingNextButton,
+    setIsClickingNextButton,
+    loadNextStep,
   } = props;
 
-  const basketProps: IBasketProps = {
-    basketButtonProps: {
-      totalItems: totalBasketItems,
-      onClick: onOpen,
-      btnRef,
-      ariaLabel: BASKET_TITLE,
-    },
-    basketPanelProps: {
-      isOpen,
-      onClose,
-      basketItems,
-      basketTitle: BASKET_TITLE,
-      basketCheckoutTitle: CHECKOUT_TITLE,
-      basketEmptyTitle: BASKET_EMPTY_TITLE,
-      finalFocusRef: btnRef,
-      onAddToBasket,
-      onRemoveFromBasket,
-    },
+  const isMounted = useIsMounted();
+
+  useEffect(() => {
+    if (!isMounted) {
+      setIsClickingNextButton && setIsClickingNextButton(false);
+      loadNextStep && loadNextStep();
+    }
+  }, [isClickingNextButton]);
+
+  const basketProps: IBasketItemsProps = {
+    onAddToBasket,
+    onRemoveFromBasket,
+    basketItems,
   };
-  return <Basket {...basketProps} />;
+  return <BasketItems {...basketProps} />;
 };

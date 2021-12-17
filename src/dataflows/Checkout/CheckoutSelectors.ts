@@ -15,11 +15,3 @@ export const selectIsOpen = (state: RootState): boolean => state.checkout.isOpen
  */
 export const selectCurrentStep = (state: RootState): CheckoutWizardSteps =>
   state.checkout.currentStep;
-
-/**
- * Selector to get the validation list.
- * @param {RootState} state the root state.
- * @returns {Map<CheckoutWizardSteps, boolean>} the validation list.
- */
-export const selectValidationList = (state: RootState): Map<CheckoutWizardSteps, boolean> =>
-  state.checkout.validationList;

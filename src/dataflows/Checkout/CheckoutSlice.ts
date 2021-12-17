@@ -7,10 +7,6 @@ import { ICheckoutState } from "./ICheckoutState";
 const initialState: ICheckoutState = {
   isOpen: false,
   currentStep: CheckoutWizardSteps.BASKET,
-  validationList: new Map([
-    [CheckoutWizardSteps.BASKET, true],
-    [CheckoutWizardSteps.NAME_AND_TERM_CONDITIONS, false],
-  ]),
 };
 
 const categorySlice = createSlice({
@@ -28,9 +24,6 @@ const categorySlice = createSlice({
       const previousStep = state.currentStep - 1;
       state.currentStep = previousStep;
     },
-    setValidationList: (state, action: PayloadAction<Map<CheckoutWizardSteps, boolean>>) => {
-      state.validationList = action.payload;
-    },
     onOpen: (state) => {
       state.isOpen = true;
     },
@@ -43,14 +36,8 @@ const categorySlice = createSlice({
 /**
  * Actions
  */
-export const {
-  setCurrentStep,
-  moveToNextStep,
-  moveToPreviousStep,
-  setValidationList,
-  onClose,
-  onOpen,
-} = categorySlice.actions;
+export const { setCurrentStep, moveToNextStep, moveToPreviousStep, onClose, onOpen } =
+  categorySlice.actions;
 
 /**
  * Reducers

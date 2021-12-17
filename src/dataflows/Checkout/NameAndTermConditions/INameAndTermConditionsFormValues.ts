@@ -1,4 +1,4 @@
-export interface ILogInStepFormValues {
+export interface INameAndTermConditionsFormValues {
   /**
    * User name
    * @type {string}

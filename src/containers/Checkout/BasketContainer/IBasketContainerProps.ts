@@ -4,12 +4,6 @@ import { ICheckoutStepContainerProps } from "../ICheckoutStepContainerProps";
 
 export interface IBasketContainerProps extends ICheckoutStepContainerProps {
   /**
-   * The total number of items in the basket
-   * @type {number}
-   */
-  totalBasketItems: number;
-
-  /**
    * The basket items
    * @type {IBasketItem[]}
    **/
