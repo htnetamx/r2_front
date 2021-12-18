@@ -18,6 +18,12 @@ export interface IBasketItem {
   price: number;
 
   /**
+   * Item old price.
+   * @type {number}
+   */
+  oldPrice: number;
+
+  /**
    * The quantity of the item.
    * @type {number}
    */

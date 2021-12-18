@@ -23,6 +23,7 @@ export const useBasket = () => {
       id: product.id,
       name: product.name,
       price: product.price,
+      oldPrice: product.oldPrice,
       pictureUrl: product.seoFilename,
       minQuantity: product.orderMinimumQuantity,
       maxQuantity: product.orderMaximumQuantity,
