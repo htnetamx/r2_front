@@ -1,17 +1,17 @@
 import { DeepMap, FieldError, UseFormRegister } from "react-hook-form";
 
-import { ILogInStepFormValues } from "dataflows/Checkout/LogInStep/ILogInStepFormValues";
+import { IPostalCodeFormValues } from "dataflows/Checkout/PostalCode/IPostalCodeFormValues";
 
-export interface ILogInStepProps {
+export interface IPostalCodeStepProps {
   /**
    * Errors for the form fields.
    * @type {DeepMap<ILogInStepFormValues, FieldError>}
    */
-  errors: DeepMap<Partial<ILogInStepFormValues>, FieldError | undefined>;
+  errors: DeepMap<Partial<IPostalCodeFormValues>, FieldError | undefined>;
 
   /**
    * The form register.
    * @type {UseFormRegister<ILogInStepFormValues>}
    */
-  register: UseFormRegister<ILogInStepFormValues>;
+  register: UseFormRegister<IPostalCodeFormValues>;
 }

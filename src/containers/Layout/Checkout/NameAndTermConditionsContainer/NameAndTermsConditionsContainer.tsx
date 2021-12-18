@@ -2,13 +2,13 @@ import { useEffect, ReactElement } from "react";
 
 import { useForm } from "react-hook-form";
 
-import { LogInStep } from "components/Checkout/LogInStep/LogInStep";
+import { NameAndTermConditionsStep } from "components/Layout/Checkout/NameAndTermsConditionsStep/NameAndTermConditionsStep";
 import { CheckoutWizardSteps } from "constants/checkoutConstants";
 import { INameAndTermConditionsFormValues } from "dataflows/Checkout/NameAndTermConditions/INameAndTermConditionsFormValues";
 import { NameAndTermConditionsValidationSchema } from "dataflows/Checkout/NameAndTermConditions/NameAndTermConditionsValidationSchemaValidationSchema";
 import { useIsMounted } from "hooks/useIsMounted";
 
-import { yupResolver } from "@hookform/resolvers/yup";
+import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 
 import { INameAndTermsConditionsContainerProps } from "./INameAndTermsConditionsContainerProps";
 
@@ -22,7 +22,7 @@ export const NameAndTermsConditionsContainer = (
 ): ReactElement => {
   const {
     nameAndTermConditionsFormValues,
-    saveNameAndTermConditionsFormValues,
+    saveFormValues,
     isClickingNextButton,
     setIsClickingNextButton,
     validationList,
@@ -45,13 +45,13 @@ export const NameAndTermsConditionsContainer = (
   const isMounted = useIsMounted();
 
   useEffect(() => {
-    if (!isMounted) {
+    if (isMounted && isClickingNextButton) {
       const isTriggering = trigger();
       isTriggering.then((onfulfilled) => {
         if (!!validationList) {
           validationList.set(CheckoutWizardSteps.NAME_AND_TERM_CONDITIONS, onfulfilled);
           setValidationList && setValidationList(validationList);
-          saveNameAndTermConditionsFormValues && saveNameAndTermConditionsFormValues(getValues());
+          saveFormValues && saveFormValues(getValues());
           loadNextStep && loadNextStep();
         }
       });
@@ -59,5 +59,5 @@ export const NameAndTermsConditionsContainer = (
     }
   }, [isClickingNextButton]);
 
-  return <LogInStep errors={errors} register={register} />;
+  return <NameAndTermConditionsStep errors={errors} register={register} />;
 };

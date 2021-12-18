@@ -1,6 +1,9 @@
 export enum CheckoutWizardSteps {
-  BASKET = 0,
-  NAME_AND_TERM_CONDITIONS = 1,
+  BASKET = 1,
+  NAME_AND_TERM_CONDITIONS = 2,
+  PHONE_NUMBER = 3,
+  VERIFICATION_CODE = 4,
+  POSTAL_CODE = 5,
 }
 
-export const CHECKOUT_NEXT_STEP = "Continuar";
+export const COUNTDOWN_TIMER_SECONDS = 45;

@@ -12,6 +12,8 @@ import { useRouter } from "next/router";
 
 import { Box } from "@chakra-ui/react";
 
+import { CheckoutContainer } from "./Checkout/CheckoutContainer";
+
 /**
  * The Layout container component
  * @param {ReactNode} param0 children
@@ -52,6 +54,7 @@ export const LayoutContainer: FC = ({ children }): ReactElement => {
   return (
     <Box>
       <NavBar {...navBarProps} />
+      <CheckoutContainer />
       <main>{children}</main>
       <Footer />
     </Box>

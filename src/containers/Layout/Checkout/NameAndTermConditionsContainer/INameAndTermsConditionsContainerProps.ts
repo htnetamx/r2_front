@@ -8,12 +8,4 @@ export interface INameAndTermsConditionsContainerProps extends ICheckoutStepCont
    * @type {INameAndTermsConditionsFormValues}
    **/
   nameAndTermConditionsFormValues?: INameAndTermConditionsFormValues;
-
-  /**
-   * The callback function to set the name and terms conditions form values
-   * @type {(nameAndTermConditionsFormValues: INameAndTermsConditionsFormValues) => void}
-   **/
-  saveNameAndTermConditionsFormValues?: (
-    nameAndTermConditionsFormValues: INameAndTermConditionsFormValues
-  ) => void;
 }

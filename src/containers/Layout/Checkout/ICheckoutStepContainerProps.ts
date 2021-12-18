@@ -1,4 +1,5 @@
 import { CheckoutWizardSteps } from "constants/checkoutConstants";
+import { ICheckoutFormValues } from "dataflows/Checkout/ICheckoutFormValues";
 
 export interface ICheckoutStepContainerProps {
   /**
@@ -36,4 +37,10 @@ export interface ICheckoutStepContainerProps {
    * @type {() => void}
    **/
   loadNextStep: () => void;
+
+  /**
+   * Save the form values
+   * @type {(formValues: ICheckoutFormValues) => void}
+   **/
+  saveFormValues?: (formValues: Partial<ICheckoutFormValues>) => void;
 }

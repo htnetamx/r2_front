@@ -1,7 +1,7 @@
 import React, { useEffect, ReactElement } from "react";
 
-import { BasketItems } from "components/Checkout/Basket/BasketItems";
-import { IBasketItemsProps } from "components/Checkout/Basket/IBasketItemsProps";
+import { BasketItems } from "components/Layout/Checkout/Basket/BasketItems";
+import { IBasketItemsProps } from "components/Layout/Checkout/Basket/IBasketItemsProps";
 import { useIsMounted } from "hooks/useIsMounted";
 
 import { IBasketContainerProps } from "./IBasketContainerProps";
@@ -24,7 +24,7 @@ export const BasketContainer = (props: IBasketContainerProps): ReactElement => {
   const isMounted = useIsMounted();
 
   useEffect(() => {
-    if (!isMounted) {
+    if (isMounted && isClickingNextButton) {
       setIsClickingNextButton && setIsClickingNextButton(false);
       loadNextStep && loadNextStep();
     }

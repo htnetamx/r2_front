@@ -11,5 +11,5 @@ export interface ICheckoutStep {
    * The render function for the step
    * @type {() => JSX.Element}
    **/
-  render: (next: () => void) => JSX.Element;
+  render: () => JSX.Element;
 }
