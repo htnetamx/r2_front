@@ -64,29 +64,29 @@ export const DiscountSectionContainer = (): ReactElement => {
   const featuredObject = [
     {
       id: "1",
-      name: "Producto por debajo de $10 pesos!",
+      content: "Producto por debajo de $10 pesos!",
       color: "#FFA800",
     },
     {
       id: "2",
-      name: "Producto por debajo de $20 pesos!",
+      content: "Producto por debajo de $20 pesos!",
       color: "#0038FF",
     },
     {
       id: "3",
-      name: "Producto por debajo de $40 pesos!",
+      content: "Producto por debajo de $40 pesos!",
       color: "#FF002A",
     },
     {
       id: "4",
-      name: "Producto por debajo de $50 pesos!",
+      content: "Producto por debajo de $50 pesos!",
       color: "#01680B",
     },
   ];
 
   const featuredElements = Array.isArray(featuredObject)
     ? featuredObject.map((featured) => {
-        return <CarouselBox key={featured.id} name={featured.name} color={featured.color} />;
+        return <CarouselBox key={featured.id} name={featured.content} color={featured.color} />;
       })
     : [];
 

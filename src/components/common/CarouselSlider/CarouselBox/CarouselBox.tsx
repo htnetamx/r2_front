@@ -1,12 +1,13 @@
 import { ReactElement } from "react";
 import { Box, Square, Text } from "@chakra-ui/react";
+import { ICarouselBox } from "./ICarouselBox";
 
 /**
- * BoxItem component.
- * @param {props} props the product clicked.
+ * CarouselBox component.
+ * @param {ICarouselBox} props the product clicked.
  * @returns {ReactElement} React element.
  */
-export const CarouselBox = (props: any): ReactElement => {
+export const CarouselBox = (props: ICarouselBox): ReactElement => {
   /**
    * BoxItem component.
    * @param {name} name the product clicked.
@@ -27,10 +28,10 @@ export const CarouselBox = (props: any): ReactElement => {
           bg="white"
           borderWidth="1px"
           backgroundColor={props.color}
-          onClick={() => filterByDiscount(props.name)}
+          onClick={() => filterByDiscount(props.content)}
         >
           <Text p="4px" fontWeight="bold" fontSize="xl" color="white" textAlign="center">
-            {props.name}
+            {props.content}
           </Text>
         </Square>
       </Box>
