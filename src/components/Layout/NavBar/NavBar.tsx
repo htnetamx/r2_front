@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 
 import { BsChevronLeft, BsSearch } from "react-icons/bs";
+import { useSelector } from "react-redux";
 
 import { RETURN_TO_HOME } from "constants/navBarConstants";
+import { selectTotalBasketItems } from "dataflows/Basket/BasketSelectors";
 import throttle from "lodash.throttle";
 import { useRouter } from "next/router";
 
@@ -19,12 +20,11 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-import { Basket } from "./Basket";
+import { BasketButton } from "./BasketButton/BasketButton";
 import { INavBarProps } from "./INavBarProps";
+import { InfoHeader } from "./InfoHeader";
 import { SearchBar } from "./SearchBar";
 import { StoreSelector } from "./StoreSelector";
-import { InfoHeader } from "./InfoHeader";
-import { selectTotalBasketItems } from "dataflows/Basket/BasketSelectors";
 
 /**
  * The NavBar component.
@@ -94,7 +94,7 @@ const HomeNavBar = (props: INavBarProps): React.ReactElement => {
         </Flex>
         <Spacer />
         <Stack flex={{ base: 1, md: 0 }} justify={"flex-end"} direction={"row"} spacing={6}>
-          <Basket {...basketProps} />
+          <BasketButton {...basketProps} />
         </Stack>
       </Flex>
       <Stack direction="column" pt={2} pb={2} hidden={hasScrolled}>
@@ -131,7 +131,7 @@ const PageNavBar = (props: INavBarProps): React.ReactElement => {
           size="lg"
           variant={"ghost"}
         />
-        <Basket {...basketProps} />
+        <BasketButton {...basketProps} />
       </Stack>
     </Flex>
   );
