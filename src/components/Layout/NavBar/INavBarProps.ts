@@ -1,4 +1,4 @@
-import { IBasketProps } from "./Basket/IBasketProps";
+import { IBasketButtonProps } from "./BasketButton/IBasketButtonProps";
 import { ISearchBarProps } from "./SearchBar";
 import { IStoreSelectorProps } from "./StoreSelector";
 
@@ -17,9 +17,9 @@ export interface INavBarProps {
 
   /**
    * The basket props.
-   * @type {IBasketProps}
+   * @type {IBasketButtonProps}
    */
-  basketProps: IBasketProps;
+  basketProps: IBasketButtonProps;
 
   /**
    * Indicates if is home
