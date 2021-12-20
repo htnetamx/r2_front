@@ -7,7 +7,6 @@ export const MAX_PRODUCTS_PER_SLIDE_MOBILE = 2;
 export const MAX_PRODUCTS_PER_SLIDE_DESKTOP = 7;
 export const PRODUCT_SLIDE_SPACE_BETWEEN_ITEMS_MOBILE = 10;
 export const PRODUCT_SLIDE_SPACE_BETWEEN_ITEMS_DESKTOP = 20;
-export const FEATURED_SLIDE_SPACE_BETWEEN_ITEMS_DESKTOP = 4;
 export const GET_PRODUCTS_SALES_SECTION_URL = "promo/";
 export const GET_PRODUCTS_URL = "product/";
 export const SALES_SECTION_TITLE = "Promos del día";

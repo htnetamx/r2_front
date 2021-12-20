@@ -3,8 +3,11 @@ import React, { useEffect, ReactElement } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { CarouselSection } from "components/common/Sections";
-import { FEATURED_TITLE } from "constants/categoryConstants";
-import { selectAllCategories, selectIsLoading } from "dataflows/Category/CategorySelectors";
+import { DISCOUNT_TITLE } from "constants/categoryConstants";
+import {
+  // selectAllCategories,
+  selectIsLoading,
+} from "dataflows/Category/CategorySelectors";
 // import { selectCategory } from "dataflows/Category/CategorySlice";
 import { getCategories } from "dataflows/Category/CategoryThunks";
 // import { ICategory } from "dataflows/Category/ICategory";
@@ -12,20 +15,13 @@ import { getCategories } from "dataflows/Category/CategoryThunks";
 import { screenSizes } from "styled/screen";
 
 import { Box } from "@chakra-ui/react";
-import { BoxItem } from "./Boxes/Box";
-import {
-  FEATURED_SLIDE_SPACE_BETWEEN_ITEMS_DESKTOP,
-  MAX_PRODUCTS_PER_SLIDE_DESKTOP,
-  MAX_PRODUCTS_PER_SLIDE_MOBILE,
-  PRODUCT_SLIDE_SPACE_BETWEEN_ITEMS_DESKTOP,
-  PRODUCT_SLIDE_SPACE_BETWEEN_ITEMS_MOBILE,
-} from "constants/productConstants";
+import { CarouselBox } from "../../../components/common/CarouselSlider/CarouselBox/CarouselBox";
 
 /**
  * Category section container component.
  * @returns {ReactElement} React element.
  */
-export const FeaturedSectionContainer = (): ReactElement => {
+export const DiscountSectionContainer = (): ReactElement => {
   // const categories = useSelector(selectAllCategories);
   const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
@@ -47,16 +43,20 @@ export const FeaturedSectionContainer = (): ReactElement => {
 
   const breakpoints = {
     [screenSizes.xs]: {
-      slidesPerView: MAX_PRODUCTS_PER_SLIDE_MOBILE,
-      spaceBetween: PRODUCT_SLIDE_SPACE_BETWEEN_ITEMS_MOBILE,
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+    [screenSizes.sm]: {
+      slidesPerView: 3,
+      spaceBetween: 20,
     },
     [screenSizes.md]: {
-      slidesPerView: MAX_PRODUCTS_PER_SLIDE_DESKTOP,
-      spaceBetween: PRODUCT_SLIDE_SPACE_BETWEEN_ITEMS_DESKTOP,
+      slidesPerView: 4,
+      spaceBetween: 20,
     },
     [screenSizes.lg]: {
-      slidesPerView: FEATURED_SLIDE_SPACE_BETWEEN_ITEMS_DESKTOP,
-      spaceBetween: PRODUCT_SLIDE_SPACE_BETWEEN_ITEMS_DESKTOP,
+      slidesPerView: 4,
+      spaceBetween: 20,
     },
   };
 
@@ -86,7 +86,7 @@ export const FeaturedSectionContainer = (): ReactElement => {
 
   const featuredElements = Array.isArray(featuredObject)
     ? featuredObject.map((featured) => {
-        return <BoxItem key={featured.id} name={featured.name} color={featured.color} />;
+        return <CarouselBox key={featured.id} name={featured.name} color={featured.color} />;
       })
     : [];
 
@@ -95,7 +95,7 @@ export const FeaturedSectionContainer = (): ReactElement => {
   ) : (
     <>
       <CarouselSection
-        title={FEATURED_TITLE}
+        title={DISCOUNT_TITLE}
         elements={featuredElements}
         breakpoints={breakpoints}
       />

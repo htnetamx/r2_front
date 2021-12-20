@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 import { Box, Square, Text } from "@chakra-ui/react";
 
 /**
@@ -6,13 +6,13 @@ import { Box, Square, Text } from "@chakra-ui/react";
  * @param {props} props the product clicked.
  * @returns {ReactElement} React element.
  */
-export const BoxItem = (props: any): ReactElement => {
+export const CarouselBox = (props: any): ReactElement => {
   /**
    * BoxItem component.
    * @param {name} name the product clicked.
    * @returns {void} function element.
    */
-  const filterByFeatured = (name: string) => console.log("Filter by", name);
+  const filterByDiscount = (name: string) => console.log("Filter by", name);
   return (
     <Box>
       <Box
@@ -27,7 +27,7 @@ export const BoxItem = (props: any): ReactElement => {
           bg="white"
           borderWidth="1px"
           backgroundColor={props.color}
-          onClick={() => filterByFeatured(props.name)}
+          onClick={() => filterByDiscount(props.name)}
         >
           <Text p="4px" fontWeight="bold" fontSize="xl" color="white" textAlign="center">
             {props.name}
