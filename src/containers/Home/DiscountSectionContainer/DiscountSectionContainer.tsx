@@ -86,7 +86,7 @@ export const DiscountSectionContainer = (): ReactElement => {
 
   const featuredElements = Array.isArray(featuredObject)
     ? featuredObject.map((featured) => {
-        return <CarouselBox key={featured.id} name={featured.content} color={featured.color} />;
+        return <CarouselBox key={featured.id} content={featured.content} color={featured.color} />;
       })
     : [];
 
