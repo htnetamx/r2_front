@@ -18,7 +18,7 @@ import { Box } from "@chakra-ui/react";
 import { CarouselBox } from "../../../components/common/CarouselSlider/CarouselBox/CarouselBox";
 
 /**
- * Category section container component.
+ * DiscountSectionContainer section container component.
  * @returns {ReactElement} React element.
  */
 export const DiscountSectionContainer = (): ReactElement => {
