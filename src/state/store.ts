@@ -1,6 +1,7 @@
 import { basketReducer } from "dataflows/Basket/BasketSlice";
 import { categoryReducer } from "dataflows/Category/CategorySlice";
 import { checkoutReducer } from "dataflows/Checkout/CheckoutSlice";
+import { storeReducer } from "dataflows/Stores/StoreSlice";
 
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   category: categoryReducer,
   product: productReducer,
   checkout: checkoutReducer,
+  store: storeReducer,
 });
 
 export const store = configureStore({
