@@ -25,11 +25,11 @@ export interface IStoreState {
    */
   selectedStore: IStore;
 
-  // /**
-  //  * Indicates if the products are loading.
-  //  * @type {boolean}
-  //  */
-  // isLoadingSalesSection: boolean;
+  /**
+   * Indicates if the products are loading.
+   * @type {boolean}
+   */
+  isLoadingStore: boolean;
 
   // /**
   //  * Indicates if the products are loading.

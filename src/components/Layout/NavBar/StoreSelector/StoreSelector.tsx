@@ -1,10 +1,13 @@
-import { ReactElement } from "react";
+import { ReactElement, useEffect } from "react";
 
 import { GrLocation } from "react-icons/gr";
 
 import { Select, Stack, Text } from "@chakra-ui/react";
 
 import { IStoreSelectorProps } from "./IStoreSelectorProps";
+import { useDispatch, useSelector } from "react-redux";
+import { getStoreByName } from "dataflows/Stores/StoreThunks";
+import { selectStore } from "dataflows/Stores/StoreSelectors";
 
 /**
  * The store selector component
@@ -13,6 +16,15 @@ import { IStoreSelectorProps } from "./IStoreSelectorProps";
  */
 export const StoreSelector = (props: IStoreSelectorProps): ReactElement => {
   const { storeSelectorOptions, hasScrolled } = props;
+  const selectStores = useSelector(selectStore);
+  console.log(selectStores);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getStoreByName());
+  }, []);
+
   return (
     <Stack direction="column">
       <Select variant="unstyled" fontWeight="700" fontSize={{ base: "1.2rem", lg: "1.5rem" }}>

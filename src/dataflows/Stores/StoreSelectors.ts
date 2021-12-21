@@ -14,5 +14,4 @@ export const selectStore = (state: RootState): IStore => state.store.selectedSto
  * @param {RootState} state the root state
  * @returns {boolean} the isLoadingSalesSection state
  */
-export const selectIsLoadingStores = (state: RootState): boolean =>
-  state.product.isLoadingSalesSection;
+export const selectIsLoadingStores = (state: RootState): boolean => state.store.isLoadingStore;

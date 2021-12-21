@@ -19,6 +19,7 @@ const initialState: IStoreState = {
     companyAddress: "",
     companyPhoneNumber: "",
   },
+  isLoadingStore: false,
 };
 
 const storeSlice = createSlice({
