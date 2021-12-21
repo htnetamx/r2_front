@@ -7,11 +7,11 @@ import { useIsMounted } from "hooks/useIsMounted";
 import { IOrderReviewContainerProps } from "./IOrderReviewContainerProps";
 
 /**
- * The OrderReviewStepContainer component.
+ * The OrderReviewContainer component.
  * @param {IOrderReviewContainerProps} props The props.
  * @returns {ReactElement} The React element.
  */
-export const OrderReviewStepContainer = (props: IOrderReviewContainerProps): ReactElement => {
+export const OrderReviewContainer = (props: IOrderReviewContainerProps): ReactElement => {
   const {
     totalNetPrice,
     discountCoupon,
@@ -23,7 +23,7 @@ export const OrderReviewStepContainer = (props: IOrderReviewContainerProps): Rea
   const isMounted = useIsMounted();
 
   useEffect(() => {
-    if (!isMounted) {
+    if (isMounted && isClickingNextButton) {
       setIsClickingNextButton && setIsClickingNextButton(false);
       loadNextStep && loadNextStep();
     }
