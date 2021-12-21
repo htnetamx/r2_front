@@ -1,6 +1,12 @@
-import React, { useEffect, ReactElement } from "react";
+import React, {
+  // useEffect,
+  ReactElement,
+} from "react";
 
-import { useDispatch, useSelector } from "react-redux";
+import {
+  // useDispatch,
+  useSelector,
+} from "react-redux";
 
 import { CarouselSection } from "components/common/Sections";
 import { DISCOUNT_TITLE } from "constants/categoryConstants";
@@ -9,13 +15,13 @@ import {
   selectIsLoading,
 } from "dataflows/Category/CategorySelectors";
 // import { selectCategory } from "dataflows/Category/CategorySlice";
-import { getCategories } from "dataflows/Category/CategoryThunks";
+// import { getCategories } from "dataflows/Category/CategoryThunks";
 // import { ICategory } from "dataflows/Category/ICategory";
 // import { useRouter } from "next/router";
 import { screenSizes } from "styled/screen";
 
 import { Box } from "@chakra-ui/react";
-import { CarouselBox } from "../../../components/common/CarouselSlider/CarouselBox/CarouselBox";
+import { CarouselBox } from "components/common/CarouselSlider/CarouselBox/CarouselBox";
 
 /**
  * DiscountSectionContainer section container component.
@@ -24,12 +30,12 @@ import { CarouselBox } from "../../../components/common/CarouselSlider/CarouselB
 export const DiscountSectionContainer = (): ReactElement => {
   // const categories = useSelector(selectAllCategories);
   const isLoading = useSelector(selectIsLoading);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   // const router = useRouter();
 
-  useEffect(() => {
-    dispatch(getCategories());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getCategories());
+  // }, []);
 
   /**
    * Action on category click.

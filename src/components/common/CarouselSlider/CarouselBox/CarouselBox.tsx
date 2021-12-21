@@ -4,12 +4,12 @@ import { ICarouselBox } from "./ICarouselBox";
 
 /**
  * CarouselBox component.
- * @param {ICarouselBox} props the product clicked.
+ * @param {ICarouselBox} props the CarouselBox component props.
  * @returns {ReactElement} React element.
  */
 export const CarouselBox = (props: ICarouselBox): ReactElement => {
   /**
-   * BoxItem component.
+   * Filter product by discount rate.
    * @param {name} name the product clicked.
    * @returns {void} function element.
    */
