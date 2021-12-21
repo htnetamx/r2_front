@@ -42,6 +42,7 @@ export const ProductDetailsContainer = (props: IProductDetailsContainerProps): R
     const item: IBasketItem = {
       id: product.id,
       name: product.name,
+      oldPrice: product.oldPrice,
       price: product.price,
       quantity: 1,
       pictureUrl: product.seoFilename,

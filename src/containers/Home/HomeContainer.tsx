@@ -12,6 +12,7 @@ import { Box, Container } from "@chakra-ui/layout";
 import { CategorySectionContainer } from "./CategorySectionContainer/CategorySectionContainer";
 import { LowPriceOffersSectionContainer } from "./LowPriceOffersSectionContainer/LowPriceOffersSectionContainer";
 import { SalesSectionContainer } from "./SalesSectionContainer/SalesSectionContainer";
+import { DiscountSectionContainer } from "./DiscountSectionContainer/DiscountSectionContainer";
 
 /**
  * The home container.
@@ -35,6 +36,7 @@ export const HomeContainer = (): ReactElement => {
   return (
     <Box bg="#F9F9F9">
       <Container maxW="container.xl">
+        <DiscountSectionContainer />
         <CategorySectionContainer />
         <SalesSectionContainer
           onProductClick={onProductClick}
