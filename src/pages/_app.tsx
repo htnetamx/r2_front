@@ -1,10 +1,11 @@
 import React, { FC, ReactElement } from "react";
 
 import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 
 import { Head } from "components/Layout/Head";
 import { AppProps } from "next/app";
-import { store } from "state/store";
+import { persistor, store } from "state/store";
 import theme from "utils/theme";
 
 import { ChakraProvider } from "@chakra-ui/react";
@@ -30,11 +31,13 @@ const NetaApp = ({ Component, pageProps }: AppProps): ReactElement => {
     <>
       <Head />
       <Provider store={store}>
-        <ChakraProvider theme={theme}>
-          <Layout pageProps={pageProps}>
-            <Component {...pageProps} />
-          </Layout>
-        </ChakraProvider>
+        <PersistGate loading={null /*TODO: add loader */} persistor={persistor}>
+          <ChakraProvider theme={theme}>
+            <Layout pageProps={pageProps}>
+              <Component {...pageProps} />
+            </Layout>
+          </ChakraProvider>
+        </PersistGate>
       </Provider>
     </>
   );
