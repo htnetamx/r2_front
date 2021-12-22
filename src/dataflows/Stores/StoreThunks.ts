@@ -4,6 +4,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { IStore } from "./IStore";
 
+//TODO: Remove mock data
 // eslint-disable-next-line @typescript-eslint/no-inferrable-types
 const defaultName: string = "proteinclubescalerillas.netamx.app";
 

@@ -13,17 +13,17 @@ export interface IStoreState {
   //  **/
   // lowPriceOffersProducts: IStore[];
 
-  // /**
-  //  * The array of products per category
-  //  * @type {IStore[]}
-  //  **/
-  // categoryProducts: IStore[];
+  /**
+   * The array of stores
+   * @type {IStore[]}
+   **/
+  store: IStore[];
 
   /**
    * The selected store.
    * @type {IStore}
    */
-  selectedStore: IStore;
+  selectedStore?: IStore;
 
   /**
    * Indicates if the products are loading.

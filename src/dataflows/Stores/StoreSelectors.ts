@@ -7,7 +7,7 @@ import { IStore } from "./IStore";
  * @param {RootState} state the root state
  * @returns {IProduct[]} the sales products.
  */
-export const selectStore = (state: RootState): IStore => state.store.selectedStore;
+export const selectStore = (state: RootState): IStore[] => state.store.store;
 
 /**
  * Selector to get the isLoadingSalesSection state from the state.

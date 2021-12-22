@@ -15,9 +15,9 @@ import { selectStore } from "dataflows/Stores/StoreSelectors";
  * @returns {ReactElement} the store selector component.
  */
 export const StoreSelector = (props: IStoreSelectorProps): ReactElement => {
-  const { storeSelectorOptions, hasScrolled } = props;
+  const { hasScrolled } = props;
   const selectStores = useSelector(selectStore);
-  console.log(selectStores);
+  const [store] = selectStores;
 
   const dispatch = useDispatch();
 
@@ -27,16 +27,12 @@ export const StoreSelector = (props: IStoreSelectorProps): ReactElement => {
 
   return (
     <Stack direction="column">
-      <Select variant="unstyled" fontWeight="700" fontSize={{ base: "1.2rem", lg: "1.5rem" }}>
-        {storeSelectorOptions.map((option) => (
-          <option key={option.key} value={option.value}>
-            {option.value}
-          </option>
-        ))}
-      </Select>
+      <Text variant="unstyled" fontWeight="700" fontSize={{ base: "1.2rem", lg: "1.5rem" }}>
+        {store?.name}
+      </Text>
       <Stack direction="row" hidden={hasScrolled}>
         <GrLocation size="20px" />
-        <Text>Condesa</Text>
+        <Text>{store?.companyAddress || ""}</Text>
       </Stack>
     </Stack>
   );
