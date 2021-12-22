@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 import { Box } from "@chakra-ui/react";
 
 import { CheckoutContainer } from "./Checkout/CheckoutContainer";
+import { USER_TITLE } from "constants/userConstant";
 
 /**
  * The Layout container component
@@ -45,6 +46,10 @@ export const LayoutContainer: FC = ({ children }): ReactElement => {
       onClick: onOpen,
       btnRef,
       ariaLabel: BASKET_TITLE,
+    },
+    userProps: {
+      onClick: () => {},
+      ariaLabel: USER_TITLE,
     },
     storeSelectorProps: {
       storeSelectorOptions: [{ key: "tiendita", value: "Soda Fountain" }], //TODO: Retrieve stores from backend and state,
