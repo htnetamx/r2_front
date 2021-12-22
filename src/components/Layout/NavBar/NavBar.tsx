@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 
 import { BsChevronLeft, BsSearch } from "react-icons/bs";
+import { useSelector } from "react-redux";
 
 import { RETURN_TO_HOME } from "constants/navBarConstants";
+import { selectTotalBasketItems } from "dataflows/Basket/BasketSelectors";
 import throttle from "lodash.throttle";
 import { useRouter } from "next/router";
 
@@ -20,6 +22,7 @@ import {
 
 import { BasketButton } from "./BasketButton/BasketButton";
 import { INavBarProps } from "./INavBarProps";
+import { InfoHeader } from "./InfoHeader";
 import { SearchBar } from "./SearchBar";
 import { StoreSelector } from "./StoreSelector";
 
@@ -30,6 +33,9 @@ import { StoreSelector } from "./StoreSelector";
  */
 export const NavBar = (props: INavBarProps): React.ReactElement => {
   const { isHome } = props;
+  const totalItems = useSelector(selectTotalBasketItems);
+  const showInfoHeader = totalItems > 0;
+
   return (
     <Box
       sx={{ position: "sticky", top: "0" }}
@@ -40,6 +46,8 @@ export const NavBar = (props: INavBarProps): React.ReactElement => {
       <Container maxW="container.xl">
         {isHome ? <HomeNavBar {...props} /> : <PageNavBar {...props} />}
       </Container>
+
+      {showInfoHeader && <InfoHeader />}
     </Box>
   );
 };

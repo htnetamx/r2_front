@@ -1,7 +1,7 @@
 export interface IPostalCodeFormValues {
   /**
    * The postal code
-   * @type {string}
+   * @type {number}
    **/
-  postalCode: string;
+  postalCode: number;
 }
