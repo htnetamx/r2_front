@@ -1,8 +1,8 @@
-import { ReactElement, useEffect } from "react";
+import React, { ReactElement, useEffect } from "react";
 
-import { GrLocation } from "react-icons/gr";
+// import { GrLocation } from "react-icons/gr";
 
-import { Select, Stack, Text } from "@chakra-ui/react";
+import { Stack, Text } from "@chakra-ui/react";
 
 import { IStoreSelectorProps } from "./IStoreSelectorProps";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,7 +15,7 @@ import { selectStore } from "dataflows/Stores/StoreSelectors";
  * @returns {ReactElement} the store selector component.
  */
 export const StoreSelector = (props: IStoreSelectorProps): ReactElement => {
-  const { hasScrolled } = props;
+  // const { hasScrolled } = props;
   const selectStores = useSelector(selectStore);
   const [store] = selectStores;
 
@@ -30,10 +30,10 @@ export const StoreSelector = (props: IStoreSelectorProps): ReactElement => {
       <Text variant="unstyled" fontWeight="700" fontSize={{ base: "1.2rem", lg: "1.5rem" }}>
         {store?.name}
       </Text>
-      <Stack direction="row" hidden={hasScrolled}>
+      {/* <Stack direction="row" hidden={hasScrolled}>
         <GrLocation size="20px" />
         <Text>{store?.companyAddress || ""}</Text>
-      </Stack>
+      </Stack> */}
     </Stack>
   );
 };
