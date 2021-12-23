@@ -28,6 +28,8 @@ export const PhoneNumberContainer = (props: IPhoneNumberContainerProps): ReactEl
     loadNextStep,
   } = props;
 
+  console.log("PROPS", props);
+
   const {
     register,
     trigger,
