@@ -4,4 +4,9 @@ export interface IOrderReviewProps {
    * @type {number}
    */
   totalNetPrice: number;
+  /**
+   * code from a coupon to get a discount
+   * @type {string}
+   */
+  discountCoupon?: string;
 }
