@@ -58,7 +58,7 @@ export const NavBar = (props: INavBarProps): React.ReactElement => {
  * @returns {React.ReactElement} The NavBar component
  */
 const HomeNavBar = (props: INavBarProps): React.ReactElement => {
-  const { searchBarProps, storeSelectorProps, basketProps } = props;
+  const { searchBarProps, basketProps } = props;
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
@@ -90,7 +90,7 @@ const HomeNavBar = (props: INavBarProps): React.ReactElement => {
         align={"center"}
       >
         <Flex justify={{ base: "start", md: "start" }}>
-          <StoreSelector hasScrolled={hasScrolled} {...storeSelectorProps} />
+          <StoreSelector name={props.store?.name} />
         </Flex>
         <Spacer />
         <Stack flex={{ base: 1, md: 0 }} justify={"flex-end"} direction={"row"} spacing={6}>

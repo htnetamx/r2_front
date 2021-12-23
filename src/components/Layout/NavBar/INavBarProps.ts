@@ -1,14 +1,9 @@
+import { IStore } from "dataflows/Stores/IStore";
 import { IBasketButtonProps } from "./BasketButton/IBasketButtonProps";
 import { ISearchBarProps } from "./SearchBar";
 import { IStoreSelectorProps } from "./StoreSelector";
 
 export interface INavBarProps {
-  /**
-   * The store selector props.
-   * @type {IStoreSelectorProps}
-   */
-  storeSelectorProps: IStoreSelectorProps;
-
   /**
    * The search bar props
    * @type {ISearchBarProps}
@@ -26,4 +21,10 @@ export interface INavBarProps {
    * @type {boolean}
    **/
   isHome: boolean;
+
+  /**
+   * The store props
+   * @type {IStore}
+   **/
+  store?: IStore;
 }
