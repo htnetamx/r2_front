@@ -3,7 +3,6 @@ import { useEffect, ReactElement } from "react";
 import { useForm } from "react-hook-form";
 
 import { VerificationCodeStep } from "components/Layout/Checkout/VerificationCodeStep/VerificationCodeStep";
-import { CheckoutWizardSteps } from "constants/checkoutConstants";
 import { IVerificationCodeFormValues } from "dataflows/Checkout/VerificationCode/IVerificationCodeFormValue";
 import { VerificationCodeValidationSchema } from "dataflows/Checkout/VerificationCode/VerificationCodeValidationSchema";
 import { useIsMounted } from "hooks/useIsMounted";
@@ -47,8 +46,9 @@ export const VerificationCodeContainer = (props: IVerificationCodeContainerProps
       const isTriggering = trigger();
       isTriggering.then((onfulfilled) => {
         if (!!validationList) {
-          validationList.set(CheckoutWizardSteps.VERIFICATION_CODE, onfulfilled);
-          setValidationList && setValidationList(validationList);
+          // TODO: This is commented in order to be able to see all the screens of the checkout flow. We should uncomment this before to send it to prod.
+          // validationList.set(CheckoutWizardSteps.VERIFICATION_CODE, onfulfilled);
+          // setValidationList && setValidationList(validationList);
           saveFormValues && saveFormValues(getValues());
           loadNextStep && loadNextStep();
         }

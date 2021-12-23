@@ -13,6 +13,7 @@ import storage from "redux-persist/lib/storage";
 import { basketReducer } from "dataflows/Basket/BasketSlice";
 import { categoryReducer } from "dataflows/Category/CategorySlice";
 import { checkoutReducer } from "dataflows/Checkout/CheckoutSlice";
+import { storeReducer } from "dataflows/Stores/IStoreSlice";
 import { productReducer } from "dataflows/Product/IProductSlice";
 
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
   category: categoryReducer,
   product: productReducer,
   checkout: checkoutReducer,
+  store: storeReducer,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

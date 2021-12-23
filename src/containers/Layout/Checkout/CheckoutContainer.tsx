@@ -6,7 +6,7 @@ import { Step, Steps, Wizard } from "react-multistep-wizard";
 import { useDispatch, useSelector } from "react-redux";
 
 import { CheckoutWizardSteps } from "constants/checkoutConstants";
-import { selectBasketItems } from "dataflows/Basket/BasketSelectors";
+import { selectBasketItems, selectTotalBasketPrice } from "dataflows/Basket/BasketSelectors";
 import { addQuantity, removeQuantity } from "dataflows/Basket/BasketSlice";
 import { selectCurrentStep, selectIsOpen } from "dataflows/Checkout/CheckoutSelectors";
 import {
@@ -37,6 +37,9 @@ import { IBasketContainerProps } from "./BasketContainer/IBasketContainerProps";
 import { ICheckoutStep } from "./ICheckoutStep";
 import { INameAndTermsConditionsContainerProps } from "./NameAndTermConditionsContainer/INameAndTermsConditionsContainerProps";
 import { NameAndTermsConditionsContainer } from "./NameAndTermConditionsContainer/NameAndTermsConditionsContainer";
+import { IOrderReviewContainerProps } from "./OrderReviewContainer/IOrderReviewContainerProps";
+import { OrderReviewContainer } from "./OrderReviewContainer/OrderReviewContainer";
+import { OrderSuccessContainer } from "./OrderSuccessContainer/OrderSuccessContainer";
 import { IPhoneNumberContainerProps } from "./PhoneNumberContainer/IPhoneNumberContainerProps";
 import { PhoneNumberContainer } from "./PhoneNumberContainer/PhoneNumberContainer";
 import { IPostalCodeContainerProps } from "./PostalCodeContainer/IPostalCodeContainerProps";
@@ -92,6 +95,23 @@ const renderPostalCodeContainer = (props: IPostalCodeContainerProps): ReactEleme
 };
 
 /**
+ * Render the order review step container
+ * @param {IOrderReviewContainerProps} props the props for the order review step container
+ * @returns {ReactElement} The order review step container
+ */
+const renderOrderReviewContainer = (props: IOrderReviewContainerProps): ReactElement => {
+  return <OrderReviewContainer {...props} />;
+};
+
+/**
+ * Render the order success step container
+ * @returns {ReactElement} The order review step container
+ */
+const renderOrderSuccessContainer = (): ReactElement => {
+  return <OrderSuccessContainer />;
+};
+
+/**
  * The checkout container.
  * @returns {ReactElement} The component.
  */
@@ -99,6 +119,7 @@ export const CheckoutContainer = (): ReactElement => {
   const dispatch = useDispatch();
   const basketItems = useSelector(selectBasketItems);
   const currentStep = useSelector(selectCurrentStep);
+  const totalNetPrice = useSelector(selectTotalBasketPrice);
   const isOpen = useSelector(selectIsOpen);
   const btnRef = useRef<HTMLButtonElement>(null);
 
@@ -109,8 +130,10 @@ export const CheckoutContainer = (): ReactElement => {
       [CheckoutWizardSteps.BASKET, true],
       [CheckoutWizardSteps.NAME_AND_TERM_CONDITIONS, false],
       [CheckoutWizardSteps.PHONE_NUMBER, false],
-      [CheckoutWizardSteps.VERIFICATION_CODE, false],
+      [CheckoutWizardSteps.VERIFICATION_CODE, true],
       [CheckoutWizardSteps.POSTAL_CODE, false],
+      [CheckoutWizardSteps.ORDER_REVIEW, true],
+      [CheckoutWizardSteps.ORDER_SUCCESS, true],
     ])
   );
 
@@ -237,6 +260,22 @@ export const CheckoutContainer = (): ReactElement => {
           currentStep,
           loadNextStep,
         }),
+    },
+    {
+      id: CheckoutWizardSteps.ORDER_REVIEW,
+      render: (): ReactElement =>
+        renderOrderReviewContainer({
+          totalNetPrice,
+          // discountCoupon,
+          isClickingNextButton,
+          setIsClickingNextButton,
+          currentStep,
+          loadNextStep,
+        }),
+    },
+    {
+      id: CheckoutWizardSteps.ORDER_SUCCESS,
+      render: (): ReactElement => renderOrderSuccessContainer(),
     },
   ];
 
