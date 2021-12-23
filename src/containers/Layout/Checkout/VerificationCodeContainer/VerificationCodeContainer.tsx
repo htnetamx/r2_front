@@ -46,6 +46,7 @@ export const VerificationCodeContainer = (props: IVerificationCodeContainerProps
       const isTriggering = trigger();
       isTriggering.then((onfulfilled) => {
         if (!!validationList) {
+          // TODO: This is commented in order to be able to see all the screens of the checkout flow. We should uncomment this before to send it to prod.
           // validationList.set(CheckoutWizardSteps.VERIFICATION_CODE, onfulfilled);
           // setValidationList && setValidationList(validationList);
           saveFormValues && saveFormValues(getValues());
