@@ -7,11 +7,11 @@ import { IStore } from "./IStore";
  * @param {RootState} state the root state
  * @returns {IProduct[]} the sales products.
  */
-export const selectStore = (state: RootState): IStore[] => state.store.store;
+export const selectStore = (state: RootState): IStore | undefined => state?.store?.store;
 
 /**
  * Selector to get the isLoadingSalesSection state from the state.
  * @param {RootState} state the root state
  * @returns {boolean} the isLoadingSalesSection state
  */
-export const selectIsLoadingStores = (state: RootState): boolean => state.store.isLoadingStore;
+export const selectIsLoadingStore = (state: RootState): boolean => state?.store?.isLoadingStore;

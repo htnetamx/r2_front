@@ -4,10 +4,9 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { IStore } from "./IStore";
 
-//TODO: Remove mock data
-const defaultName = "proteinclubescalerillas.netamx.app";
-
-export const getStoreByName = createAsyncThunk("store/getStoreDetail", async () => {
-  const response = await get(`http://3.12.73.245:3009/api/v1/store?url=${defaultName}`);
-  return (await response.data) as IStore;
+export const getStoreByName = createAsyncThunk("store/getStoreDetail", async (name: string) => {
+  const response = await get(`store?url=${name}`);
+  const stores = (await response.data) as IStore[];
+  if (Array.isArray(stores) && stores.length !== 0) return stores[0];
+  else return undefined;
 });

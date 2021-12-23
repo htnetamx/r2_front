@@ -1,22 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { IStore } from "./IStore";
 import { IStoreState } from "./IStoreState";
 import { getStoreByName } from "./StoreThunks";
 
 const initialState: IStoreState = {
-  store: [],
+  store: undefined,
   isLoadingStore: false,
 };
 
 const storeSlice = createSlice({
   name: "store",
   initialState,
-  reducers: {
-    selectStore: (state, action: PayloadAction<IStore>) => {
-      state.selectedStore = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: {
     [getStoreByName.pending.type]: (state) => {
       state.isLoadingStore = true;
@@ -27,11 +22,6 @@ const storeSlice = createSlice({
     },
   },
 });
-
-/**
- * Actions
- */
-export const { selectStore } = storeSlice.actions;
 
 /**
  * Reducers
