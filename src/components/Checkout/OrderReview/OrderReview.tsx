@@ -28,6 +28,7 @@ const fakeProps = {
  */
 export const OrderReview = (props: IOrderReviewProps): ReactElement => {
   const { totalNetPrice } = props;
+  //TODO: make a hook to manage the discount codes
   /**
    * function to get the amount of the discount from a coupon code
    * @param {string} couponCode code of the discount coupon

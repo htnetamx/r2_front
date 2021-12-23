@@ -2,12 +2,12 @@ import React, { useEffect, useState, ReactElement } from "react";
 
 import Lottie from "react-lottie";
 
-import { Box, Button, Center, Text } from "@chakra-ui/react";
+import loader from "styled/animations/loader.json";
+import success from "styled/animations/success.json";
+import ImageWomanOne from "styled/icons/CheckoutFlow/WomanOne";
+import ImageWomanTwo from "styled/icons/CheckoutFlow/WomanTwo";
 
-import loader from "../../../../public/assets/images/animations/loader.json";
-import success from "../../../../public/assets/images/animations/success.json";
-import ImageWomanOne from "../../../../public/assets/images/CheckoutFlow/WomanOne";
-import ImageWomanTwo from "../../../../public/assets/images/CheckoutFlow/WomanTwo";
+import { Box, Button, Center, Text } from "@chakra-ui/react";
 
 /**
  *  The order success screen component
