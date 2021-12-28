@@ -6,14 +6,16 @@ import { Footer } from "components/Layout/Footer";
 import { INavBarProps, NavBar } from "components/Layout/NavBar";
 import { BASKET_TITLE } from "constants/basketConstants";
 import { SEARCH_BAR_PLACEHOLDER } from "constants/searchBarConstants";
+import { USER_TITLE } from "constants/userConstant";
+import { MenuContainer } from "containers/User/MenuContainer";
 import { selectTotalBasketItems } from "dataflows/Basket/BasketSelectors";
 import { onOpen as onOpenAction } from "dataflows/Checkout/CheckoutSlice";
+import { onOpen as onOpenMenuAction } from "dataflows/Menu/MenuPopover";
 import { useRouter } from "next/router";
 
 import { Box } from "@chakra-ui/react";
 
 import { CheckoutContainer } from "./Checkout/CheckoutContainer";
-import { USER_TITLE } from "constants/userConstant";
 
 /**
  * The Layout container component
@@ -36,6 +38,14 @@ export const LayoutContainer: FC = ({ children }): ReactElement => {
     dispatch(onOpenAction());
   };
 
+  /**
+   * Handles the open Menu state
+   * @returns {void}
+   **/
+  const onOpenMenu = (): void => {
+    dispatch(onOpenMenuAction());
+  };
+
   const navBarProps: INavBarProps = {
     isHome,
     searchBarProps: {
@@ -47,8 +57,8 @@ export const LayoutContainer: FC = ({ children }): ReactElement => {
       btnRef,
       ariaLabel: BASKET_TITLE,
     },
-    userProps: {
-      onClick: () => {},
+    userButtonProps: {
+      onClick: onOpenMenu,
       ariaLabel: USER_TITLE,
     },
     storeSelectorProps: {
@@ -58,9 +68,11 @@ export const LayoutContainer: FC = ({ children }): ReactElement => {
 
   return (
     <Box>
+      {/* <Box px={4} h={400} /> */}
       <NavBar {...navBarProps} />
       <CheckoutContainer />
       <main>{children}</main>
+      <MenuContainer />
       <Footer />
     </Box>
   );

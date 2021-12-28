@@ -22,11 +22,11 @@ export interface INavBarProps {
    */
   basketProps: IBasketButtonProps;
 
-    /**
-   * The basket props.
+  /**
+   * The user menu props.
    * @type {IUserButtonProps}
    */
-     userProps: IUserButtonProps;
+  userButtonProps: IUserButtonProps;
 
   /**
    * Indicates if is home
