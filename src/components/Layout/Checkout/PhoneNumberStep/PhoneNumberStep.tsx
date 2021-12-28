@@ -25,14 +25,9 @@ export const PhoneNumberStep = (props: IPhoneNumberStepProps): ReactElement => {
         <Controller
           name="phone"
           control={control}
-          rules={
-            {
-              // validate: (value) => isValidPhoneNumber(value),
-            }
-          }
           render={({ field: { onChange, value } }) => (
             <PhoneInput
-              inputStyle={{ width: "100%", height: "40px" }}
+              inputStyle={{ width: "100%", height: "40px", fontSize: "1rem" }}
               country={"mx"}
               value={value}
               onChange={onChange}
