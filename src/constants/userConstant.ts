@@ -1,1 +1,10 @@
 export const USER_TITLE = "Usuario";
+export const MY_INFO_URL = "/info";
+export const MY_INFO = "Mis datos";
+export const MY_CLIENTS_URL = "/clientes";
+export const MY_CLIENTS = "Mis clientes";
+export const MY_ORDERS_URL = "/ordenes";
+export const MY_ORDERS = "Órdenes y facturas";
+export const HELP_URL = "/ayuda";
+export const HELP = "Ayuda";
+export const LOGOUT = "Cerrar sesión";

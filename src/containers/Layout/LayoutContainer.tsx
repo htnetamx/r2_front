@@ -7,7 +7,6 @@ import { INavBarProps, NavBar } from "components/Layout/NavBar";
 import { BASKET_TITLE } from "constants/basketConstants";
 import { SEARCH_BAR_PLACEHOLDER } from "constants/searchBarConstants";
 import { USER_TITLE } from "constants/userConstant";
-import { MenuContainer } from "containers/User/MenuContainer";
 import { selectTotalBasketItems } from "dataflows/Basket/BasketSelectors";
 import { onOpen as onOpenAction } from "dataflows/Checkout/CheckoutSlice";
 import { onOpen as onOpenMenuAction } from "dataflows/Menu/MenuPopover";
@@ -39,7 +38,7 @@ export const LayoutContainer: FC = ({ children }): ReactElement => {
   };
 
   /**
-   * Handles the open Menu state
+   * Handles on open UserMenu action
    * @returns {void}
    **/
   const onOpenMenu = (): void => {
@@ -68,11 +67,9 @@ export const LayoutContainer: FC = ({ children }): ReactElement => {
 
   return (
     <Box>
-      {/* <Box px={4} h={400} /> */}
       <NavBar {...navBarProps} />
       <CheckoutContainer />
       <main>{children}</main>
-      <MenuContainer />
       <Footer />
     </Box>
   );

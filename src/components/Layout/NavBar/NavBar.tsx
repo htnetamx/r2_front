@@ -4,6 +4,7 @@ import { BsChevronLeft, BsSearch } from "react-icons/bs";
 import { useSelector } from "react-redux";
 
 import { RETURN_TO_HOME } from "constants/navBarConstants";
+import { MenuContainer } from "containers/User/MenuContainer";
 import { selectTotalBasketItems } from "dataflows/Basket/BasketSelectors";
 import throttle from "lodash.throttle";
 import { useRouter } from "next/router";
@@ -21,7 +22,6 @@ import {
 } from "@chakra-ui/react";
 
 import { BasketButton } from "./BasketButton/BasketButton";
-import { UserButton } from "./UserButton/UserButton";
 import { INavBarProps } from "./INavBarProps";
 import { InfoHeader } from "./InfoHeader";
 import { SearchBar } from "./SearchBar";
@@ -59,7 +59,7 @@ export const NavBar = (props: INavBarProps): React.ReactElement => {
  * @returns {React.ReactElement} The NavBar component
  */
 const HomeNavBar = (props: INavBarProps): React.ReactElement => {
-  const { searchBarProps, storeSelectorProps, basketProps, userProps } = props;
+  const { searchBarProps, storeSelectorProps, basketProps, userButtonProps } = props;
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
@@ -98,7 +98,7 @@ const HomeNavBar = (props: INavBarProps): React.ReactElement => {
           <BasketButton {...basketProps} />
         </Stack>
         <Stack flex={{ base: 1, md: 0 }} justify={"flex-end"} direction={"row"} spacing={6}>
-          <UserButton {...userProps} />
+          <MenuContainer {...userButtonProps} />
         </Stack>
       </Flex>
       <Stack direction="column" pt={2} pb={2} hidden={hasScrolled}>
