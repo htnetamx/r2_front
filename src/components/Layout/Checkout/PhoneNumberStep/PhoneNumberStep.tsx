@@ -1,9 +1,11 @@
-import { ReactElement, useState } from "react";
+/* eslint-disable require-jsdoc */
+import React, { ReactElement } from "react";
+import { Controller } from "react-hook-form";
 import PhoneInput from "react-phone-input-2";
-
-import { FormControl, FormErrorMessage, FormLabel, Input, Text, VStack } from "@chakra-ui/react";
+import { FormControl, FormErrorMessage, FormLabel, Text, VStack } from "@chakra-ui/react";
 
 import { IPhoneNumberStepProps } from "./IPhoneNumberStepProps";
+import "react-phone-input-2/lib/style.css";
 
 /**
  * The PhoneNumberStep component.
@@ -11,18 +13,7 @@ import { IPhoneNumberStepProps } from "./IPhoneNumberStepProps";
  * @returns {ReactElement}  the component.
  **/
 export const PhoneNumberStep = (props: IPhoneNumberStepProps): ReactElement => {
-  const { errors, register } = props;
-  const [phone, setPhone] = useState("");
-  console.log(phone);
-
-  /**
-   * The onChange function.
-   * @param {string} phone the component props
-   * @returns {string}  the component.
-   **/
-  const onChange = (phone: string) => {
-    setPhone(phone);
-  };
+  const { errors, control } = props;
 
   return (
     <VStack spacing={55}>
@@ -31,15 +22,24 @@ export const PhoneNumberStep = (props: IPhoneNumberStepProps): ReactElement => {
       </Text>
       <FormControl isInvalid={errors.phone !== undefined}>
         <FormLabel>Número de celular</FormLabel>
-        <Input size="md" errorBorderColor="red.300" {...register("phone")} />
-        {/* <PhoneInput
-          country="mx"
-          disableDropdown={true}
-          placeholder={"(52) XXX XXX XXXX"}
-          specialLabel={""}
-          onChange={onChange}
-        /> */}
-        <FormErrorMessage>{errors.phone?.message}</FormErrorMessage>
+        <Controller
+          name="phone"
+          control={control}
+          rules={
+            {
+              // validate: (value) => isValidPhoneNumber(value),
+            }
+          }
+          render={({ field: { onChange, value } }) => (
+            <PhoneInput
+              inputStyle={{ width: "100%", height: "40px" }}
+              country={"mx"}
+              value={value}
+              onChange={onChange}
+            />
+          )}
+        />
+        {errors["phone"] && <FormErrorMessage>{errors.phone?.message}</FormErrorMessage>}
       </FormControl>
     </VStack>
   );

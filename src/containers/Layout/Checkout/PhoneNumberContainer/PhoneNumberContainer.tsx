@@ -28,9 +28,8 @@ export const PhoneNumberContainer = (props: IPhoneNumberContainerProps): ReactEl
     loadNextStep,
   } = props;
 
-  console.log("PROPS", props);
-
   const {
+    control,
     register,
     trigger,
     getValues,
@@ -59,5 +58,5 @@ export const PhoneNumberContainer = (props: IPhoneNumberContainerProps): ReactEl
     }
   }, [isClickingNextButton]);
 
-  return <PhoneNumberStep errors={errors} register={register} />;
+  return <PhoneNumberStep errors={errors} register={register} control={control} />;
 };

@@ -1,4 +1,4 @@
-import { DeepMap, FieldError, UseFormRegister } from "react-hook-form";
+import { DeepMap, FieldError, UseFormRegister, Control } from "react-hook-form";
 
 import { IPhoneNumberFormValues } from "dataflows/Checkout/PhoneNumber/IPhoneNumberFormValues";
 
@@ -14,4 +14,11 @@ export interface IPhoneNumberStepProps {
    * @type {UseFormRegister<ILogInStepFormValues>}
    */
   register: UseFormRegister<IPhoneNumberFormValues>;
+
+  /**
+   * The form control.
+   * @type {Control<IPhoneNumberFormValues}
+   */
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  control: Control<IPhoneNumberFormValues, object>;
 }
