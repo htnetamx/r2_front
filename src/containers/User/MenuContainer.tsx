@@ -1,12 +1,8 @@
 import React, { ReactElement } from "react";
 
-import { useSelector } from "react-redux";
-
 import { IUserButtonProps } from "components/Layout/NavBar/UserButton/IUserButtonProps";
 import { UserButton } from "components/Layout/NavBar/UserButton/UserButton";
-import { MY_INFO, MY_INFO_URL } from "constants/userConstant";
-import { selectIsMenuOpen } from "dataflows/Menu/MenuSelectors";
-import { useRouter } from "next/router";
+import { HELP, LOGOUT, MY_CLIENTS, MY_INFO, MY_INFO_URL, MY_ORDERS } from "constants/userConstant";
 import IconClients from "styled/icons/Menu/Clients";
 import IconHelp from "styled/icons/Menu/Help";
 import IconOrders from "styled/icons/Menu/Orders";
@@ -21,8 +17,8 @@ import { Menu, MenuButton, MenuDivider, MenuGroup, MenuItem, MenuList } from "@c
  * @returns {ReactElement} The menu container
  */
 export const MenuContainer = (userButtonProps: IUserButtonProps): ReactElement => {
-  const isOpen = useSelector(selectIsMenuOpen);
-  const router = useRouter();
+  // const isOpen = useSelector(selectIsMenuOpen);
+  // const router = useRouter();
 
   /**
    * Action on item click.
@@ -30,7 +26,8 @@ export const MenuContainer = (userButtonProps: IUserButtonProps): ReactElement =
    * @returns {void}
    */
   const onItemClick = (item: string): any => {
-    router.push(`/${item}`);
+    // router.push(`/${item}`);
+    console.log(item);
   };
 
   return (
@@ -52,18 +49,18 @@ export const MenuContainer = (userButtonProps: IUserButtonProps): ReactElement =
             Hola, {"Luis"}
           </MenuItem>
           <MenuDivider />
-          <MenuItem icon={<IconUserRounded />} onClick={onItemClick(MY_INFO_URL)}>
-            {MY_INFO}
+          <MenuItem icon={<IconUserRounded />}>
+            <button onClick={onItemClick(MY_INFO_URL)}>{MY_INFO}</button>
           </MenuItem>
           <MenuDivider />
-          <MenuItem icon={<IconClients />}>Mis clientes </MenuItem>
+          <MenuItem icon={<IconClients />}>{MY_CLIENTS} </MenuItem>
           <MenuDivider />
-          <MenuItem icon={<IconOrders />}>Órdenes y facturas </MenuItem>
+          <MenuItem icon={<IconOrders />}>{MY_ORDERS} </MenuItem>
           <MenuDivider />
-          <MenuItem icon={<IconHelp />}>Ayuda </MenuItem>
+          <MenuItem icon={<IconHelp />}>{HELP}</MenuItem>
           <MenuDivider />
           <MenuItem color="red" fontWeight="bold">
-            Cerrar sesión
+            {LOGOUT}
           </MenuItem>
         </MenuGroup>
       </MenuList>
