@@ -114,7 +114,7 @@ const HomeNavBar = (props: INavBarProps): React.ReactElement => {
  * @returns {React.ReactElement} The NavBar component
  */
 const PageNavBar = (props: INavBarProps): React.ReactElement => {
-  const { basketProps } = props;
+  const { basketProps, userButtonProps } = props;
   const router = useRouter();
   return (
     <Flex
@@ -136,6 +136,9 @@ const PageNavBar = (props: INavBarProps): React.ReactElement => {
           variant={"ghost"}
         />
         <BasketButton {...basketProps} />
+      </Stack>
+      <Stack flex={{ base: 1, md: 0 }} justify={"flex-end"} direction={"row"} spacing={6}>
+        <MenuContainer {...userButtonProps} />
       </Stack>
     </Flex>
   );

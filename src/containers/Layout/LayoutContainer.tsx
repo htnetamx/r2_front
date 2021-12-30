@@ -9,7 +9,6 @@ import { SEARCH_BAR_PLACEHOLDER } from "constants/searchBarConstants";
 import { USER_TITLE } from "constants/userConstant";
 import { selectTotalBasketItems } from "dataflows/Basket/BasketSelectors";
 import { onOpen as onOpenAction } from "dataflows/Checkout/CheckoutSlice";
-import { onOpen as onOpenMenuAction } from "dataflows/Menu/MenuPopover";
 import { useRouter } from "next/router";
 
 import { Box } from "@chakra-ui/react";
@@ -37,14 +36,6 @@ export const LayoutContainer: FC = ({ children }): ReactElement => {
     dispatch(onOpenAction());
   };
 
-  /**
-   * Handles on open UserMenu action
-   * @returns {void}
-   **/
-  const onOpenMenu = (): void => {
-    dispatch(onOpenMenuAction());
-  };
-
   const navBarProps: INavBarProps = {
     isHome,
     searchBarProps: {
@@ -57,7 +48,6 @@ export const LayoutContainer: FC = ({ children }): ReactElement => {
       ariaLabel: BASKET_TITLE,
     },
     userButtonProps: {
-      onClick: onOpenMenu,
       ariaLabel: USER_TITLE,
     },
     storeSelectorProps: {
