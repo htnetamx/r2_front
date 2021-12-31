@@ -27,7 +27,6 @@ export const ProfitBanner = (profitBannerProps: IProfitBannerProps): ReactElemen
         h="100px"
         color="white"
         borderRadius="md"
-        mt="4"
         mb="4"
         cursor={"pointer"}
         onClick={() => {

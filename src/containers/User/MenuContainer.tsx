@@ -1,8 +1,9 @@
-import React, { ReactElement } from "react";
+import React, { useEffect, useState, ReactElement } from "react";
 
 import { IUserButtonProps } from "components/Layout/NavBar/UserButton/IUserButtonProps";
 import { UserButton } from "components/Layout/NavBar/UserButton/UserButton";
 import {
+  HELLO_USER,
   HELP,
   LOGOUT,
   MY_CLIENTS,
@@ -28,7 +29,7 @@ import { Menu, MenuButton, MenuDivider, MenuGroup, MenuItem, MenuList } from "@c
  */
 export const MenuContainer = (userButtonProps: IUserButtonProps): ReactElement => {
   const router = useRouter();
-
+  const [username, setUsername] = useState<string>();
   /**
    * Action on item click.
    * @param {any} item the item clicked.
@@ -38,6 +39,16 @@ export const MenuContainer = (userButtonProps: IUserButtonProps): ReactElement =
     router.push(`/${item}`);
   };
 
+  /**
+   * GetUsername service
+   * @returns {string} username
+   */
+  const getUsername = (): string => {
+    return "Luis";
+  };
+
+  useEffect(() => setUsername(getUsername()), []);
+
   return (
     <Menu>
       <MenuButton colorScheme="pink" _hover={{ bg: "gray.100", borderRadius: "0.375rem" }}>
@@ -45,16 +56,18 @@ export const MenuContainer = (userButtonProps: IUserButtonProps): ReactElement =
       </MenuButton>
       <MenuList>
         <MenuGroup>
-          <MenuItem
-            icon={<IconProfile />}
-            fontWeight="bold"
-            _hover={{ bg: "#587DFF", color: "white" }}
-            _focus={{ bg: "#587DFF", color: "white" }}
-            m={0}
-            p={0}
-          >
-            Hola, {"Luis"}
-          </MenuItem>
+          {username && (
+            <MenuItem
+              icon={<IconProfile />}
+              fontWeight="bold"
+              _hover={{ bg: "#587DFF", color: "white" }}
+              _focus={{ bg: "#587DFF", color: "white" }}
+              m={0}
+              p={0}
+            >
+              {HELLO_USER} {username}
+            </MenuItem>
+          )}
           <MenuDivider />
           <MenuItem icon={<IconUserRounded />} onClick={() => redirectTo(MY_INFO_URL)}>
             {MY_INFO}

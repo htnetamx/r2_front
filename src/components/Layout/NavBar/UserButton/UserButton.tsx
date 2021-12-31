@@ -13,14 +13,13 @@ import { IUserButtonProps } from "./IUserButtonProps";
  * @returns {ReactElement} the user icon.
  */
 export const UserButton = (props: IUserButtonProps): ReactElement => {
-  const { onClick, ariaLabel } = props;
+  const { ariaLabel } = props;
   return (
     <IconButton
       css={css`
         position: relative !important;
       `}
       py={"2"}
-      onClick={onClick}
       aria-label={ariaLabel}
       _focus={{ boxShadow: "none" }}
       size={"lg"}

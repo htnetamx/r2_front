@@ -15,7 +15,7 @@ export const ReturnToHome = (): ReactElement => {
   const router = useRouter();
 
   return (
-    <Flex justify={{ base: "start", md: "start" }} onClick={() => router.push("/")}>
+    <Flex justify={{ base: "start", md: "start" }} onClick={() => router.push("/")} mb="4">
       <BsChevronLeft fontSize="20px" color={"#3870FF"} fontWeight="700" cursor={"pointer"} />
       <Text color={"#3870FF"} fontWeight="700" fontSize="16px" cursor={"pointer"}>
         {TO_HOME}
