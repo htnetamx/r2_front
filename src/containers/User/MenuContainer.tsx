@@ -36,7 +36,7 @@ export const MenuContainer = (userButtonProps: IUserButtonProps): ReactElement =
    * @returns {void}
    */
   const redirectTo = (item: string): void => {
-    router.push(`/${item}`);
+    router.push(item);
   };
 
   /**

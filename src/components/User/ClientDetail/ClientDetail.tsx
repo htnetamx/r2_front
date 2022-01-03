@@ -32,15 +32,16 @@ export const ClientDetail = (props: IClientDetailProps): ReactElement => {
   };
 
   // eslint-disable-next-line require-jsdoc
-  function treatAsUTC(date: any) {
+  function treatAsUTC(date: Date): Date {
     const result = new Date(date);
     result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
     return result;
   }
+
   // eslint-disable-next-line require-jsdoc
-  function daysBetween(startDate: any, endDate: any) {
+  function daysBetween(startDate: Date, endDate: Date) {
     const millisecondsPerDay = 24 * 60 * 60 * 1000;
-    return (treatAsUTC(endDate) - treatAsUTC(startDate)) / millisecondsPerDay;
+    return (treatAsUTC(endDate).valueOf() - treatAsUTC(startDate).valueOf()) / millisecondsPerDay;
   }
 
   return (

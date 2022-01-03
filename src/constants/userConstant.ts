@@ -4,7 +4,7 @@ export const MY_INFO_URL = "/info";
 export const MY_INFO = "Mis datos";
 export const MY_CLIENTS_URL = "/clients";
 export const MY_CLIENTS = "Mis clientes";
-export const MY_ORDERS_URL = "/ordenes";
+export const MY_ORDERS_URL = "/invoices";
 export const MY_ORDERS = "Órdenes y facturas";
 export const HELP_URL = "/ayuda";
 export const HELP = "Ayuda";
@@ -24,3 +24,9 @@ export const CLIENTS_HEADER = "Mis clientes";
 export const CLIENTS_TITLE =
   "Esta es la lista total de los clientes que han pedido a tu tienda por Neta ";
 export const CLIENTS_SUBTITLE = "¡Comparte la liga y sigue ganando!";
+export const SHARE_URL = "Compartir liga a todos";
+
+/* INVOICES CONTAINER */
+export const INVOICES_HEADER = "Historial de facturas";
+export const YOUR_INVOICES = "Tus facturas";
+export const INVOICES_LASTDAYS = "Estas son tus factura de los últimos 7 días.";
