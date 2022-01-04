@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 
 import { LayoutContainer } from "containers/Layout/LayoutContainer";
-import { OrderDetailsContainer } from "containers/OrderDetails/OrderDetailsContainer";
+import { OrderContainer } from "containers/User/Orders/OrdersContainer";
 import { useRouter } from "next/router";
 
 /**
@@ -12,7 +12,7 @@ const OrderDetails = (): ReactElement => {
   const router = useRouter();
   const { slug } = router.query;
 
-  return <OrderDetailsContainer orderId={slug as string} />;
+  return <OrderContainer orderId={slug as string} />;
 };
 
 OrderDetails.Layout = LayoutContainer;
