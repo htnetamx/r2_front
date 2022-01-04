@@ -5,16 +5,16 @@ import { OrderContainer } from "containers/User/Orders/OrdersContainer";
 import { useRouter } from "next/router";
 
 /**
- * The page with the details of any given order.
- * @returns {ReactElement} The order's details page.
+ * The page with the orders data
+ * @returns {ReactElement} The order's data page.
  */
-const OrderDetails = (): ReactElement => {
+const Orders = (): ReactElement => {
   const router = useRouter();
   const { slug } = router.query;
 
   return <OrderContainer orderId={slug as string} />;
 };
 
-OrderDetails.Layout = LayoutContainer;
+Orders.Layout = LayoutContainer;
 
-export default OrderDetails;
+export default Orders;

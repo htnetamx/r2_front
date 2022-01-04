@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 
-
+import { ISplitCardProps } from "components/User/SplitCard/ISplitCard";
+import { SplitCard } from "components/User/SplitCard/SplitCard";
 
 import { Container } from "@chakra-ui/layout";
 
@@ -14,6 +15,15 @@ import { IOrderDetailsContainerProps } from "./IOrderDetailsContainer";
 export const OrderDetailsContainer = (props: IOrderDetailsContainerProps): ReactElement => {
   const { orderId } = props;
 
+  const splitCardObject: ISplitCardProps = {
+    title1: "Nombre cliente: ",
+    subtitle1: "Andrea",
+    title2: "Teléfono:  ",
+    subtitle2: "53455433",
+    title3: "Número de orden: ",
+    subtitle3: orderId ? orderId : "",
+  };
+
   return (
     <div>
       <Container
@@ -23,7 +33,9 @@ export const OrderDetailsContainer = (props: IOrderDetailsContainerProps): React
         p="6"
         rounded="md"
         bg="white"
-      ></Container>
+      >
+        <SplitCard {...splitCardObject} />
+      </Container>
     </div>
   );
 };
