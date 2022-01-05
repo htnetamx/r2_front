@@ -3,11 +3,11 @@ import { ReactElement } from "react";
 import { Icon, IconProps } from "@chakra-ui/react";
 
 /**
- * The icon for an order.
+ * The icon for order number in OrderDetail.
  * @returns {ReactElement} the icon
  * @param {IconProps} props IconProps from chakra
  */
-export default function IconOrder(props: IconProps): ReactElement {
+export default function IconDetailOrder(props: IconProps): ReactElement {
   return (
     <Icon viewBox="0 0 45 45" {...props}>
       <circle cx="22.5" cy="22.5" r="22.5" fill="#D6E1FF" />

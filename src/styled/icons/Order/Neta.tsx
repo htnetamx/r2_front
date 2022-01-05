@@ -1,12 +1,15 @@
 import { ReactElement } from "react";
 
+import { Icon, IconProps } from "@chakra-ui/react";
+
 /**
  * The icon for Neta.
  * @returns {ReactElement} the icon
+ * @param {IconProps} props IconProps from chakra
  */
-export default function IconNeta(): ReactElement {
+export default function IconNeta(props: IconProps): ReactElement {
   return (
-    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <Icon viewBox="0 0 45 45" {...props}>
       <circle cx="22.5" cy="22.5" r="22.5" fill="#FEB2B1" fillOpacity="0.29" />
       <g clipPath="url(#clip0_2889_19677)">
         <path
@@ -68,6 +71,6 @@ export default function IconNeta(): ReactElement {
           <rect width="22" height="31" fill="white" transform="translate(12 7)" />
         </clipPath>
       </defs>
-    </svg>
+    </Icon>
   );
 }
