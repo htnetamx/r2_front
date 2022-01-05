@@ -61,15 +61,15 @@ export const InvoicesContainer = (): ReactElement => {
       <ReturnToHome />
       <SimpleGrid columns={[1, 1, 2]}>
         <Box>
-          <Text fontSize={{ base: "15px", md: "16px", lg: "18px" }} fontWeight="700">
+          <Text fontSize={{ base: "18px", md: "20px", lg: "20px" }} fontWeight="700">
             {INVOICES_HEADER}
           </Text>
-          <Text fontSize={{ base: "15px", md: "16px", lg: "16px" }} fontWeight="400">
+          <Text fontSize={{ base: "17px", md: "18px", lg: "20px" }} fontWeight="400">
             {INVOICES_LASTDAYS}
           </Text>
         </Box>
-        <Box>
-          <Text fontSize={{ base: "12px", md: "13px", lg: "14px" }} fontWeight="400">
+        <Box mt={["3", "0"]}>
+          <Text fontSize={{ base: "13px", md: "13px", lg: "14px" }} fontWeight="400">
             ¿Buscas una factura en especial? escoge una fecha
           </Text>
           <InputGroup>

@@ -4,7 +4,7 @@ import { BiPencil } from "react-icons/bi";
 
 import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
-import { Grid, GridItem, SimpleGrid, Text } from "@chakra-ui/layout";
+import { Grid, GridItem } from "@chakra-ui/layout";
 import { Button, Center } from "@chakra-ui/react";
 
 import { IMyInfoFormProps } from "./IMyInfoForm";
@@ -18,20 +18,13 @@ export const MyInfoForm = (myInfoFormProps: IMyInfoFormProps): ReactElement => {
   const { name, address, phoneNumber, storeName, url } = myInfoFormProps;
   return (
     <div>
-      <Text fontSize={{ base: "18px", md: "20px", lg: "20px" }} fontWeight="700">
-        Mis datos
-      </Text>
-      <Text fontSize={{ base: "17px", md: "18px", lg: "20px" }} fontWeight="400">
-        Recuerda que solo puedes editar <b>nombre y dirección.</b>
-      </Text>
-      <SimpleGrid columns={[2, null, 3]} spacing="40px"></SimpleGrid>
       <Grid
         // h={[450, 250]}
         templateColumns="repeat(5, 1fr)"
         gap={4}
         ml={[0, 14]}
-        mr={[14]}
-        mt={[0, 4]}
+        mr={[0, 14]}
+        mt={[4, 4]}
       >
         <GridItem colSpan={[12, 2]} h={[16, 20]}>
           <FormControl>
@@ -44,7 +37,7 @@ export const MyInfoForm = (myInfoFormProps: IMyInfoFormProps): ReactElement => {
             </InputGroup>
           </FormControl>
         </GridItem>
-        <GridItem colSpan={[12, 2]} h={[16, 20]} colStart={[0, 4]}>
+        <GridItem colSpan={[12, 2]} h={[16, 20]} colStart={[0, 4]} mt={[2, 0]}>
           <FormControl>
             <FormLabel htmlFor="address">Dirección</FormLabel>
             <InputGroup size="md">
@@ -55,19 +48,19 @@ export const MyInfoForm = (myInfoFormProps: IMyInfoFormProps): ReactElement => {
             </InputGroup>
           </FormControl>
         </GridItem>
-        <GridItem colSpan={[12, 2]} h={[16, 20]}>
+        <GridItem colSpan={[12, 2]} h={[16, 20]} mt={[2, 0]}>
           <FormControl isReadOnly>
             <FormLabel htmlFor="name">Teléfono</FormLabel>
             <Input id="phoneNumber" placeholder={phoneNumber} />
           </FormControl>
         </GridItem>
-        <GridItem colSpan={[12, 2]} colStart={[0, 4]} h={[16, 20]}>
+        <GridItem colSpan={[12, 2]} colStart={[0, 4]} h={[16, 20]} mt={[2, 0]}>
           <FormControl isReadOnly>
             <FormLabel htmlFor="storeName">Nombre de la tienda</FormLabel>
             <Input id="storeName" placeholder={storeName} />
           </FormControl>
         </GridItem>
-        <GridItem colSpan={[12, 2]} colStart={[0, 0]} h={[16, 20]}>
+        <GridItem colSpan={[12, 2]} colStart={[0, 0]} h={[16, 20]} mt={[2, 0]}>
           <FormControl isReadOnly>
             <FormLabel htmlFor="url">Liga</FormLabel>
             <Input id="url" placeholder={url} />
@@ -75,7 +68,14 @@ export const MyInfoForm = (myInfoFormProps: IMyInfoFormProps): ReactElement => {
         </GridItem>
       </Grid>
       <Center>
-        <Button colorScheme="gray" mt="12" borderRadius="xl" size="md" height="48px" width="250px">
+        <Button
+          colorScheme="gray"
+          mt="12"
+          borderRadius="xl"
+          size="md"
+          height="48px"
+          width={["100%", "250px"]}
+        >
           Guardar cambios
         </Button>
       </Center>

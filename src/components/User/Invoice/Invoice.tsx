@@ -27,28 +27,42 @@ export const Invoice = (invoiceProps: IInvoiceProps): ReactElement => {
             {name}
           </Text>
         </Box>
-        <Box p="2" w={["auto", "auto", "160px"]}>
+        <Box mb={["2", "0"]} ml={["2", "0"]} mt={["0", "2"]} w={["auto", "auto", "160px"]}>
           <Text>
             <b>Fecha de entrega: </b>
             {new Date(deliveryDate).toDateString()}
           </Text>
         </Box>
         <Spacer />
-        <Box>
-          <Button colorScheme="blue" variant="outline" mr="4" borderRadius="xl" h="50px">
+        <Box pl="2">
+          <Button
+            colorScheme="blue"
+            variant="outline"
+            mr={["2", "4"]}
+            borderRadius="16px"
+            h={["40px", "50px"]}
+          >
             <BiDetail /> <Text ml="1">Ver factura</Text>
           </Button>
           <Button
             colorScheme="blue"
             variant="outline"
-            mr="4"
-            borderRadius="xl"
-            h="50px"
+            mr={["2", "4"]}
+            borderRadius="16px"
+            h={["40px", "50px"]}
             onClick={() => router.push(`/orders/${orderId}`)}
           >
             <BiDetail /> <Text ml="1">Ver órdenes</Text>
           </Button>
-          <Button colorScheme="blue" variant="outline" mr="4" borderRadius="xl" h="50px">
+          <Button
+            colorScheme="blue"
+            variant="outline"
+            mr="4"
+            mt={["2", "0"]}
+            mb={["2", "0"]}
+            borderRadius="16px"
+            h={["40px", "50px"]}
+          >
             <BiHelpCircle /> <Text ml="1">Necesito ayuda con esta factura</Text>
           </Button>
         </Box>

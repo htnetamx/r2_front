@@ -4,7 +4,7 @@ import { BsChevronLeft, BsSearch } from "react-icons/bs";
 import { useSelector } from "react-redux";
 
 import { RETURN_TO_HOME } from "constants/navBarConstants";
-import { MenuContainer } from "containers/User/MenuContainer";
+import { MenuContainer } from "containers/User/Menu/MenuContainer";
 import { selectTotalBasketItems } from "dataflows/Basket/BasketSelectors";
 import throttle from "lodash.throttle";
 import { useRouter } from "next/router";

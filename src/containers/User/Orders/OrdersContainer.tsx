@@ -87,15 +87,15 @@ export const OrderContainer = (props: IOrderContainerProps): ReactElement => {
       bg="white"
     >
       <ReturnToHome />
-      <Text fontSize={{ base: "15px", md: "16px", lg: "18px" }} fontWeight="700">
+      <Text fontSize={{ base: "18px", md: "20px", lg: "20px" }} fontWeight="700">
         ¡Hola, Abarrotes Macías!
       </Text>
-      <Text fontSize={{ base: "15px", md: "16px", lg: "16px" }} fontWeight="400">
+      <Text fontSize={{ base: "17px", md: "18px", lg: "20px" }} fontWeight="400">
         Este es el detalle de tus ordenes del día 16/12/2021.
       </Text>
       <SplitCard {...splitCardObject} />
-      <Text fontSize={{ base: "15px", md: "16px", lg: "18px" }} fontWeight="700">
-        Estatus del pedido
+      <Text fontSize={{ base: "18px", md: "20px", lg: "20px" }} fontWeight="700">
+        Estado del pedido
       </Text>
       <OrderStatus />
       <Text fontSize={{ base: "15px", md: "16px", lg: "18px" }} fontWeight="700">

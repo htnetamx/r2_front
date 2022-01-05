@@ -30,7 +30,7 @@ export const SplitCard = (splitCardProps: ISplitCardProps): ReactElement => {
       <Flex align="center" mx="2" mt={["2", "0"]}>
         <IconBasket />
         <Box ml="2" mx="4">
-          <Text fontSize={{ base: "13px", md: "14px", lg: "15px" }}>{title1}</Text>
+          <Text fontSize={{ base: "17px", md: "14px", lg: "15px" }}>{title1}</Text>
           <Text fontSize={{ base: "17px", md: "20px", lg: "21px" }} fontWeight="700">
             {subtitle1}
           </Text>
@@ -42,7 +42,7 @@ export const SplitCard = (splitCardProps: ISplitCardProps): ReactElement => {
       <Flex align="center" mx="2" mt={["2", "0"]}>
         <IconOrder />
         <Box ml="2" mx="4">
-          <Text fontSize={{ base: "12px", md: "13px", lg: "14px" }}>{title2}</Text>
+          <Text fontSize={{ base: "17px", md: "14px", lg: "15px" }}>{title2}</Text>
           <Text fontSize={{ base: "17px", md: "20px", lg: "21px" }} fontWeight="700">
             {subtitle2}
           </Text>
@@ -51,10 +51,10 @@ export const SplitCard = (splitCardProps: ISplitCardProps): ReactElement => {
       <Center align="center" height={["0px", "0px", "40px"]} ml="8" mr="8">
         <Divider orientation="vertical" />
       </Center>
-      <Flex align="center" mx="2" mt={["2", "0"]}>
+      <Flex align="center" mx="2" mt={["2", "0"]} mb={["2", "0"]}>
         <IconNeta />
         <Box ml="2" mx="4">
-          <Text fontSize={{ base: "12px", md: "13px", lg: "14px" }}>{title3}</Text>
+          <Text fontSize={{ base: "17px", md: "14px", lg: "15px" }}>{title3}</Text>
           <Text fontSize={{ base: "17px", md: "20px", lg: "21px" }} fontWeight="700">
             {subtitle3}
           </Text>

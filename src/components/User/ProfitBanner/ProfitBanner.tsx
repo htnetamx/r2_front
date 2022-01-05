@@ -24,7 +24,7 @@ export const ProfitBanner = (profitBannerProps: IProfitBannerProps): ReactElemen
     <div>
       <Center
         bgGradient="linear(to-r, #d64900 0%, #F52220 100%)"
-        h="100px"
+        h={["82px", "115px"]}
         color="white"
         borderRadius="md"
         mb="4"
@@ -36,13 +36,13 @@ export const ProfitBanner = (profitBannerProps: IProfitBannerProps): ReactElemen
         }}
       >
         <Stack spacing={2} align={"center"}>
-          <Text fontSize={{ base: "14px", md: "20px", lg: "20px" }} fontWeight="500">
+          <Text fontSize={{ base: "15px", md: "20px", lg: "20px" }} fontWeight="500">
             {BANNER_PROFIT}
             <b>
               ${profitBannerProps.currentProfit} {BANNER_PROFIT2}
             </b>
           </Text>
-          <Text fontSize={{ base: "16px", md: "24px", lg: "24px" }} fontWeight="700">
+          <Text fontSize={{ base: "19px", md: "24px", lg: "24px" }} fontWeight="700">
             {BANNER_SHARE_URL}
           </Text>
           <Fade in={copy}>
