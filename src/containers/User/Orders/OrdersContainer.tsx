@@ -7,6 +7,9 @@ import { ReturnToHome } from "components/User/ReturnToHome/ReturnToHome";
 import { ISplitCardProps } from "components/User/SplitCard/ISplitCard";
 import { SplitCard } from "components/User/SplitCard/SplitCard";
 import { ORDERS_HEADER, ORDERS_STATUS, ORDERS_TITLE, YOUR_ORDERS } from "constants/userConstant";
+import IconBasket from "styled/icons/Order/Basket";
+import IconNeta from "styled/icons/Order/Neta";
+import IconOrder from "styled/icons/Order/Order";
 
 import { Container, Text } from "@chakra-ui/layout";
 
@@ -27,6 +30,9 @@ export const OrderContainer = (props: IOrderContainerProps): ReactElement => {
     subtitle2: "6",
     title3: "Total a pagar a Neta: ",
     subtitle3: "$3420",
+    icon1: <IconBasket boxSize={[8, 12]} />,
+    icon2: <IconOrder boxSize={[8, 12]} />,
+    icon3: <IconNeta boxSize={[8, 12]} />,
   };
 
   const orderSampleObject: IOrderProps[] = [
