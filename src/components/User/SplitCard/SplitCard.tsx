@@ -20,7 +20,8 @@ export const SplitCard = (splitCardProps: ISplitCardProps): ReactElement => {
   return (
     <Flex
       direction={["column", "column", "row", "row"]}
-      m="6"
+      mt="6"
+      mb="6"
       boxShadow="xs"
       p={["1", "2", "4"]}
       rounded="lg"

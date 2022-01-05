@@ -2,12 +2,12 @@ import React, { ReactElement } from "react";
 
 import { IOrderProps } from "components/User/Order/IOrder";
 import { Order } from "components/User/Order/Order";
+import { OrderStatus } from "components/User/OrderStatus/OrderStatus";
 import { ReturnToHome } from "components/User/ReturnToHome/ReturnToHome";
 import { ISplitCardProps } from "components/User/SplitCard/ISplitCard";
 import { SplitCard } from "components/User/SplitCard/SplitCard";
 
 import { Container, Text } from "@chakra-ui/layout";
-import { Skeleton } from "@chakra-ui/react";
 
 import { IOrderContainerProps } from "./IOrdersContainer";
 
@@ -97,9 +97,7 @@ export const OrderContainer = (props: IOrderContainerProps): ReactElement => {
       <Text fontSize={{ base: "15px", md: "16px", lg: "18px" }} fontWeight="700">
         Estatus del pedido
       </Text>
-      <Skeleton startColor="gray.300" endColor="gray.300" h="100px" borderRadius="xl">
-        <div>Status del pedido</div>
-      </Skeleton>
+      <OrderStatus />
       <Text fontSize={{ base: "15px", md: "16px", lg: "18px" }} fontWeight="700">
         Tus ordenes
       </Text>

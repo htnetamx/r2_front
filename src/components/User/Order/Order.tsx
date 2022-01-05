@@ -31,7 +31,7 @@ export const Order = (props: IOrderProps): ReactElement => {
           <Text fontSize={{ base: "13px", md: "14px", lg: "13px" }}>{customerName}</Text>
         </Box>
       </Flex>
-      <Flex ml="10" mr="10">
+      <Flex ml={["0", "0", "10"]} mr={["0", "0", "10"]}>
         <Box ml="4" mt="1" mb="1">
           <Text fontSize={{ base: "13px", md: "14px", lg: "14px" }} fontWeight="700">
             {"Teléfono"}
@@ -39,7 +39,7 @@ export const Order = (props: IOrderProps): ReactElement => {
           <Text fontSize={{ base: "13px", md: "14px", lg: "13px" }}>{telephone}</Text>
         </Box>
       </Flex>
-      <Flex ml="10" mr="10">
+      <Flex ml={["0", "0", "10"]} mr={["0", "0", "10"]}>
         <Box ml="4" mt="1" mb="1">
           <Text fontSize={{ base: "13px", md: "14px", lg: "14px" }} fontWeight="700">
             {"Número de orden:"}
@@ -47,8 +47,8 @@ export const Order = (props: IOrderProps): ReactElement => {
           <Text fontSize={{ base: "13px", md: "14px", lg: "13px" }}>{orderId}</Text>
         </Box>
       </Flex>
-      <Flex ml="6" mr="40">
-        <Box mt="1" mb="1">
+      <Flex ml={["0", "0", "6"]} mr="40">
+        <Box ml="4" mt="1" mb="1">
           <Text fontSize={{ base: "13px", md: "14px", lg: "14px" }} fontWeight="700">
             {"Total:"}
           </Text>

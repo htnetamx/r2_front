@@ -2,8 +2,8 @@ import React, { ReactElement } from "react";
 
 import { BiShare } from "react-icons/bi";
 
-import { Box, Grid, GridItem } from "@chakra-ui/layout";
-import { Button, IconButton, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/layout";
+import { Button, Flex, Spacer, Text } from "@chakra-ui/react";
 
 import { IClientDetailProps } from "./IClientDetail";
 
@@ -46,36 +46,36 @@ export const ClientDetail = (props: IClientDetailProps): ReactElement => {
 
   return (
     <Box boxShadow="xs" p="4" rounded="md" bg="white">
-      <Grid templateColumns="repeat(1, 1fr)">
-        <GridItem colStart={1}>
+      <Flex direction={["column", "row", "row"]}>
+        <Box>
           <Text>
             Nombre: <b>{name}</b>
           </Text>
-          <Grid templateColumns="repeat(3, 1fr)">
-            <GridItem colStart={1}>
+          <Flex direction={["column", "row", "row"]}>
+            <Box>
               <Text fontSize={{ base: "12px", md: "14px", lg: "14px" }}>
                 Pedidos: <b>{orders}</b>
               </Text>
-            </GridItem>
-            <GridItem colStart={2} colEnd={3}>
+            </Box>
+            <Box mr={["0", "4", "14"]} ml={["0", "4", "14"]}>
               <Text fontSize={{ base: "12px", md: "14px", lg: "14px" }}>
                 Último pedido: <b>Hace {daysSinceLastOrder.toFixed(0)} día</b>
               </Text>
-            </GridItem>
-            <GridItem colStart={3} colEnd={3}>
+            </Box>
+            <Box>
               <Text fontSize={{ base: "10px", md: "11px", lg: "12px" }}>
                 {getStatus(daysSinceLastOrder)}
               </Text>
-            </GridItem>
-          </Grid>
-        </GridItem>
-        <GridItem colStart={3}>
-          <Button colorScheme="blue" variant="outline">
-            <IconButton variant="ghost" aria-label="add" icon={<BiShare />} />
-            Compartir liga
+            </Box>
+          </Flex>
+        </Box>
+        <Spacer />
+        <Box>
+          <Button colorScheme="blue" variant="outline" borderRadius="xl">
+            <BiShare /> <Text ml="1"> Compartir liga</Text>
           </Button>
-        </GridItem>
-      </Grid>
+        </Box>
+      </Flex>
     </Box>
   );
 };

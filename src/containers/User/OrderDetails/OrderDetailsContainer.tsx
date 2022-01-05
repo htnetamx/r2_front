@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
 
+import { OrderTable } from "components/User/OrderTable/OrderTable";
 import { ISplitCardProps } from "components/User/SplitCard/ISplitCard";
 import { SplitCard } from "components/User/SplitCard/SplitCard";
 
@@ -35,6 +36,7 @@ export const OrderDetailsContainer = (props: IOrderDetailsContainerProps): React
         bg="white"
       >
         <SplitCard {...splitCardObject} />
+        <OrderTable />
       </Container>
     </div>
   );
