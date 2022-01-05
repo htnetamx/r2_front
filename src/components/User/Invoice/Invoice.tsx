@@ -3,6 +3,7 @@ import React, { ReactElement } from "react";
 import { BiDetail, BiHelpCircle } from "react-icons/bi";
 
 import { useRouter } from "next/router";
+import { formatDate } from "utils/dateUtils";
 
 import { Box, Flex, Text } from "@chakra-ui/layout";
 import { Button, Spacer } from "@chakra-ui/react";
@@ -30,7 +31,7 @@ export const Invoice = (invoiceProps: IInvoiceProps): ReactElement => {
         <Box mb={["2", "0"]} ml={["2", "0"]} mt={["0", "2"]} w={["auto", "auto", "160px"]}>
           <Text>
             <b>Fecha de entrega: </b>
-            {new Date(deliveryDate).toDateString()}
+            {formatDate(deliveryDate)}
           </Text>
         </Box>
         <Spacer />

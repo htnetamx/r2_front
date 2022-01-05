@@ -2,6 +2,14 @@ import React, { ReactElement } from "react";
 
 import { BiDetail } from "react-icons/bi";
 
+import {
+  ORDER_DETAIL,
+  ORDER_NUMBER,
+  ORDER_STORE,
+  ORDER_TELEPHONE,
+  ORDER_TOTAL,
+} from "constants/userConstant";
+
 import { Flex, Spacer, Text } from "@chakra-ui/layout";
 import { Box, Button } from "@chakra-ui/react";
 
@@ -23,43 +31,42 @@ export const Order = (props: IOrderProps): ReactElement => {
       p={["1", "1", "1"]}
       rounded="lg"
     >
-      <Flex>
+      <Box ml="4" mt="1" mb="1" w={["auto", "auto", "150px"]}>
+        <Text fontSize={{ base: "15px", md: "15px", lg: "16px" }} fontWeight="500">
+          <b>{ORDER_STORE}</b>
+          {/* <Text fontSize={{ base: "13px", md: "14px", lg: "14px" }} fontWeight="500"> */}
+          {customerName}
+          {/* </Text> */}
+        </Text>
+      </Box>
+      <Flex ml={["0", "0", "10"]} mr={["0", "0", "10"]}>
         <Box ml="4" mt="1" mb="1">
-          <Text fontSize={{ base: "13px", md: "14px", lg: "14px" }} fontWeight="700">
-            {"Nombre Cliente"}
+          <Text fontSize={{ base: "15px", md: "15px", lg: "16px" }} fontWeight="500">
+            <b>{ORDER_TELEPHONE}</b>
+            {telephone}
           </Text>
-          <Text fontSize={{ base: "13px", md: "14px", lg: "13px" }}>{customerName}</Text>
         </Box>
       </Flex>
       <Flex ml={["0", "0", "10"]} mr={["0", "0", "10"]}>
         <Box ml="4" mt="1" mb="1">
-          <Text fontSize={{ base: "13px", md: "14px", lg: "14px" }} fontWeight="700">
-            {"Teléfono"}
+          <Text fontSize={{ base: "15px", md: "15px", lg: "16px" }} fontWeight="500">
+            <b>{ORDER_NUMBER}</b>
+            {orderId}
           </Text>
-          <Text fontSize={{ base: "13px", md: "14px", lg: "13px" }}>{telephone}</Text>
-        </Box>
-      </Flex>
-      <Flex ml={["0", "0", "10"]} mr={["0", "0", "10"]}>
-        <Box ml="4" mt="1" mb="1">
-          <Text fontSize={{ base: "13px", md: "14px", lg: "14px" }} fontWeight="700">
-            {"Número de orden:"}
-          </Text>
-          <Text fontSize={{ base: "13px", md: "14px", lg: "13px" }}>{orderId}</Text>
         </Box>
       </Flex>
       <Flex ml={["0", "0", "6"]} mr="40">
         <Box ml="4" mt="1" mb="1">
-          <Text fontSize={{ base: "13px", md: "14px", lg: "14px" }} fontWeight="700">
-            {"Total:"}
+          <Text fontSize={{ base: "15px", md: "15px", lg: "16px" }} fontWeight="500">
+            <b>{ORDER_TOTAL}</b>${total}
           </Text>
-          <Text fontSize={{ base: "13px", md: "14px", lg: "13px" }}>${total}</Text>
         </Box>
       </Flex>
       <Spacer />
-      <Flex>
+      <Flex ml={["4", "0"]}>
         <Box mt="1" mb="1">
-          <Button colorScheme="blue" variant="outline" borderRadius="xl">
-            <BiDetail /> <Text ml="1">Ver detalle</Text>
+          <Button colorScheme="blue" variant="outline" borderRadius="16px" h={["40px", "50px"]}>
+            <BiDetail /> <Text ml="1">{ORDER_DETAIL}</Text>
           </Button>
         </Box>
       </Flex>

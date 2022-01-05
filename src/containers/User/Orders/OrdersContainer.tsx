@@ -6,6 +6,7 @@ import { OrderStatus } from "components/User/OrderStatus/OrderStatus";
 import { ReturnToHome } from "components/User/ReturnToHome/ReturnToHome";
 import { ISplitCardProps } from "components/User/SplitCard/ISplitCard";
 import { SplitCard } from "components/User/SplitCard/SplitCard";
+import { ORDERS_HEADER, ORDERS_STATUS, ORDERS_TITLE, YOUR_ORDERS } from "constants/userConstant";
 
 import { Container, Text } from "@chakra-ui/layout";
 
@@ -88,18 +89,18 @@ export const OrderContainer = (props: IOrderContainerProps): ReactElement => {
     >
       <ReturnToHome />
       <Text fontSize={{ base: "18px", md: "20px", lg: "20px" }} fontWeight="700">
-        ¡Hola, Abarrotes Macías!
+        {ORDERS_HEADER}
       </Text>
       <Text fontSize={{ base: "17px", md: "18px", lg: "20px" }} fontWeight="400">
-        Este es el detalle de tus ordenes del día 16/12/2021.
+        {ORDERS_TITLE}
       </Text>
       <SplitCard {...splitCardObject} />
       <Text fontSize={{ base: "18px", md: "20px", lg: "20px" }} fontWeight="700">
-        Estado del pedido
+        {ORDERS_STATUS}
       </Text>
       <OrderStatus />
-      <Text fontSize={{ base: "15px", md: "16px", lg: "18px" }} fontWeight="700">
-        Tus ordenes
+      <Text fontSize={{ base: "18px", md: "20px", lg: "20px" }} fontWeight="700">
+        {YOUR_ORDERS}
       </Text>
       {orderSampleObject.map((order, key) => (
         <Order {...order} key={key} />

@@ -21,17 +21,17 @@ export const InvoicesContainer = (): ReactElement => {
     {
       orderId: 1,
       name: "Abarrotes",
-      deliveryDate: new Date("January 4, 2022 03:45:00"),
+      deliveryDate: new Date("January 5, 2022 03:45:00"),
     },
     {
       orderId: 2,
       name: "Abarrotes",
-      deliveryDate: new Date("January 3, 2022 03:45:00"),
+      deliveryDate: new Date("January 4, 2022 03:45:00"),
     },
     {
       orderId: 3,
       name: "Abarrotes",
-      deliveryDate: new Date("January 2, 2022 03:45:00"),
+      deliveryDate: new Date("January 3, 2022 03:45:00"),
     },
     {
       orderId: 2,
@@ -80,9 +80,12 @@ export const InvoicesContainer = (): ReactElement => {
           </InputGroup>
         </Box>
       </SimpleGrid>
-
-      <SimpleGrid columns={1} spacing={2} mt={10} mb={10}>
-        <Text fontSize={{ base: "15px", md: "16px", lg: "18px" }} fontWeight="700">
+      <SimpleGrid columns={1} spacing={2} mt={["6", "10"]} mb={10}>
+        <Text
+          fontSize={{ base: "15px", md: "16px", lg: "18px" }}
+          fontWeight="700"
+          display={["none", "block"]}
+        >
           {YOUR_INVOICES}
         </Text>
         {invoicesContainerProps.invoicesDetailProps.map((invoice, index) => (
