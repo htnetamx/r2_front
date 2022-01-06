@@ -26,6 +26,13 @@ export const CLIENTS_TITLE =
   "Esta es la lista total de los clientes que han pedido a tu tienda por Neta ";
 export const CLIENTS_SUBTITLE = "¡Comparte la liga y sigue ganando!";
 export const SHARE_URL = "Compartir liga a todos";
+export const CLIENT_NAME = "Nombre: ";
+export const CLIENT_ORDERS = "Pedidos: ";
+export const CLIENT_LAST_ORDER = "Último pedido: ";
+export const CLIENT_URL = "Compartir liga";
+export const CLIENT_STATUS1 = "🥳 ¡Este cliente es la Neta!";
+export const CLIENT_STATUS2 = "😐 ¡Comparte la liga para que siga pidiendo!";
+export const CLIENT_STATUS3 = "😭 ¡Lo extrañamos, compartele la liga ya!";
 
 /* INVOICES CONTAINER */
 export const INVOICES_HEADER = "Historial de facturas";

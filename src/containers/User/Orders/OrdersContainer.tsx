@@ -30,9 +30,9 @@ export const OrderContainer = (props: IOrderContainerProps): ReactElement => {
     subtitle2: "6",
     title3: "Total a pagar a Neta: ",
     subtitle3: "$3420",
-    icon1: <IconBasket boxSize={[8, 12]} />,
-    icon2: <IconOrder boxSize={[8, 12]} />,
-    icon3: <IconNeta boxSize={[8, 12]} />,
+    icon1: <IconBasket boxSize={[8, 9, 10, 12]} />,
+    icon2: <IconOrder boxSize={[8, 9, 10, 12]} />,
+    icon3: <IconNeta boxSize={[8, 9, 10, 12]} />,
   };
 
   const orderSampleObject: IOrderProps[] = [
@@ -40,7 +40,7 @@ export const OrderContainer = (props: IOrderContainerProps): ReactElement => {
       customerName: "Andrea",
       telephone: "55823492",
       orderId: "210455",
-      total: 400,
+      total: 20000,
       items: [
         {
           name: "Lechuga Sangria Unidad",
@@ -58,21 +58,21 @@ export const OrderContainer = (props: IOrderContainerProps): ReactElement => {
       customerName: "Pedro",
       telephone: "55823492",
       orderId: "210455",
-      total: 400,
+      total: 1400,
       items: [],
     },
     {
       customerName: "Sara",
       telephone: "55823492",
       orderId: "210455",
-      total: 0,
+      total: 20,
       items: [],
     },
     {
-      customerName: "Sara",
+      customerName: "Alejandro",
       telephone: "55823492",
       orderId: "210455",
-      total: 0,
+      total: 200,
       items: [],
     },
     {

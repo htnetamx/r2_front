@@ -57,7 +57,7 @@ export const Order = (props: IOrderProps): ReactElement => {
           </Text>
         </Box>
       </Flex>
-      <Flex ml={["0", "0", "6"]} mr="40">
+      <Flex ml={["0", "0", "6"]} mr={["0", "10", "20", "40"]} w={["auto", "auto", "100px"]}>
         <Box ml="4" mt="1" mb="1">
           <Text fontSize={{ base: "15px", md: "15px", lg: "16px" }} fontWeight="500">
             <b>{ORDER_TOTAL}</b>${total}
@@ -65,7 +65,7 @@ export const Order = (props: IOrderProps): ReactElement => {
         </Box>
       </Flex>
       <Spacer />
-      <Flex ml={["4", "0"]}>
+      <Flex ml={["4", "4", "0"]}>
         <Box mt="1" mb="1">
           <Button
             colorScheme="blue"
