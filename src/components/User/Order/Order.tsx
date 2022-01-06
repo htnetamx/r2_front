@@ -9,6 +9,7 @@ import {
   ORDER_TELEPHONE,
   ORDER_TOTAL,
 } from "constants/userConstant";
+import { useRouter } from "next/router";
 
 import { Flex, Spacer, Text } from "@chakra-ui/layout";
 import { Box, Button } from "@chakra-ui/react";
@@ -22,6 +23,7 @@ import { IOrderProps } from "./IOrder";
  */
 export const Order = (props: IOrderProps): ReactElement => {
   const { customerName, telephone, orderId, total } = props;
+  const router = useRouter();
   return (
     <Flex
       direction={["column", "column", "row", "row"]}
@@ -65,7 +67,13 @@ export const Order = (props: IOrderProps): ReactElement => {
       <Spacer />
       <Flex ml={["4", "0"]}>
         <Box mt="1" mb="1">
-          <Button colorScheme="blue" variant="outline" borderRadius="16px" h={["40px", "50px"]}>
+          <Button
+            colorScheme="blue"
+            variant="outline"
+            borderRadius="16px"
+            h={["40px", "50px"]}
+            onClick={() => router.push(`/order/${orderId}`)}
+          >
             <BiDetail /> <Text ml="1">{ORDER_DETAIL}</Text>
           </Button>
         </Box>

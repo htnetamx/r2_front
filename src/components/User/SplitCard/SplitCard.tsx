@@ -1,7 +1,5 @@
 import React, { ReactElement } from "react";
 
-
-
 import { Center, Divider, Flex, Text } from "@chakra-ui/layout";
 import { Box } from "@chakra-ui/react";
 
@@ -28,11 +26,10 @@ export const SplitCard = (splitCardProps: ISplitCardProps): ReactElement => {
     >
       <Flex align="center" mx="2" mt={["2", "0"]}>
         {icon1}
-
-        <Box ml="2" mx="4">
-          <Text fontSize={{ base: "17px", md: "14px", lg: "15px" }}>{title1}</Text>
-          <Text fontSize={{ base: "17px", md: "20px", lg: "21px" }} fontWeight="700">
-            {subtitle1}
+        <Box ml="2" mx="4" width={["auto", "90px"]}>
+          <Text fontSize={{ base: "17px", md: "14px", lg: "15px" }}>
+            {title1}
+            <b> {subtitle1}</b>
           </Text>
         </Box>
       </Flex>
@@ -41,10 +38,10 @@ export const SplitCard = (splitCardProps: ISplitCardProps): ReactElement => {
       </Center>
       <Flex align="center" mx="2" mt={["2", "0"]}>
         {icon2}
-        <Box ml="2" mx="4">
-          <Text fontSize={{ base: "17px", md: "14px", lg: "15px" }}>{title2}</Text>
-          <Text fontSize={{ base: "17px", md: "20px", lg: "21px" }} fontWeight="700">
-            {subtitle2}
+        <Box ml="2" mx="4" width={["auto", "90px"]}>
+          <Text fontSize={{ base: "17px", md: "14px", lg: "15px" }}>
+            {title2}
+            <b>{subtitle2}</b>
           </Text>
         </Box>
       </Flex>
@@ -53,10 +50,10 @@ export const SplitCard = (splitCardProps: ISplitCardProps): ReactElement => {
       </Center>
       <Flex align="center" mx="2" mt={["2", "0"]} mb={["2", "0"]}>
         {icon3}
-        <Box ml="2" mx="4">
-          <Text fontSize={{ base: "17px", md: "14px", lg: "15px" }}>{title3}</Text>
-          <Text fontSize={{ base: "17px", md: "20px", lg: "21px" }} fontWeight="700">
-            {subtitle3}
+        <Box ml="2" mx="4" width={["auto", "90px"]}>
+          <Text fontSize={{ base: "17px", md: "14px", lg: "15px" }}>
+            {title3}
+            <b>{subtitle3}</b>
           </Text>
         </Box>
       </Flex>

@@ -9,6 +9,7 @@ export const MY_ORDERS = "Órdenes y facturas";
 export const HELP_URL = "/ayuda";
 export const HELP = "Ayuda";
 export const LOGOUT = "Cerrar sesión";
+export const TO_BACK = "Atrás";
 /* USER INFO CONTAINER */
 export const TO_HOME = "Inicio";
 export const HELLO_USER = "Hola, ";
