@@ -43,7 +43,7 @@ export const SplitCard = (splitCardProps: ISplitCardProps): ReactElement => {
       </Center>
       <Flex align="center" mx="2" mt={["2", "0"]}>
         {icon2}
-        <Box ml="2" mx="4" width={["auto", "auto", "140px"]}>
+        <Box ml="2" mx="4" width={["auto", "auto", "100px"]}>
           <Text fontSize={{ base: "17px", md: "14px", lg: "15px" }}>
             {title2}
             <b>{subtitle2}</b>

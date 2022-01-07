@@ -51,3 +51,7 @@ export const ORDER_TELEPHONE = "Teléfono: ";
 export const ORDER_NUMBER = "Número de orden: ";
 export const ORDER_TOTAL = "Total: ";
 export const ORDER_DETAIL = "Ver detalle";
+
+/* ORDER TABLE */
+export const ORDER_QUANTITY = "Cantidad";
+export const ORDER_PRICE = "Precio unitario";
