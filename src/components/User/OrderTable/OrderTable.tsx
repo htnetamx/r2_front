@@ -55,9 +55,8 @@ export const OrderTable = (props: IOrderTableProps): ReactElement => {
           </Text>
         </Box>
       </Container>
-      {/* <Container maxW="container.lg"> */}
-      <Box>
-        <Box maxHeight="210px" overflow="auto" display={["block", "none", "none", "none"]}>
+      <Box display={["block", "none", "none", "none"]}>
+        <Box maxHeight="210px" overflow="auto">
           {objects.map((object: IObjectProps, key: number) => (
             <Box key={key} mb="4">
               <Divider mb="4" borderColor="#9F9F9F" />
@@ -96,8 +95,6 @@ export const OrderTable = (props: IOrderTableProps): ReactElement => {
           </Text>
         </Box>
       </Box>
-
-      {/* </Container> */}
     </div>
   );
 };
