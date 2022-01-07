@@ -1,7 +1,5 @@
 import React, { ReactElement } from "react";
 
-import { BiDetail } from "react-icons/bi";
-
 import {
   ORDER_DETAIL,
   ORDER_NUMBER,
@@ -10,6 +8,7 @@ import {
   ORDER_TOTAL,
 } from "constants/userConstant";
 import { useRouter } from "next/router";
+import IconDetail from "styled/icons/Order/Detail";
 
 import { Flex, Spacer, Text } from "@chakra-ui/layout";
 import { Box, Button } from "@chakra-ui/react";
@@ -68,13 +67,14 @@ export const Order = (props: IOrderProps): ReactElement => {
       <Flex ml={["4", "4", "0"]}>
         <Box mt="1" mb="1">
           <Button
-            colorScheme="blue"
+            color="#3870FF"
+            borderColor="#3870FF"
             variant="outline"
-            borderRadius="16px"
+            borderRadius="xl"
             h={["40px", "50px"]}
             onClick={() => router.push(`/order/${orderId}`)}
           >
-            <BiDetail /> <Text ml="1">{ORDER_DETAIL}</Text>
+            <IconDetail /> <Text ml="4">{ORDER_DETAIL}</Text>
           </Button>
         </Box>
       </Flex>

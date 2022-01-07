@@ -1,14 +1,13 @@
 import React, { ReactElement } from "react";
 
-import { BiGroup } from "react-icons/bi";
-
 import { ClientDetail } from "components/User/ClientDetail/ClientDetail";
 import { IClientDetailProps } from "components/User/ClientDetail/IClientDetail";
 import { ReturnToHome } from "components/User/ReturnToHome/ReturnToHome";
 import { CLIENTS_HEADER, CLIENTS_SUBTITLE, CLIENTS_TITLE, SHARE_URL } from "constants/userConstant";
+import IconShareGroup from "styled/icons/Order/ShareGroup";
 
 import { Container, SimpleGrid, Text } from "@chakra-ui/layout";
-import { Box, Button, IconButton } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
 
 import { IClientsContainer } from "./IClientsContainer";
 
@@ -70,9 +69,9 @@ export const ClientsContainer = (): ReactElement => {
         ))}
       </SimpleGrid>
       <Box textAlign={["center", "right"]}>
-        <Button colorScheme="blue" variant="solid">
-          <IconButton variant="ghost" aria-label="add" icon={<BiGroup />} />
-          {SHARE_URL}
+        <Button color="white" background="#3870FF" borderRadius="xl" height="44px">
+          <IconShareGroup />
+          <Text ml="4">{SHARE_URL}</Text>
         </Button>
       </Box>
     </Container>

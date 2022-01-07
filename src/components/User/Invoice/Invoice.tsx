@@ -1,8 +1,9 @@
 import React, { ReactElement } from "react";
 
-import { BiDetail, BiHelpCircle } from "react-icons/bi";
-
 import { useRouter } from "next/router";
+import IconHelp from "styled/icons/Menu/Help";
+import IconDetail from "styled/icons/Order/Detail";
+import IconInvoice from "styled/icons/Order/Invoice";
 import { formatDate } from "utils/dateUtils";
 
 import { Box, Flex, Text } from "@chakra-ui/layout";
@@ -37,26 +38,29 @@ export const Invoice = (invoiceProps: IInvoiceProps): ReactElement => {
         <Spacer />
         <Box pl="2">
           <Button
-            colorScheme="blue"
+            color="#3870FF"
+            borderColor="#3870FF"
             variant="outline"
             mr={["2", "4"]}
             borderRadius="16px"
             h={["40px", "50px"]}
           >
-            <BiDetail /> <Text ml="1">Ver factura</Text>
+            <IconInvoice /> <Text ml="1">Ver factura</Text>
           </Button>
           <Button
-            colorScheme="blue"
+            color="#3870FF"
+            borderColor="#3870FF"
             variant="outline"
             mr={["2", "4"]}
             borderRadius="16px"
             h={["40px", "50px"]}
             onClick={() => router.push(`/orders/${orderId}`)}
           >
-            <BiDetail /> <Text ml="1">Ver órdenes</Text>
+            <IconDetail /> <Text ml="1">Ver órdenes</Text>
           </Button>
           <Button
-            colorScheme="blue"
+            color="#3870FF"
+            borderColor="#3870FF"
             variant="outline"
             mr="4"
             mt={["2", "0"]}
@@ -64,32 +68,10 @@ export const Invoice = (invoiceProps: IInvoiceProps): ReactElement => {
             borderRadius="16px"
             h={["40px", "50px"]}
           >
-            <BiHelpCircle /> <Text ml="1">Necesito ayuda con esta factura</Text>
+            <IconHelp /> <Text ml="1">Necesito ayuda con esta factura</Text>
           </Button>
         </Box>
       </Flex>
     </Box>
-    // <Box boxShadow="xs" p="4" rounded="md" bg="white">
-    //   <Grid templateColumns="repeat(1, 1fr)">
-    //     <GridItem colStart={1}>
-    //       <Text>Nombre Tienda: {name}</Text>
-    //     </GridItem>
-    //     <GridItem colStart={2} colEnd={3}>
-    //       <Text>Fecha de entrega: {new Date(deliveryDate).toDateString()}</Text>
-    //     </GridItem>
-    //     <GridItem colStart={3} colEnd={3}>
-    //       <Button colorScheme="blue" variant="outline">
-    //         <IconButton variant="ghost" aria-label="add" icon={<BiDetail />} />
-    //         Ver órdenes
-    //       </Button>
-    //     </GridItem>
-    //     {/* <GridItem colStart={3} colEnd={3}>
-    //       <Button colorScheme="blue" variant="outline">
-    //         <IconButton variant="ghost" aria-label="add" icon={<BiHelpCircle />} />
-    //         Necesito ayuda con esta factura
-    //       </Button>
-    //     </GridItem> */}
-    //   </Grid>
-    // </Box>
   );
 };

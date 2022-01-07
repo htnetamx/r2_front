@@ -1,7 +1,5 @@
 import React, { ReactElement } from "react";
 
-import { BiShare } from "react-icons/bi";
-
 import {
   CLIENT_LAST_ORDER,
   CLIENT_NAME,
@@ -11,6 +9,7 @@ import {
   CLIENT_STATUS3,
   CLIENT_URL,
 } from "constants/userConstant";
+import IconShare from "styled/icons/Order/Share";
 
 import { Box, TextProps } from "@chakra-ui/layout";
 import { Button, Flex, Spacer, Text } from "@chakra-ui/react";
@@ -97,8 +96,8 @@ export const ClientDetail = (props: IClientDetailProps): ReactElement => {
         </Box>
         <Spacer />
         <Box>
-          <Button colorScheme="blue" variant="outline" borderRadius="xl">
-            <BiShare /> <Text ml="1"> {CLIENT_URL}</Text>
+          <Button color="#3870FF" borderColor="#3870FF" variant="outline" borderRadius="xl">
+            <IconShare /> <Text ml="2"> {CLIENT_URL}</Text>
           </Button>
         </Box>
       </Flex>
