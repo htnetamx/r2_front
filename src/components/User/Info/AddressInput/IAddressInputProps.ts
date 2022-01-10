@@ -14,4 +14,10 @@ export interface IAddressInputProps {
    * @type {UseFormRegister<ILogInStepFormValues>}
    */
   register: UseFormRegister<IAddressFormValues>;
+
+  /**
+   * The input current value.
+   * @type {String}
+   */
+  // currentValue: string | undefined;
 }

@@ -1,9 +1,6 @@
 import { ReactElement } from "react";
 
-import { useForm } from "react-hook-form";
-
 import { AddressInput } from "components/User/Info/AddressInput/AddressInput";
-import { IAddressFormValues } from "dataflows/InfoForm/Address/IAddressFormValues";
 
 import { IAddressContainerProps } from "./IAddressContainerProps";
 
@@ -13,16 +10,7 @@ import { IAddressContainerProps } from "./IAddressContainerProps";
  * @returns {ReactElement} The React element.
  **/
 export const AddressContainer = (props: IAddressContainerProps): ReactElement => {
-  const { addressFormValues } = props;
-
-  const {
-    register,
-    formState: { errors },
-  } = useForm<IAddressFormValues>({
-    mode: "onChange",
-    reValidateMode: "onChange",
-    defaultValues: addressFormValues,
-  });
+  const { errors, register } = props;
 
   return <AddressInput errors={errors} register={register} />;
 };

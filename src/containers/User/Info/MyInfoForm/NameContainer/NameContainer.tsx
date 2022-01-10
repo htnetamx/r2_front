@@ -1,9 +1,6 @@
 import { ReactElement } from "react";
 
-import { useForm } from "react-hook-form";
-
 import { NameInput } from "components/User/Info/NameInput/NameInput";
-import { INameFormValues } from "dataflows/InfoForm/Name/INameFormValues";
 
 import { INameContainerProps } from "./INameContainerProps";
 
@@ -13,16 +10,7 @@ import { INameContainerProps } from "./INameContainerProps";
  * @returns {ReactElement} The React element.
  **/
 export const NameContainer = (props: INameContainerProps): ReactElement => {
-  const { nameFormValues } = props;
-
-  const {
-    register,
-    formState: { errors },
-  } = useForm<INameFormValues>({
-    mode: "onChange",
-    reValidateMode: "onChange",
-    defaultValues: nameFormValues,
-  });
+  const { errors, register } = props;
 
   return <NameInput errors={errors} register={register} />;
 };
