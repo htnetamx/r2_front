@@ -1,5 +1,6 @@
-import { IMyInfoFormProps } from "components/User/MyInfoForm/IMyInfoForm";
 import { IProfitBannerProps } from "components/User/ProfitBanner/lProfitBanner";
+
+import { IMyInfoFormProps } from "./MyInfoForm/IMyInfoForm";
 
 export interface IInfoContainerProps {
   /**

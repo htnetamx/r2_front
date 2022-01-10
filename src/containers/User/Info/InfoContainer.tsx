@@ -1,12 +1,12 @@
 import React, { ReactElement } from "react";
 
-import { MyInfoForm } from "components/User/MyInfoForm/MyInfoForm";
 import { ProfitBanner } from "components/User/ProfitBanner/ProfitBanner";
 import { ReturnToHome } from "components/User/ReturnToHome/ReturnToHome";
 
 import { Container, Text } from "@chakra-ui/layout";
 
 import { IInfoContainerProps } from "./IInfoContainer";
+import { MyInfoForm } from "./MyInfoForm/MyInfoForm";
 
 /**
  * The User Info Container.

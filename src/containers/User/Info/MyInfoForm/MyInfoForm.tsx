@@ -1,13 +1,15 @@
 import React, { ReactElement } from "react";
 
-import { BiPencil } from "react-icons/bi";
+import { SAVE_CHANGES, USER_STORE_NAME, USER_TELEPHONE, USER_URL } from "constants/userConstant";
 
 import { FormControl, FormLabel } from "@chakra-ui/form-control";
-import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
+import { Input } from "@chakra-ui/input";
 import { Grid, GridItem } from "@chakra-ui/layout";
 import { Button, Center } from "@chakra-ui/react";
 
+import { AddressContainer } from "./AddressContainer/AddressContainer";
 import { IMyInfoFormProps } from "./IMyInfoForm";
+import { NameContainer } from "./NameContainer/NameContainer";
 
 /**
  * The MyInfoForm component.
@@ -26,43 +28,27 @@ export const MyInfoForm = (myInfoFormProps: IMyInfoFormProps): ReactElement => {
         mr={[0, 14]}
         mt={[4, 4]}
       >
-        <GridItem colSpan={[12, 2]} h={[16, 20]}>
-          <FormControl>
-            <FormLabel htmlFor="name">Nombre</FormLabel>
-            <InputGroup size="md">
-              <Input id="name" value={name} />
-              <InputRightElement>
-                <BiPencil color="#3870FF" />
-              </InputRightElement>
-            </InputGroup>
-          </FormControl>
+        <GridItem colSpan={[12, 12, 2]} h={[16, 20]}>
+          <NameContainer />
         </GridItem>
-        <GridItem colSpan={[12, 2]} h={[16, 20]} colStart={[0, 4]} mt={[2, 0]}>
-          <FormControl>
-            <FormLabel htmlFor="address">Dirección</FormLabel>
-            <InputGroup size="md">
-              <Input id="address" value={address} />
-              <InputRightElement>
-                <BiPencil color="#3870FF" />
-              </InputRightElement>
-            </InputGroup>
-          </FormControl>
+        <GridItem colSpan={[12, 12, 2]} h={[16, 20]} colStart={[0, 0, 4]} mt={[2, 0]}>
+          <AddressContainer />
         </GridItem>
-        <GridItem colSpan={[12, 2]} h={[16, 20]} mt={[2, 0]}>
+        <GridItem colSpan={[12, 12, 2]} h={[16, 20]} mt={[2, 0]}>
           <FormControl isReadOnly>
-            <FormLabel htmlFor="name">Teléfono</FormLabel>
+            <FormLabel htmlFor="telephone">{USER_TELEPHONE}</FormLabel>
             <Input id="phoneNumber" placeholder={phoneNumber} />
           </FormControl>
         </GridItem>
-        <GridItem colSpan={[12, 2]} colStart={[0, 4]} h={[16, 20]} mt={[2, 0]}>
+        <GridItem colSpan={[12, 12, 2]} colStart={[0, 0, 4]} h={[16, 20]} mt={[2, 0]}>
           <FormControl isReadOnly>
-            <FormLabel htmlFor="storeName">Nombre de la tienda</FormLabel>
+            <FormLabel htmlFor="storeName">{USER_STORE_NAME}</FormLabel>
             <Input id="storeName" placeholder={storeName} />
           </FormControl>
         </GridItem>
-        <GridItem colSpan={[12, 2]} colStart={[0, 0]} h={[16, 20]} mt={[2, 0]}>
+        <GridItem colSpan={[12, 12, 2]} colStart={[0, 0]} h={[16, 20]} mt={[2, 0]}>
           <FormControl isReadOnly>
-            <FormLabel htmlFor="url">Liga</FormLabel>
+            <FormLabel htmlFor="url">{USER_URL}</FormLabel>
             <Input id="url" placeholder={url} />
           </FormControl>
         </GridItem>
@@ -76,7 +62,7 @@ export const MyInfoForm = (myInfoFormProps: IMyInfoFormProps): ReactElement => {
           height="48px"
           width={["100%", "250px"]}
         >
-          Guardar cambios
+          {SAVE_CHANGES}
         </Button>
       </Center>
     </div>

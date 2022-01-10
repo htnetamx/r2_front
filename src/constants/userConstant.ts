@@ -20,6 +20,14 @@ export const BANNER_CLIPBOARD = "Copiado al portapapeles";
 export const BANNER_PROFIT = "Tu ganancia en esta orden es de ";
 export const BANNER_PROFIT2 = "pesos!";
 
+/* INFO FORM */
+export const USER_NAME = "Nombre";
+export const USER_ADDRESS = "Dirección";
+export const USER_TELEPHONE = "Teléfono";
+export const USER_STORE_NAME = "Nombre de la tienda";
+export const USER_URL = "Liga";
+export const SAVE_CHANGES = "Guardar cambios";
+
 /* CLIENTS CONTAINER */
 export const CLIENTS_HEADER = "Mis clientes";
 export const CLIENTS_TITLE =
