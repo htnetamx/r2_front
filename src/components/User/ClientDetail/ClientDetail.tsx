@@ -34,19 +34,19 @@ export const ClientDetail = (props: IClientDetailProps): ReactElement => {
   const getStatus = (daysSinceLastOrder: number): TextProps | string => {
     if (daysSinceLastOrder <= 3 && daysSinceLastOrder >= 0) {
       return (
-        <Text fontSize={{ base: "14px", md: "11px", lg: "12px" }} color="#3BAE5F" fontWeight="700">
+        <Text fontSize={{ base: "14px", md: "14px", lg: "14px" }} color="#FF0300" fontWeight="700">
           {CLIENT_STATUS1}
         </Text>
       );
     } else if (daysSinceLastOrder <= 6) {
       return (
-        <Text fontSize={{ base: "14px", md: "11px", lg: "12px" }} color="#FF5C00" fontWeight="700">
+        <Text fontSize={{ base: "14px", md: "14px", lg: "14px" }} color="#FF0300" fontWeight="700">
           {CLIENT_STATUS2}
         </Text>
       );
     } else if (daysSinceLastOrder > 6) {
       return (
-        <Text fontSize={{ base: "14px", md: "11px", lg: "12px" }} color="#FF0300" fontWeight="700">
+        <Text fontSize={{ base: "14px", md: "14px", lg: "14px" }} color="#FF0300" fontWeight="700">
           {CLIENT_STATUS3}
         </Text>
       );
@@ -69,18 +69,18 @@ export const ClientDetail = (props: IClientDetailProps): ReactElement => {
 
   return (
     <Box boxShadow="xs" p="4" rounded="md" bg="white">
-      <Flex direction={["column", "row", "row"]}>
+      <Flex direction={["column", "column", "row", "row"]}>
         <Box>
           <Text>
             {CLIENT_NAME} <b>{name}</b>
           </Text>
           <Flex direction={["column", "row", "row"]} mt="1">
-            <Box>
+            <Box w="100px">
               <Text fontSize={{ base: "14px", md: "14px", lg: "14px" }}>
                 {CLIENT_ORDERS} <b>{orders}</b>
               </Text>
             </Box>
-            <Box mr={["0", "4", "14"]} ml={["0", "4", "14"]}>
+            <Box mr={["0", "4", "14"]} ml={["0", "4", "14"]} w="200px">
               <Text fontSize={{ base: "14px", md: "14px", lg: "14px" }}>
                 {CLIENT_LAST_ORDER}
                 <b>
