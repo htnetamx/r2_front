@@ -12,7 +12,7 @@ import { Button, Center } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 
 import { AddressContainer } from "./AddressContainer/AddressContainer";
-import { IMyInfoFormProps } from "./IMyInfoForm";
+import { IMyInfoFormProps, PartialIMyInfoFormProps } from "./IMyInfoForm";
 import { NameContainer } from "./NameContainer/NameContainer";
 
 /**
@@ -22,9 +22,6 @@ import { NameContainer } from "./NameContainer/NameContainer";
  */
 export const MyInfoForm = (myInfoFormProps: IMyInfoFormProps): ReactElement => {
   const { name, address, phoneNumber, storeName, url } = myInfoFormProps;
-  // console.log(name, address);
-
-  // const validationSchema = { AddressValidationSchema, NameValidationSchema };
 
   const {
     register,
@@ -40,9 +37,14 @@ export const MyInfoForm = (myInfoFormProps: IMyInfoFormProps): ReactElement => {
     resolver: yupResolver(InfoFormValidationSchema),
   });
 
-  // eslint-disable-next-line require-jsdoc
-  const onSubmit = (data: unknown) => {
-    console.log("RESULT", data);
+  /**
+   * Handle form submit: update user's name & address
+   * @param {PartialIMyInfoFormProps} userInfo the user's name & address
+   * @returns {void}
+   */
+  const onSubmit = (userInfo: PartialIMyInfoFormProps) => {
+    console.log(userInfo);
+    return userInfo.address;
   };
 
   return (

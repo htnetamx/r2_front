@@ -1,11 +1,15 @@
-
+import { FieldErrors, UseFormRegister } from "react-hook-form";
 
 export interface IAddressContainerProps {
   /**
-   * The address form values
-   * @type {INameFormValues}
+   * The field errors form from react-hook-form
+   * @type {FieldErrors}
    **/
-  errors?: any;
+  errors?: FieldErrors;
 
-  register: any;
+  /**
+   * The register address field from react-hook-form
+   * @type {UseFormRegister}
+   **/
+  register: UseFormRegister<{ address: string }>;
 }

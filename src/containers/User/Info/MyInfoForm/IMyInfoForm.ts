@@ -34,3 +34,19 @@ export interface IMyInfoFormProps {
    * */
   url: string;
 }
+
+export interface PartialIMyInfoFormProps {
+  /**
+   * The Customer's Name
+   * @type {String}
+   *
+   * */
+  name?: string;
+
+  /**
+   * The Customer's Address
+   * @type {String}
+   *
+   * */
+  address?: string;
+}
