@@ -35,7 +35,7 @@ export interface IMyInfoFormProps {
   url: string;
 }
 
-export interface PartialIMyInfoFormProps {
+export interface IPartialMyInfoFormProps {
   /**
    * The Customer's Name
    * @type {String}

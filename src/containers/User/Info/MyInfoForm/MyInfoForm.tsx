@@ -12,7 +12,7 @@ import { Button, Center } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 
 import { AddressContainer } from "./AddressContainer/AddressContainer";
-import { IMyInfoFormProps, PartialIMyInfoFormProps } from "./IMyInfoForm";
+import { IMyInfoFormProps, IPartialMyInfoFormProps } from "./IMyInfoForm";
 import { NameContainer } from "./NameContainer/NameContainer";
 
 /**
@@ -42,7 +42,7 @@ export const MyInfoForm = (myInfoFormProps: IMyInfoFormProps): ReactElement => {
    * @param {PartialIMyInfoFormProps} userInfo the user's name & address
    * @returns {void}
    */
-  const onSubmit = (userInfo: PartialIMyInfoFormProps) => {
+  const onSubmit = (userInfo: IPartialMyInfoFormProps) => {
     console.log(userInfo);
     return userInfo.address;
   };
