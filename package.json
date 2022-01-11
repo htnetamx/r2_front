@@ -13,7 +13,7 @@
     "lint": "next lint",
     "build-types": "tsc --noEmit --pretty",
     "prepare": "husky install",
-    "test": "playwright test"
+    "test": "NEXT_PUBLIC_ROOT_URL=http://localhost:3000 NEXT_PUBLIC_API_URL=http://3.12.73.245:3009/api/v1 playwright test"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.10",
