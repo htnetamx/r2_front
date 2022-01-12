@@ -20,25 +20,25 @@ export const ClientsContainer = (): ReactElement => {
     {
       name: "Viviana García",
       orders: 10,
-      lastOrderDate: new Date("January 4, 2022 03:45:00"),
+      lastOrderDate: new Date("January 12, 2022 03:45:00"),
       url: "www.test.com.mx",
     },
     {
       name: "Luis Jímenez",
       orders: 15,
-      lastOrderDate: new Date("January 2, 2022 03:45:00"),
+      lastOrderDate: new Date("January 11, 2022 03:45:00"),
       url: "www.test.com.mx",
     },
     {
       name: "Omar Spinosa",
       orders: 20,
-      lastOrderDate: new Date("January 1, 2022 03:45:00"),
+      lastOrderDate: new Date("January 5, 2022 03:45:00"),
       url: "www.test.com.mx",
     },
     {
       name: "Iván Morales",
       orders: 100,
-      lastOrderDate: new Date("December 28, 2021 03:45:00"),
+      lastOrderDate: new Date("January 1, 2022 03:45:00"),
       url: "www.test.com.mx",
     },
   ];

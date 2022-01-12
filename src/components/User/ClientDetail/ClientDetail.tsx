@@ -34,13 +34,13 @@ export const ClientDetail = (props: IClientDetailProps): ReactElement => {
   const getStatus = (daysSinceLastOrder: number): TextProps | string => {
     if (daysSinceLastOrder <= 3 && daysSinceLastOrder >= 0) {
       return (
-        <Text fontSize={{ base: "14px", md: "14px", lg: "14px" }} color="#FF0300" fontWeight="700">
+        <Text fontSize={{ base: "14px", md: "14px", lg: "14px" }} color="#3BAE5F" fontWeight="700">
           {CLIENT_STATUS1}
         </Text>
       );
     } else if (daysSinceLastOrder <= 6) {
       return (
-        <Text fontSize={{ base: "14px", md: "14px", lg: "14px" }} color="#FF0300" fontWeight="700">
+        <Text fontSize={{ base: "14px", md: "14px", lg: "14px" }} color="#ff5c00" fontWeight="700">
           {CLIENT_STATUS2}
         </Text>
       );
