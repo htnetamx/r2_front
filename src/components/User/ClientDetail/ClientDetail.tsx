@@ -71,7 +71,7 @@ export const ClientDetail = (props: IClientDetailProps): ReactElement => {
     <Box boxShadow="xs" p="4" rounded="md" bg="white">
       <Flex direction={["column", "column", "row", "row"]}>
         <Box>
-          <Text>
+          <Text fontSize={{ base: "18px", md: "14px", lg: "14px" }}>
             {CLIENT_NAME} <b>{name}</b>
           </Text>
           <Flex direction={["column", "row", "row"]} mt="1">

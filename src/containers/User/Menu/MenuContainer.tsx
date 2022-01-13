@@ -62,8 +62,6 @@ export const MenuContainer = (userButtonProps: IUserButtonProps): ReactElement =
               fontWeight="bold"
               _hover={{ bg: "#587DFF", color: "white" }}
               _focus={{ bg: "#587DFF", color: "white" }}
-              m={0}
-              p={0}
             >
               {HELLO_USER} {username}
             </MenuItem>
