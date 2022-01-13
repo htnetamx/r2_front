@@ -38,9 +38,12 @@ export const CLIENT_NAME = "Nombre: ";
 export const CLIENT_ORDERS = "Pedidos: ";
 export const CLIENT_LAST_ORDER = "Último pedido: ";
 export const CLIENT_URL = "Compartir liga";
-export const CLIENT_STATUS1 = "🥳 ¡Este cliente es la Neta!";
-export const CLIENT_STATUS2 = "😐 ¡Comparte la liga para que siga pidiendo!";
-export const CLIENT_STATUS3 = "😭 ¡Lo extrañamos, compartele la liga ya!";
+export const CLIENT_STATUS1 = " ¡Este cliente es la Neta!";
+export const CLIENT_STATUS2 = "¡Comparte la liga para que siga pidiendo!";
+export const CLIENT_STATUS_EMOJI1 = "🥳";
+export const CLIENT_STATUS_EMOJI2 = "😐";
+export const CLIENT_STATUS_EMOJI3 = "😭 ";
+export const CLIENT_STATUS3 = "¡Lo extrañamos, compartele la liga ya!";
 
 /* INVOICES CONTAINER */
 export const INVOICES_HEADER = "Historial de facturas";
