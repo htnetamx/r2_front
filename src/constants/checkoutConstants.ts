@@ -4,6 +4,8 @@ export enum CheckoutWizardSteps {
   PHONE_NUMBER = 3,
   VERIFICATION_CODE = 4,
   POSTAL_CODE = 5,
+  ORDER_REVIEW = 6,
+  ORDER_SUCCESS = 7,
 }
 
 export const COUNTDOWN_TIMER_SECONDS = 45;

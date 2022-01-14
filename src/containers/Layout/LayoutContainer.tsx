@@ -1,4 +1,4 @@
-import React, { useRef, FC, ReactElement } from "react";
+import React, { useEffect, useRef, FC, ReactElement } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -9,6 +9,8 @@ import { SEARCH_BAR_PLACEHOLDER } from "constants/searchBarConstants";
 import { USER_TITLE } from "constants/userConstant";
 import { selectTotalBasketItems } from "dataflows/Basket/BasketSelectors";
 import { onOpen as onOpenAction } from "dataflows/Checkout/CheckoutSlice";
+import { selectIsLoadingStore, selectStore } from "dataflows/Stores/StoreSelectors";
+import { getStoreByName } from "dataflows/Stores/StoreThunks";
 import { useRouter } from "next/router";
 
 import { Box } from "@chakra-ui/react";
@@ -27,6 +29,15 @@ export const LayoutContainer: FC = ({ children }): ReactElement => {
   const btnRef = useRef<HTMLButtonElement>(null);
   const totalBasketItems = useSelector(selectTotalBasketItems);
   const isHome = router.pathname === "/";
+  const store = useSelector(selectStore);
+  const isLoadingStore = useSelector(selectIsLoadingStore);
+
+  const storeName =
+    process.env.NODE_ENV === "development" ? "proteinclubescalerillas.netamx.app" : router.basePath;
+
+  useEffect(() => {
+    dispatch(getStoreByName(storeName));
+  }, []);
 
   /**
    * Handles on open action
@@ -50,12 +61,13 @@ export const LayoutContainer: FC = ({ children }): ReactElement => {
     userButtonProps: {
       ariaLabel: USER_TITLE,
     },
-    storeSelectorProps: {
-      storeSelectorOptions: [{ key: "tiendita", value: "Soda Fountain" }], //TODO: Retrieve stores from backend and state,
-    },
+    store,
   };
 
-  return (
+  return isLoadingStore ? (
+    //TODO: Delete when the loader component is implemented
+    <div>Loading...</div>
+  ) : (
     <Box>
       <NavBar {...navBarProps} />
       <CheckoutContainer />
