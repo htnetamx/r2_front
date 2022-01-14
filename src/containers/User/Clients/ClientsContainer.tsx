@@ -32,7 +32,7 @@ export const ClientsContainer = (): ReactElement => {
     {
       name: "Omar Spinosa",
       orders: 20,
-      lastOrderDate: new Date("January 5, 2022 03:45:00"),
+      lastOrderDate: new Date("January 9, 2022 03:45:00"),
       url: "www.test.com.mx",
     },
     {

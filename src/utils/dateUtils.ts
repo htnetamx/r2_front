@@ -21,3 +21,25 @@ export const formatDate = (date: Date): string => {
   }
   return formattedDate;
 };
+
+/**
+ * Treats Date as UTC
+ * @param {Date} date the date to set as UTC. Ex: 'January 13, 2022 18:34:23'
+ * @returns {Date} the new date. Ex: '1642076919861'
+ */
+export const treatAsUTC = (date: Date): Date => {
+  const result = new Date(date);
+  result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
+  return result;
+};
+
+/**
+ * Get the number of days between two dates.
+ * @param {Date} startDate the initial date Ex: 'January 03, 2022 18:34:23'
+ * @param {Date} endDate the final date Ex: 'January 10, 2022 18:34:23'
+ * @returns {number} number of Days Ex: 7
+ */
+export const daysBetween = (startDate: Date, endDate: Date): number => {
+  const millisecondsPerDay = 24 * 60 * 60 * 1000;
+  return (treatAsUTC(endDate).valueOf() - treatAsUTC(startDate).valueOf()) / millisecondsPerDay;
+};

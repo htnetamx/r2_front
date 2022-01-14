@@ -7,11 +7,15 @@ import {
   CLIENT_STATUS1,
   CLIENT_STATUS2,
   CLIENT_STATUS3,
+  CLIENT_STATUS_EMOJI1,
+  CLIENT_STATUS_EMOJI2,
+  CLIENT_STATUS_EMOJI3,
   CLIENT_URL,
 } from "constants/userConstant";
 import IconShare from "styled/icons/Order/Share";
+import { daysBetween } from "utils/dateUtils";
 
-import { Box, TextProps } from "@chakra-ui/layout";
+import { Box, FlexProps } from "@chakra-ui/layout";
 import { Button, Flex, Spacer, Text } from "@chakra-ui/react";
 
 import { IClientDetailProps } from "./IClientDetail";
@@ -27,51 +31,67 @@ export const ClientDetail = (props: IClientDetailProps): ReactElement => {
   const daysSinceLastOrder = daysBetween(lastOrderDate, now);
 
   /**
-   * Gets user status based on last order
+   * Gets user status in Text based on last order
    * @param {number} daysSinceLastOrder days since last order. Ex: 12
-   * @returns {Text} Text ChakraUI component.
+   * @returns {FlexProps} Text ChakraUI component.
    */
-  const getStatus = (daysSinceLastOrder: number): TextProps | string => {
+  const getStatus = (daysSinceLastOrder: number): string | FlexProps => {
     if (daysSinceLastOrder <= 3 && daysSinceLastOrder >= 0) {
       return (
-        <Text fontSize={{ base: "14px", md: "14px", lg: "14px" }} color="#3BAE5F" fontWeight="700">
-          {CLIENT_STATUS1}
-        </Text>
+        <Flex>
+          <Text mr="2">{CLIENT_STATUS_EMOJI1}</Text>
+          <Text
+            fontSize={{ base: "14px", md: "14px", lg: "14px" }}
+            color="#3BAE5F"
+            fontWeight="700"
+          >
+            {CLIENT_STATUS1}
+          </Text>
+        </Flex>
       );
     } else if (daysSinceLastOrder <= 6) {
       return (
-        <Text fontSize={{ base: "14px", md: "14px", lg: "14px" }} color="#ff5c00" fontWeight="700">
-          {CLIENT_STATUS2}
-        </Text>
+        <Flex direction={["row", "row"]}>
+          <Box p={["2", "0"]} mr={["0", "2"]}>
+            {CLIENT_STATUS_EMOJI2}
+          </Box>
+          <Box>
+            <Text
+              fontSize={{ base: "14px", md: "14px", lg: "14px" }}
+              color="#ff5c00"
+              fontWeight="700"
+            >
+              {CLIENT_STATUS2}
+            </Text>
+          </Box>
+        </Flex>
       );
     } else if (daysSinceLastOrder > 6) {
       return (
-        <Text fontSize={{ base: "14px", md: "14px", lg: "14px" }} color="#FF0300" fontWeight="700">
-          {CLIENT_STATUS3}
-        </Text>
+        <Flex direction={["row", "row"]}>
+          <Box p={["2", "0"]} mr={["0", "2"]}>
+            {CLIENT_STATUS_EMOJI3}
+          </Box>
+          <Box>
+            <Text
+              fontSize={{ base: "14px", md: "14px", lg: "14px" }}
+              color="#FF0300"
+              fontWeight="700"
+            >
+              {CLIENT_STATUS3}
+            </Text>
+          </Box>
+        </Flex>
       );
     }
     return "";
   };
 
-  // eslint-disable-next-line require-jsdoc
-  function treatAsUTC(date: Date): Date {
-    const result = new Date(date);
-    result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
-    return result;
-  }
-
-  // eslint-disable-next-line require-jsdoc
-  function daysBetween(startDate: Date, endDate: Date) {
-    const millisecondsPerDay = 24 * 60 * 60 * 1000;
-    return (treatAsUTC(endDate).valueOf() - treatAsUTC(startDate).valueOf()) / millisecondsPerDay;
-  }
-
   return (
     <Box boxShadow="xs" p="4" rounded="md" bg="white">
       <Flex direction={["column", "column", "row", "row"]}>
         <Box>
-          <Text>
+          <Text fontSize={{ base: "18px", md: "14px", lg: "14px" }}>
             {CLIENT_NAME} <b>{name}</b>
           </Text>
           <Flex direction={["column", "row", "row"]} mt="1">
@@ -80,7 +100,7 @@ export const ClientDetail = (props: IClientDetailProps): ReactElement => {
                 {CLIENT_ORDERS} <b>{orders}</b>
               </Text>
             </Box>
-            <Box mr={["0", "4", "14"]} ml={["0", "4", "14"]} w="200px">
+            <Box mr={["0", "4", "13"]} ml={["0", "4", "14"]} w="200px">
               <Text fontSize={{ base: "14px", md: "14px", lg: "14px" }}>
                 {CLIENT_LAST_ORDER}
                 <b>
@@ -89,7 +109,7 @@ export const ClientDetail = (props: IClientDetailProps): ReactElement => {
                 </b>
               </Text>
             </Box>
-            <Box mt={["2", "0"]} mb={["3", "0"]}>
+            <Box mt={["2", "0"]} mb={["3", "0"]} w={["180px", "220px", "180px", "auto"]}>
               {getStatus(daysSinceLastOrder)}
             </Box>
           </Flex>

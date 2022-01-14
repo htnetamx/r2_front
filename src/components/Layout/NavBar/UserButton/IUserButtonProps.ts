@@ -5,4 +5,8 @@ export interface IUserButtonProps {
    *
    * */
   ariaLabel: string;
+
+  // as: ComponentWithAs<"button", MenuButtonProps>;
+
+  // forwardRef: any;
 }

@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { useState, ReactElement } from "react";
 
 import { BiCalendar } from "react-icons/bi";
 
@@ -17,16 +17,33 @@ import { IInvoicesContainerProps } from "./IInvoicesContainer";
  * @returns {ReactElement} The User's Invoices Container
  */
 export const InvoicesContainer = (): ReactElement => {
+  const [date, setDate] = useState<string>("");
+  const [invoice, setInvoice] = useState({ orderId: 0, name: "", deliveryDate: new Date() });
+
+  // eslint-disable-next-line require-jsdoc
+  const onChangeDate = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const dateValue = e.target.value;
+    setDate(dateValue);
+    const d = new Date(dateValue.replace(/-/g, "/"));
+    console.log(d);
+    // TODO: Pasar fecha en endpoint para traer la factura en específico.
+    setInvoice({
+      orderId: 9,
+      name: "Abarrotes",
+      deliveryDate: d,
+    });
+  };
+
   const invoicesSampleObject: IInvoiceProps[] = [
     {
       orderId: 1,
       name: "Abarrotes",
-      deliveryDate: new Date("January 5, 2022 03:45:00"),
+      deliveryDate: new Date("January 14, 2022 03:45:00"),
     },
     {
       orderId: 2,
       name: "Abarrotes",
-      deliveryDate: new Date("January 4, 2022 03:45:00"),
+      deliveryDate: new Date("January 13, 2022 03:45:00"),
     },
     {
       orderId: 3,
@@ -73,7 +90,7 @@ export const InvoicesContainer = (): ReactElement => {
             ¿Buscas una factura en especial? escoge una fecha
           </Text>
           <InputGroup>
-            <Input placeholder="12/12/2021" size="md" type="date" />
+            <Input size="md" type="date" value={date} onChange={onChangeDate} />
             <InputRightElement>
               <Icon as={BiCalendar} w={5} h={5} />
             </InputRightElement>
@@ -88,9 +105,13 @@ export const InvoicesContainer = (): ReactElement => {
         >
           {YOUR_INVOICES}
         </Text>
-        {invoicesContainerProps.invoicesDetailProps.map((invoice, index) => (
-          <Invoice {...invoice} key={index} />
-        ))}
+        {date && invoice ? (
+          <Invoice {...invoice} />
+        ) : (
+          invoicesContainerProps.invoicesDetailProps.map((invoice, index) => (
+            <Invoice {...invoice} key={index} />
+          ))
+        )}
       </SimpleGrid>
     </Container>
   );
