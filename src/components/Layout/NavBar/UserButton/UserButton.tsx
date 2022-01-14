@@ -15,20 +15,22 @@ import { IUserButtonProps } from "./IUserButtonProps";
 export const UserButton = (props: IUserButtonProps): ReactElement => {
   const { ariaLabel } = props;
   return (
-    <IconButton
-      css={css`
-        position: relative !important;
-      `}
-      py={"2"}
-      aria-label={ariaLabel}
-      _focus={{ boxShadow: "none" }}
-      size={"lg"}
-      variant={"ghost"}
-      icon={
-        <>
-          <UserIcon />
-        </>
-      }
-    />
+    <div>
+      <IconButton
+        css={css`
+          position: relative !important;
+        `}
+        py={"2"}
+        aria-label={ariaLabel}
+        _focus={{ boxShadow: "none" }}
+        size={"lg"}
+        variant={"ghost"}
+        icon={
+          <>
+            <UserIcon />
+          </>
+        }
+      />
+    </div>
   );
 };

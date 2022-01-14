@@ -33,7 +33,7 @@ export const ClientDetail = (props: IClientDetailProps): ReactElement => {
   /**
    * Gets user status in Text based on last order
    * @param {number} daysSinceLastOrder days since last order. Ex: 12
-   * @returns {Text} Text ChakraUI component.
+   * @returns {FlexProps} Text ChakraUI component.
    */
   const getStatus = (daysSinceLastOrder: number): string | FlexProps => {
     if (daysSinceLastOrder <= 3 && daysSinceLastOrder >= 0) {

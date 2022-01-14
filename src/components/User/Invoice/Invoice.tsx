@@ -24,13 +24,13 @@ export const Invoice = (invoiceProps: IInvoiceProps): ReactElement => {
     <Box boxShadow="base" p="2" rounded="md" bg="white">
       <Flex direction={["column", "row", "row"]}>
         <Box p="2" mr="4" w={["auto", "auto", "140px"]}>
-          <Text>
+          <Text fontSize={{ base: "18px", md: "17px", lg: "16px" }}>
             <b>Nombre Tienda: </b>
             {name}
           </Text>
         </Box>
         <Box mb={["2", "0"]} ml={["2", "0"]} mt={["0", "2"]} w={["auto", "auto", "160px"]}>
-          <Text>
+          <Text fontSize={{ base: "18px", md: "17px", lg: "16px" }}>
             <b>Fecha de entrega: </b>
             {formatDate(deliveryDate)}
           </Text>
@@ -52,6 +52,7 @@ export const Invoice = (invoiceProps: IInvoiceProps): ReactElement => {
             borderColor="#3870FF"
             variant="outline"
             mr={["2", "4"]}
+            mt={["2", "0"]}
             borderRadius="16px"
             h={["40px", "50px"]}
             onClick={() => router.push(`/orders/${orderId}`)}
@@ -63,6 +64,7 @@ export const Invoice = (invoiceProps: IInvoiceProps): ReactElement => {
             borderColor="#3870FF"
             variant="outline"
             mr="4"
+            p="3"
             mt={["2", "0"]}
             mb={["2", "0"]}
             borderRadius="16px"

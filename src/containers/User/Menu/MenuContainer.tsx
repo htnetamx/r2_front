@@ -30,6 +30,7 @@ import { Menu, MenuButton, MenuDivider, MenuGroup, MenuItem, MenuList } from "@c
 export const MenuContainer = (userButtonProps: IUserButtonProps): ReactElement => {
   const router = useRouter();
   const [username, setUsername] = useState<string>();
+
   /**
    * Action on item click.
    * @param {any} item the item clicked.
@@ -51,8 +52,12 @@ export const MenuContainer = (userButtonProps: IUserButtonProps): ReactElement =
 
   return (
     <Menu>
-      <MenuButton colorScheme="pink" _hover={{ bg: "gray.100", borderRadius: "0.375rem" }}>
+      <MenuButton _hover={{ bg: "gray.100", borderRadius: "0.375rem" }}>
         <UserButton {...userButtonProps} />
+
+        {/* <MenuButton as={UserButton} {...userButtonProps}> */}
+        {/* <Button as={MenuButton}>hola </Button> */}
+        {/* <UserButton {...userButtonProps} as={MenuButton} forwardRef={MenuList} /> */}
       </MenuButton>
       <MenuList>
         <MenuGroup>

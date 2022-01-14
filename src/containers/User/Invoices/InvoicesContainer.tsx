@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { useState, ReactElement } from "react";
 
 import { BiCalendar } from "react-icons/bi";
 
@@ -17,6 +17,14 @@ import { IInvoicesContainerProps } from "./IInvoicesContainer";
  * @returns {ReactElement} The User's Invoices Container
  */
 export const InvoicesContainer = (): ReactElement => {
+  const [date, setDate] = useState<string>();
+
+  // eslint-disable-next-line require-jsdoc
+  const onChangeDate = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDate(e.target.value);
+    console.log(e.target.value);
+  };
+
   const invoicesSampleObject: IInvoiceProps[] = [
     {
       orderId: 1,
@@ -73,7 +81,13 @@ export const InvoicesContainer = (): ReactElement => {
             ¿Buscas una factura en especial? escoge una fecha
           </Text>
           <InputGroup>
-            <Input placeholder="12/12/2021" size="md" type="date" />
+            <Input
+              placeholder="12/12/2021"
+              size="md"
+              type="date"
+              value={date}
+              onChange={onChangeDate}
+            />
             <InputRightElement>
               <Icon as={BiCalendar} w={5} h={5} />
             </InputRightElement>

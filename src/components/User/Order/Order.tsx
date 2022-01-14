@@ -33,7 +33,7 @@ export const Order = (props: IOrderProps): ReactElement => {
       rounded="lg"
     >
       <Box ml="4" mt="1" mb="1" w={["auto", "auto", "150px"]}>
-        <Text fontSize={{ base: "15px", md: "15px", lg: "16px" }} fontWeight="500">
+        <Text fontSize={{ base: "18px", md: "17px", lg: "16px" }} fontWeight="500">
           <b>{ORDER_STORE}</b>
           {/* <Text fontSize={{ base: "13px", md: "14px", lg: "14px" }} fontWeight="500"> */}
           {customerName}
@@ -42,7 +42,7 @@ export const Order = (props: IOrderProps): ReactElement => {
       </Box>
       <Flex ml={["0", "0", "10"]} mr={["0", "0", "10"]}>
         <Box ml="4" mt="1" mb="1">
-          <Text fontSize={{ base: "15px", md: "15px", lg: "16px" }} fontWeight="500">
+          <Text fontSize={{ base: "18px", md: "17px", lg: "16px" }} fontWeight="500">
             <b>{ORDER_TELEPHONE}</b>
             {telephone}
           </Text>
@@ -50,21 +50,21 @@ export const Order = (props: IOrderProps): ReactElement => {
       </Flex>
       <Flex ml={["0", "0", "10"]} mr={["0", "0", "10"]}>
         <Box ml="4" mt="1" mb="1">
-          <Text fontSize={{ base: "15px", md: "15px", lg: "16px" }} fontWeight="500">
+          <Text fontSize={{ base: "18px", md: "17px", lg: "16px" }} fontWeight="500">
             <b>{ORDER_NUMBER}</b>
             {orderId}
           </Text>
         </Box>
       </Flex>
-      <Flex ml={["0", "0", "6"]} mr={["0", "10", "20", "40"]} w={["auto", "auto", "82px"]}>
+      <Flex ml={["0", "0", "6"]} mr={["0", "10", "20", "40"]} w={["auto", "auto", "90px"]}>
         <Box ml="4" mt="1" mb="1">
-          <Text fontSize={{ base: "15px", md: "15px", lg: "16px" }} fontWeight="500">
+          <Text fontSize={{ base: "18px", md: "17px", lg: "16px" }} fontWeight="500">
             <b>{ORDER_TOTAL}</b>${total}
           </Text>
         </Box>
       </Flex>
       <Spacer />
-      <Flex ml={["4", "4", "0"]}>
+      <Flex ml={["4", "3", "0"]}>
         <Box mt="1" mb="1">
           <Button
             color="#3870FF"
