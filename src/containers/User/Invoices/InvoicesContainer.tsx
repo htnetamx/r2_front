@@ -20,7 +20,11 @@ export const InvoicesContainer = (): ReactElement => {
   const [date, setDate] = useState<string>("");
   const [invoice, setInvoice] = useState({ orderId: 0, name: "", deliveryDate: new Date() });
 
-  // eslint-disable-next-line require-jsdoc
+  /**
+   * onChange event for input date
+   * @param {React.ChangeEvent<HTMLInputElement>} e the event
+   * @returns {void} sets a new state
+   */
   const onChangeDate = (e: React.ChangeEvent<HTMLInputElement>) => {
     const dateValue = e.target.value;
     setDate(dateValue);
