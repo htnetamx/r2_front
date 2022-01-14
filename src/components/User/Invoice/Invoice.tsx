@@ -32,6 +32,7 @@ export const Invoice = (invoiceProps: IInvoiceProps): ReactElement => {
         <Box mb={["2", "0"]} ml={["2", "0"]} mt={["0", "2"]} w={["auto", "auto", "160px"]}>
           <Text fontSize={{ base: "18px", md: "17px", lg: "16px" }}>
             <b>Fecha de entrega: </b>
+            {/* {formatDate(deliveryDate)} */}
             {formatDate(deliveryDate)}
           </Text>
         </Box>
